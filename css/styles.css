@@ -17,6 +17,7 @@
 
   --font-family: Verdana, sans-serif;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -28,18 +29,19 @@ html {
 }
 
 body {
- font-family: var(--font-family);
- background: var(--color-background);
- color: var(--color-text);
- line-height: 1.6;
+  font-family: var(--font-family);
+  background: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
 }
 
 .top-bar {
   background-color: var(--color-dark);
   padding: 12px 30px;
-  font-size: 13pt;
+  font-size: 13px;
   width: 100%;
 }
+
 .top-bar ul {
   display: flex;
   flex-direction: row;
@@ -62,6 +64,15 @@ body {
   text-decoration: underline;
 }
 
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-light);
+  font-size: 28px;
+  cursor: pointer;
+}
+
 .hero {
   background-color: var(--color-primary);
   color: white;
@@ -78,7 +89,7 @@ body {
 }
 
 .hero p {
-  font-size: 11pt;
+  font-size: 11px;
   margin: 0;
   color: var(--color-light);
 }
@@ -113,12 +124,109 @@ section > p {
   margin-bottom: 18px;
 }
 
+.availability-board {
+  background-color: var(--color-alt-row);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 25px 0 30px;
+}
+
+.availability-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.availability-heading p {
+  font-size: 13px;
+  color: var(--color-gray);
+}
+
+.today-label {
+  background-color: var(--color-dark);
+  color: white;
+  padding: 7px 12px;
+  font-size: 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.availability-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.availability-item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.availability-product {
+  color: var(--color-dark);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.availability-price {
+  display: block;
+  color: var(--color-gray);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.availability-status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.status-available {
+  background-color: #e0f2e5;
+  color: #205c35;
+}
+
+.status-low {
+  background-color: #fff0cc;
+  color: #805400;
+}
+
+.status-sold-out {
+  background-color: #fce4e4;
+  color: #922d2d;
+}
+
+.availability-note {
+  font-size: 12px;
+  color: var(--color-gray);
+  margin-top: 18px;
+  font-style: italic;
+}
+
 .menu-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
 }
 
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
 .table-header {
   background-color: var(--color-dark);
   color: white;
@@ -298,31 +406,45 @@ textarea.form-field {
 
 
 /* For Tablet Screens Responsivenss*/
-@media screen and (max-wdith) {
+@media screen and (max-width: 768px) {
   .top-bar {
-    padding: 12px 15px;
-    font-size: 12px;
+    position: relative;
   }
+
   .top-bar ul {
+    display: none;
+    flex-direction: column;
     gap: 15px;
+    align-items: center;
+    padding: 15px 0;
   }
+
+  .top-bar ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
   .hero h1 {
     font-size: 30px;
   }
+
   .wrapper {
     padding: 25px 20px;
   }
+
   .info-boxes {
     gap: 15px;
   }
+
 }
 
 /* Mobile Phones Responsiveness */
-@media screen and (max-width: 768px) {
-  .top-bar ul {
-    gap: 10px 15px;
-  }
-
+@media screen and (max-width: 600px) {
+  
   .top-bar a {
     font-size: 12px;
   }
@@ -340,6 +462,28 @@ textarea.form-field {
     font-size: 12px;
   }
 
+  .availability-board {
+    padding: 15px;
+  }
+
+  .availability-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .availability-heading h3 {
+    font-size: 18px;
+  }
+
+  .availability-list {
+    grid-template-columns: 1fr;
+  }
+
+  .availability-item {
+    padding: 12px;
+  }
+
   .wrapper {
     padding: 20px 15px;
   }
@@ -353,13 +497,28 @@ textarea.form-field {
   }
 
   .info-boxes {
+    display: flex;
     flex-direction: column;
+    gap: 12px;
+    width: 100%;
   }
 
   .info-box {
     width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 10px 12px;
   }
 
+  .info-box h3 {
+    margin-bottom: 4px;
+  }
+
+  .info-box p {
+    margin-bottom: 2px;
+    line-height: 1.5;
+  }
+  
   .form-submit {
     width: 100%;
   }
@@ -371,10 +530,6 @@ textarea.form-field {
 
 /* Small Mobile Screens */
 @media screen and (max-width: 400px) {
-  .top-bar ul {
-    gap: 8px 12px;
-  }
-
   .hero h1 {
     font-size: 21px;
     letter-spacing: 1px;

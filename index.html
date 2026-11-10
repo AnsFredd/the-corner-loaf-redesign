@@ -8,6 +8,15 @@
   </head>
   <body>
     <nav class="top-bar" aria-label="Main navigation">
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-menu"
+      >
+        ☰
+      </button>
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#menu">Menu</a></li>
@@ -30,6 +39,24 @@
           treats. Here is what is coming out of the oven this week.
         </p>
 
+        <!-- Daily Product Availability Board-->
+         <div class="availability-board">
+          <div class="availability-heading">
+          <div>
+            <h3>Fresh from the Oven Today</h3>
+            <p>See what's available before you visit</p>
+          </div>
+
+          <span class="today-label" id="availability-date">
+            Today's Bakes
+          </span>
+          </div>
+
+          <div class="availability-list" id="availability-list" aria-live="polite"></div>
+          <p>Our bakes are made in small batches. Availability can change throughout the day.</p>
+         </div>
+
+        <div class="table-container">
         <table class="menu-table">
           <thead>
             <tr class="table-header">
@@ -93,18 +120,22 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </section>
 
       <section id="faq">
         <h2>Pre-Order FAQ</h2>
-        <p>
-          Everything you need to know about placing a pre-order with us.
-        </p>
+        <p>Everything you need to know about placing a pre-order with us.</p>
 
         <div class="faq-list">
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-1">
+              <button
+                type="button"
+                class="faq-trigger"
+                aria-expanded="false"
+                aria-controls="faq-answer-1"
+              >
                 How far in advance do I need to order?
               </button>
             </h3>
@@ -121,7 +152,12 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-2">
+              <button
+                type="button"
+                class="faq-trigger"
+                aria-expanded="false"
+                aria-controls="faq-answer-2"
+              >
                 How do I collect my order?
               </button>
             </h3>
@@ -138,7 +174,12 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-3">
+              <button
+                type="button"
+                class="faq-trigger"
+                aria-expanded="false"
+                aria-controls="faq-answer-3"
+              >
                 Can I cancel or change my order?
               </button>
             </h3>
@@ -155,7 +196,12 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-answer-4">
+              <button
+                type="button"
+                class="faq-trigger"
+                aria-expanded="false"
+                aria-controls="faq-answer-4"
+              >
                 Do you deliver?
               </button>
             </h3>
@@ -180,6 +226,7 @@
         </p>
 
         <div class="preorder-section">
+          
           <form class="preorder-form">
             <label for="customer-name">Your Name</label>
             <input
