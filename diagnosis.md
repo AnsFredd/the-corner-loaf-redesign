@@ -1,0 +1,30 @@
+# Diagnosis
+
+| Symptom | Root Cause | Evidence | Who is Affected | Why it Matters to the Business |
+|----------|----------|----------|----------|----------|
+| The website is difficult to use on phones. | The layout uses fixed widths instead of a responsive design. | The `.top-bar`, `.hero`, `.wrapper`, and `.footer` all use `width: 820px`. | Mobile users. | Many customers visit the website on their phones. If the page does not fit smaller screens, visitors may leave before finding important information. |
+| Text may appear too small on phones. | The page does not include a viewport meta tag. | The `<head>` section contains no viewport meta tag. | Mobile users. | Customers may struggle to read information quickly while walking or commuting. |
+| Customers cannot quickly tell what is available today. | Product availability is hidden inside a weekly schedule table. | The menu is presented as "This Week's Bakes" and requires users to read through the availability column. | Customers checking the website before visiting the bakery. | Customers may decide not to stop at the bakery because they cannot quickly see what is available today. |
+| Important information is difficult to scan. | The page has weak visual hierarchy and several sections are given similar importance. | Sections such as "This Week's Bakes", "Pre-Order FAQ", and "Place a Pre-Order" all use similar heading styles. | First-time visitors and busy customers. | Customers may spend too much time searching for information and become frustrated. |
+| The page structure is not very accessible. | Generic `div` elements are used instead of semantic HTML elements. | Navigation, footer, and main content sections are built with `div` elements rather than `nav`, `main`, and `footer`. | Screen reader users and keyboard users. | The website is harder to understand and navigate for users who rely on assistive technology. |
+| The heading structure is unclear. | The page skips heading levels. | The page moves from an `h1` heading directly to several `h3` headings. | Screen reader users and visitors scanning the page. | A poor heading structure makes content harder to navigate and understand. |
+| The menu table is not fully accessible. | Table headings use `td` elements instead of `th` elements. | The table header row contains `<td><b>Item</b></td>` and similar entries. | Screen reader users. | Users may find it harder to understand which information belongs to each column. |
+| FAQ questions are not properly built as interactive controls. | FAQ triggers use `div` elements instead of buttons. | FAQ items use `<div class="faq-trigger">`. | Keyboard users and screen reader users. | Important information about ordering and collection may be difficult to access. |
+| The FAQ accordion does not work. | The JavaScript functionality has not been implemented. | The `script.js` file only contains comments describing the accordion behaviour. | All users. | Customers may not be able to view important FAQ answers. |
+| The pre-order form is difficult to use. | Form fields do not have labels. | Inputs rely only on placeholder text such as "Your name". | Screen reader users and other form users. | Customers may be confused about what information is required. |
+| The pre-order feature does not work as intended. | The JavaScript functionality has not been implemented. | The JavaScript file contains comments describing the pre-order tracker, but no actual code. | Customers placing pre-orders and Marcus. | Potential pre-orders may be lost, reducing sales opportunities. |
+| The contact form uses incorrect field types. | All inputs use `type="text"` regardless of the information being collected. | The email field uses `type="text"` rather than `type="email"`. | All users, especially mobile users. | Users are more likely to enter incorrect information and receive less helpful input support on mobile devices. |
+| The contact form does not validate user input or provide feedback. | The JavaScript functionality has not been implemented. | The `script.js` file contains comments describing validation and success messages, but no code. | Customers submitting enquiries. | Users may not know whether their message was successfully received. |
+| Contact information is difficult to use on mobile devices. | The phone number and email address are plain text. | The contact section displays contact details without `tel:` or `mailto:` links. | Mobile users. | Customers cannot contact the bakery quickly with a single tap. |
+| Navigation links do not lead anywhere useful. | Placeholder links are used. | All navigation links use `href="#"`. | All users. | The navigation feels unfinished and does not help users move through the website. |
+
+## Overall Diagnosis
+
+The most significant problem with the current website is that it does not help customers quickly find out what products are available today. Instead of showing today's available products clearly, the website presents a weekly schedule that customers must interpret for themselves.
+
+This issue is made worse by the fixed-width layout and missing viewport meta tag, which make the website difficult to use on mobile phones. Since many customers visit the website while walking or commuting, this creates unnecessary effort during an important decision-making moment.
+
+The website also has accessibility problems caused by weak semantic HTML, poor heading structure, inaccessible forms, and an inaccessible menu table. In addition, several planned interactive features, including the FAQ accordion, pre-order tracker, and contact form validation, have not been implemented because the JavaScript file is empty.
+
+Overall, the website does not fully support Marcus's goal of helping customers quickly decide whether to visit the bakery, and this may contribute to lost walk-in sales and reduced customer confidence.
+`
