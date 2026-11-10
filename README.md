@@ -4,21 +4,23 @@
 
 This project is a responsive redesign of The Corner Loaf bakery website for EE01.
 
-The goal of the redesign is to improve the experience for customers who visit the website on their phones while commuting or on the move. The redesigned website makes it easier to see what is available today, place pre-orders, find contact information, and learn about the bakery. The design also aims to reflect the warm, simple, and welcoming atmosphere of The Corner Loaf.
+The goal of the redesign is to improve the experience for customers who visit the website on their phones while commuting or on the move. The redesigned website makes it easier to find important information, view product availability, place pre-orders, contact the bakery, and learn more about the business.
+
+The redesign also aims to better reflect The Corner Loaf's warm, welcoming, and community-focused identity.
 
 ---
 
 ## Business Problem
 
-Marcus, the owner of The Corner Loaf, identified several issues with the existing website:
+Marcus, the owner of The Corner Loaf, identified several problems with the existing website:
 
-- Customers struggle to quickly determine what products are available today.
+- Customers struggle to quickly determine what products are available.
 - Important information is difficult to find.
 - The website feels cluttered and outdated.
-- The website does not reflect the warm and friendly character of the bakery.
+- The site does not reflect the warm and friendly atmosphere of the bakery.
 - Mobile users have a poor browsing experience.
 
-Since many customers access the website while walking or commuting, information must be easy to find and understand within a few seconds.
+Many customers view the website while walking or commuting, so information must be easy to find and understand within a few seconds.
 
 ---
 
@@ -29,7 +31,7 @@ This project addresses the following objectives:
 - Understand the client brief and plan an appropriate page structure.
 - Diagnose issues in the existing website and identify their root causes.
 - Build a responsive and semantic website using HTML and CSS.
-- Evaluate the rebuilt page against accessibility and consistency principles.
+- Evaluate the rebuilt website against accessibility and visual consistency principles.
 - Propose and implement an additional improvement that adds value for customers and the business.
 
 ---
@@ -37,12 +39,12 @@ This project addresses the following objectives:
 ## Deliverables
 
 ### Understand
-- Sketch of the redesigned page structure
-- Structure note explaining content hierarchy and layout decisions
+- Website sketch
+- Structure note explaining the layout and content hierarchy
 
 ### Analyse
 - Diagnosis of the existing website
-- Root-cause analysis of usability, accessibility, and structural issues
+- Root-cause analysis of identified issues
 
 ### Apply
 - Responsive mobile-first rebuild
@@ -53,11 +55,10 @@ This project addresses the following objectives:
 
 ### Evaluate
 - Audit of the finished website
-- Discussion of priorities and trade-offs
 
 ### Create
 - Additional improvement beyond the original brief
-- Justification of its value to customers and the business
+- Business justification for the improvement
 
 ---
 
@@ -90,14 +91,15 @@ assets/
 
 | File | Description |
 |--------|--------|
-| sketch.png | Initial page sketch created before development |
-| structure-note.md | Explanation of the page layout and information hierarchy |
+| README.md | Project overview and repository information |
+| structure-note.md | Explanation of the page structure and hierarchy |
 | diagnosis.md | Analysis of issues found in the original website |
-| index.html | Main website page |
-| styles.css | Styling for the website |
+| audit.md | Audit of the finished website |
+| improvement.md | Additional improvement and justification |
+| index.html | Main webpage |
+| styles.css | Website styling |
 | script.js | Interactive functionality |
-| audit.md | Evaluation of the finished website |
-| improvement.md | Additional feature and business justification |
+| sketch.png | Initial page sketch created before development |
 
 ---
 
@@ -112,30 +114,14 @@ assets/
 
 ---
 
-## Design Decisions
-
-### Colour Palette
-A warm and welcoming colour palette was chosen to reflect the bakery's friendly neighbourhood character.
-
-### Typography
-A clear type hierarchy improves readability on mobile devices and helps users quickly scan information.
-
-### Spacing System
-Consistent spacing improves visual hierarchy and makes content easier to understand.
-
-### Mobile-First Approach
-Because many customers access the website from their phones while commuting, the design was created for small screens first and progressively enhanced for larger screens.
-
----
-
 ## Author
 
-Frederick Ansah
+**Frederick Ansah**
 
 ## Module
 
-EE01 – From Client Brief to Web Page
+**EE01 – From Client Brief to Web Page**
 
 ## Business
 
-The Corner Loaf – East Legon, Accra
+**The Corner Loaf – East Legon, Accra**
