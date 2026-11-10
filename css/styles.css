@@ -1,0 +1,111 @@
+/* The Corner Loaf Styles */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, sans-serif;
+  background: #f9f9f9;
+  color: #222222;
+}
+
+.top-bar {
+  background-color: #4a2c0a;
+  padding: 12px 30px;
+  font-size: 13pt;
+  width: 820px;
+  margin: 0 auto;
+}
+
+.top-bar a {
+  color: #f5deb3;
+  text-decoration: none;
+}
+
+.top-bar a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  background-color: #8b4513;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  width: 820px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 36px;
+  letter-spacing: 4px;
+  margin: 0 0 8px 0;
+}
+
+.hero p {
+  font-size: 11pt;
+  margin: 0;
+  color: #f5deb3;
+}
+
+.wrapper {
+  width: 820px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 25px 30px;
+}
+
+h2 {
+  font-size: 22px;
+  color: #4a2c0a;
+  border-bottom: 2px solid #8b4513;
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 19px;
+  color: #4a2c0a;
+}
+
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.table-header {
+  background-color: #4a2c0a;
+  color: white;
+}
+
+.menu-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+
+.alt-row {
+  background-color: #fdf6ec;
+}
+
+.info-boxes {
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.info-box {
+  float: left;
+  width: 240px;
+  margin-right: 20px;
+  padding: 15px;
+  font-size: 12px;
+  line-height: 1.8em;
+}
+
+.footer {
+  background-color: #4a2c0a;
+  color: #f5deb3;
+  text-align: center;
+  padding: 12px;
+  font-size: 11px;
+  width: 820px;
+  margin: 0 auto;
+}
