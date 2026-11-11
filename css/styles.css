@@ -16,6 +16,12 @@
   --color-gray: #444444;
 
   --font-family: Verdana, sans-serif;
+
+  --text-small: 14px;
+  --text-body: 16px;
+  --text-h3: 20px;
+  --text-h2: 24px;
+  --text-h1: 36px;
 }
 
 * {
@@ -38,7 +44,7 @@ body {
 .top-bar {
   background-color: var(--color-dark);
   padding: 12px 30px;
-  font-size: 13px;
+  font-size: var(--text-small);
   width: 100%;
 }
 
@@ -83,13 +89,13 @@ body {
 }
 
 .hero h1 {
-  font-size: 36px;
+  font-size: var(--text-h1);
   letter-spacing: 4px;
   margin-bottom: 8px ;
 }
 
 .hero p {
-  font-size: 11px;
+  font-size: var(--text-body);
   margin: 0;
   color: var(--color-light);
 }
@@ -107,7 +113,7 @@ section {
 }
 
 h2 {
-  font-size: 22px;
+  font-size: var(--text-h2);
   color: var(--color-dark);
   border-bottom: 2px solid var(--color-primary);
   padding-bottom: 5px;
@@ -115,7 +121,7 @@ h2 {
 }
 
 h3 {
-  font-size: 19px;
+  font-size: var(--text-h3);
   color: var(--color-dark);
   margin-bottom: 10px;
 }
@@ -141,7 +147,7 @@ section > p {
 }
 
 .availability-heading p {
-  font-size: 13px;
+  font-size: var(--text-small);
   color: var(--color-gray);
 }
 
@@ -149,7 +155,7 @@ section > p {
   background-color: var(--color-dark);
   color: white;
   padding: 7px 12px;
-  font-size: 12px;
+  font-size: var(--text-small);
   border-radius: 20px;
   font-weight: bold;
   white-space: nowrap;
@@ -174,14 +180,14 @@ section > p {
 
 .availability-product {
   color: var(--color-dark);
-  font-size: 14px;
+  font-size: var(--text-small);
   font-weight: bold;
 }
 
 .availability-price {
   display: block;
   color: var(--color-gray);
-  font-size: 12px;
+  font-size: var(--text-small);
   margin-top: 4px;
 }
 
@@ -210,17 +216,17 @@ section > p {
   color: #922d2d;
 }
 
-.availability-note {
-  font-size: 12px;
-  color: var(--color-gray);
-  margin-top: 18px;
-  font-style: italic;
-}
-
 .menu-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: var(--text-small);
+}
+
+.menu-table caption {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--color-dark);
 }
 
 .table-container {
@@ -270,7 +276,7 @@ section > p {
   border: none;
   color: var(--color-dark);
   font-family: var(--font-family);
-  font-size: 14px;
+  font-size: var(--text-small);
   font-weight: bold;
   text-align: left;
   cursor: pointer;
@@ -291,7 +297,14 @@ section > p {
 }
 
 .faq-body p {
-  font-size: 13px;
+  font-size: var(--text-small);
+}
+.order-card {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-alt-row);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
 }
 
 .preorder-section {
@@ -306,7 +319,7 @@ section > p {
 .preorder-form label, .contact-form label {
   font-weight: bold;
   color: var(--color-dark);
-  font-size: 13px;
+  font-size: var(--text-small);
 }
 
 .form-field {
@@ -335,7 +348,7 @@ textarea.form-field {
   border: none;
   border-radius: 4px;
   font-family: var(--font-family);
-  font-size: 14px;
+  font-size: var(--text-small);
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: flex-start;
@@ -365,9 +378,21 @@ textarea.form-field {
   flex: 1 1 200px;
   min-width: 0;
   padding: 15px;
-  font-size: 12px;
+  font-size: var(--text-small);
   line-height: 1.8;
   border-radius: 4px;
+}
+
+.location-box {
+  background-color: #ffe0b2 ;
+}
+
+.hours-box {
+  background-color:  #c8e6c9;
+}
+
+.contact-box {
+  background-color: #bbdefb;
 }
 
 .info-box h3 {
@@ -392,7 +417,7 @@ textarea.form-field {
 }
 
 .contact-feedback {
-  font-size: 13px;
+  font-size: var(--text-small);
   margin-top: 10px;
 }
 .footer {
@@ -400,7 +425,7 @@ textarea.form-field {
   color: var(--color-light);
   text-align: center;
   padding: 15px;
-  font-size: 11px;
+  font-size: var(--text-small);
   width: 100%;
 }
 
@@ -456,10 +481,6 @@ textarea.form-field {
   .hero h1 {
     font-size: 25px;
     letter-spacing: 2px;
-  }
-
-  .hero p {
-    font-size: 12px;
   }
 
   .availability-board {

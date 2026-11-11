@@ -1,7 +1,7 @@
 // Mobile navigation logic
 
 const menuToggle = document.querySelector(".menu-toggle");
-const navList = document.querySelector("ul");
+const navList = document.querySelector("#main-menu");
 
 // open and close the mobile menu
 menuToggle.addEventListener("click", () => {
@@ -75,13 +75,11 @@ const products = [
 const timestamp = Date.now();
 const currentDayIndex = new Date(timestamp).getDay();
 const currentDay = daysOfWeek[currentDayIndex];
-console.log(currentDay);
 
 const availableProducts = products.filter((pro) => {
   return pro.days.includes(currentDay);
 });
 
-console.log(availableProducts);
 
 // dispaly the available prodcut
 const availabilityList = document.querySelector(".availability-list");
@@ -100,10 +98,10 @@ if (availableProducts.length > 0) {
     productPrice.textContent = `GH₵ ${product.price}`;
     productStatus.textContent = "Scheduled for today";
 
-    productCard.classList.add("availability-card");
-    productName.classList.add("availability-name");
+    productCard.classList.add("availability-item");
+    productName.classList.add("availability-product");
     productPrice.classList.add("availability-price");
-    productStatus.classList.add("availability-status");
+    productStatus.classList.add("availability-status",  "status-available");
 
     productCard.appendChild(productName)
     productCard.appendChild(productPrice)
@@ -149,7 +147,7 @@ preOrder.addEventListener("submit", (event) => {
 
     const parentContainer = document.createElement("div")
     const customerName = document.createElement("p")
-    const customerOrderDetaisl = document.createElement("p");
+    const customerOrderDetails = document.createElement("p");
 
     parentContainer.appendChild(customerName)
     parentContainer.appendChild(customerOrderDetaisl)
