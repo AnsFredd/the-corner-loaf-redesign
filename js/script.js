@@ -1,33 +1,3 @@
-// Mobile navigation logic
-
-const menuToggle = document.querySelector(".menu-toggle");
-const navList = document.querySelector("#main-menu");
-
-// open and close the mobile menu
-menuToggle.addEventListener("click", () => {
-  navList.classList.toggle("active");
-
-  const isOpen = navList.classList.contains("active");
-
-  menuToggle.setAttribute("aria-expanded", isOpen);
-
-  menuToggle.setAttribute(
-    "aria-label",
-    isOpen ? "Close navigation menu" : "Open navigation menu",
-  );
-});
-
-// close menu when navigation link is clicked
-const navLinks = navList.querySelectorAll("a");
-
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    navList.classList.remove("active");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation menu");
-  });
-});
-
 // Product Availability Indicator
 const daysOfWeek = [
   "Sunday",
@@ -61,12 +31,12 @@ const products = [
     days: ["Saturday"],
   },
   {
-    name: "Banana Bread ",
+    name: "Banana Bread",
     price: 15,
     days: ["Thursday", "Saturday"],
   },
   {
-    name: "Meat Pies ",
+    name: "Meat Pies",
     price: 12,
     days: ["Wednesday", "Friday"],
   },
@@ -150,11 +120,11 @@ preOrder.addEventListener("submit", (event) => {
     const customerOrderDetails = document.createElement("p");
 
     parentContainer.appendChild(customerName)
-    parentContainer.appendChild(customerOrderDetaisl)
+    parentContainer.appendChild(customerOrderDetails)
     parentContainer.classList.add("order-card");
 
     customerName.textContent = name;
-    customerOrderDetaisl.textContent = orderDetails;
+    customerOrderDetails.textContent = orderDetails;
 
 
     const preorderList = document.getElementById("preorder-list");

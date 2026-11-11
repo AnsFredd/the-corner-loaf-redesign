@@ -70,15 +70,6 @@ body {
   text-decoration: underline;
 }
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--color-light);
-  font-size: 28px;
-  cursor: pointer;
-}
-
 .hero {
   background-color: var(--color-primary);
   color: white;
@@ -432,26 +423,6 @@ textarea.form-field {
 
 /* For Tablet Screens Responsivenss*/
 @media screen and (max-width: 768px) {
-  .top-bar {
-    position: relative;
-  }
-
-  .top-bar ul {
-    display: none;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-    padding: 15px 0;
-  }
-
-  .top-bar ul.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
 
   .hero h1 {
     font-size: 30px;
