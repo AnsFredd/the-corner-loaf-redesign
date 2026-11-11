@@ -1,4 +1,4 @@
-Structure Note
+# Structure Note
 
 The page structure was designed around the needs of The Corner Loaf's customers, particularly commuters who often check the website on their phones while walking or travelling to work.
 

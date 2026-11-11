@@ -1,80 +1,76 @@
-The Corner Loaf Website Redesign
+# The Corner Loaf Website Redesign
 
-A responsive website redesign for The Corner Loaf, a local bakery based in East Legon, Accra.
+## Project Overview
 
-This project was developed for the EE01 – From Client Brief to Web Page module. It focuses on improving mobile usability, product discovery, accessibility and the overall customer experience.
+This project is a responsive redesign of The Corner Loaf bakery website for the EE01 – From Client Brief to Web Page module.
 
-Project Overview
+The goal of the redesign is to improve the experience for customers who visit the website on their phones while commuting or on the move. The redesigned website makes it easier to find important information, view scheduled product availability, place pre-orders, contact the bakery, and learn more about the business.
 
-The redesign aims to make it easier for customers to:
+The redesign also aims to better reflect The Corner Loaf's warm, welcoming, and community-focused identity.
 
-Find important bakery information quickly.
-View products scheduled for the current day.
-Explore the weekly bakery menu.
-Submit pre-order requests.
-Find contact information and send enquiries.
-Learn about the bakery and its services.
+## Business Problem
 
-The visual design also aims to reflect The Corner Loaf's warm, welcoming and community-focused identity.
+Marcus, the owner of The Corner Loaf, identified several problems with the existing website:
 
-Business Problem
+- Customers struggle to quickly determine what products are available.
+- Important information is difficult to find.
+- The website feels cluttered and outdated.
+- The site does not reflect the warm and friendly atmosphere of the bakery.
 
-Marcus, the owner of The Corner Loaf, identified several problems with the original website:
+As identified in diagnosis.md, the original website has mobile usability problems caused by fixed-width elements of 820px and a missing viewport meta tag.
 
-Customers struggled to determine which products were available.
-Important information was difficult to find.
-The website appeared cluttered and outdated.
-The design did not reflect the bakery's friendly identity.
-Fixed-width elements and a missing viewport meta tag affected mobile usability.
+Many customers view the website while walking or commuting, so information must be easy to find and understand within a few seconds.
 
-Since many customers access the website while commuting or travelling, the redesign prioritises clear information, accessible navigation and responsive layouts.
+## Project Objectives
 
-Project Objectives
+This project addresses the following objectives:
 
-The project addresses the following objectives:
+- Understand the client brief and plan an appropriate page structure.
+- Diagnose issues in the existing website and identify their root causes.
+- Build a responsive and semantic website using HTML and CSS.
+- Evaluate the rebuilt website against accessibility and visual consistency principles.
+- Propose and implement an additional improvement that adds value for customers and the business.
 
-Understand the client brief and plan an appropriate page structure.
-Diagnose existing website problems and identify their root causes.
-Build a responsive website using semantic HTML, CSS and JavaScript.
-Improve accessibility and visual consistency.
-Evaluate the redesigned website against the identified requirements.
-Implement an additional improvement that provides value to customers and the business.
-Project Deliverables
-Stage	Deliverables
-Understand	Original website sketch and structure note
-Analyse	Website diagnosis and root-cause analysis
-Apply	Responsive rebuild, semantic HTML and consistent styling
-Evaluate	Website audit and design evaluation
-Create	Dynamic scheduled product availability board and business justification
-Key Features
-Responsive Layout
-Flexible layouts using Flexbox and CSS Grid.
-Responsive adjustments using CSS media queries.
-Viewport configuration for mobile devices.
-Daily Product Availability
+## Deliverables
 
-A dynamic Today's Scheduled Bakes board displays products according to the current day of the week.
+### Understand
 
-The board uses JavaScript to compare the current day against the bakery's weekly baking schedule.
+- Original website sketch
+- Structure note explaining the layout and content hierarchy
 
-Note: Product availability is based on the baking schedule and does not represent real-time stock levels. Customers are encouraged to contact the bakery to confirm availability.
+### Analyse
 
-Interactive FAQ
+- Diagnosis of the existing website
+- Root-cause analysis of identified issues
 
-An accessible accordion allows customers to expand and collapse frequently asked questions about pre-orders, collections, cancellations and delivery.
+### Apply
 
-Pre-Order Form
+- Responsive mobile-first rebuild
+- Semantic HTML structure
+- Consistent colour palette
+- Consistent type scale
+- Consistent spacing system
 
-Customers can enter their names and order details. JavaScript validates the required fields and displays submitted requests on the webpage.
+### Evaluate
 
-Contact Form
+- Audit of the finished website
 
-The contact form validates required fields and provides submission feedback.
+### Create
 
-Form limitation: Both forms currently provide browser-side functionality only. Submissions are not transmitted to the bakery through a server or email service.
+- Additional scheduled bakery availability board
+- Business justification explaining the improvement's value to customers and the business
 
-Repository Structure
-text
+## Form Functionality
+
+The redesigned pre-order and contact forms include input validation to help users provide the required information. Users receive feedback when required fields are missing and when forms are submitted successfully.
+
+The pre-order form displays submitted order details on the webpage, while the contact form provides submission feedback. These improvements address the form usability problems identified during the diagnosis stage.
+
+**Note:** Form submissions currently provide browser-side feedback and are not transmitted to the bakery through a server or email service.
+
+## Repository Structure
+
+```text
 the-corner-loaf-redesign/
 │
 ├── README.md
@@ -92,40 +88,3 @@ the-corner-loaf-redesign/
 │
 └── assets/
     └── sketch.png
-
-Project Documentation
-File	Description
-README.md	Project overview and repository information
-structure-note.md	Explanation of the page structure and content hierarchy
-diagnosis.md	Analysis of issues identified in the original website
-audit.md	Evaluation of the redesigned website
-improvement.md	Explanation and business justification of the additional improvement
-index.html	Main webpage
-css/styles.css	Website styling and responsive layouts
-js/script.js	Product availability, FAQ and form interactions
-assets/sketch.png	Original website layout sketch
-Original Website Sketch
-
-The original website sketch provides a visual reference for the planned layout and content hierarchy.
-
-It illustrates the positioning of the navigation, hero section, product availability, weekly menu, pre-order section, FAQ and contact information.
-
-The sketch informed the structure and organisation of the redesigned webpage.
-
-Technologies Used
-HTML5
-CSS3
-JavaScript
-Flexbox
-CSS Grid
-CSS Media Queries
-Responsive Web Design
-Module Information
-
-Module: EE01 – From Client Brief to Web Page
-
-Business: The Corner Loaf
-
-Location: East Legon, Accra, Ghana
-
-Project: Responsive Website Redesign
