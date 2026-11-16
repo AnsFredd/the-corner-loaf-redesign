@@ -224,6 +224,7 @@ section > p {
   width: 100%;
   overflow-x: auto;
 }
+
 .table-header {
   background-color: var(--color-dark);
   color: white;
@@ -290,6 +291,7 @@ section > p {
 .faq-body p {
   font-size: var(--text-small);
 }
+
 .order-card {
   border: 1px solid var(--color-border);
   background-color: var(--color-alt-row);

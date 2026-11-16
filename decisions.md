@@ -1,15 +1,32 @@
-
 # Decision Log – The Corner Loaf
 
 This decision log records the design and development choices made during the redesign of The Corner Loaf website. Each decision was made to improve the experience for the bakery's customers and support the client's business needs.
 
 ## 1. Colour Palette
 
-I chose a warm brown, orange and cream colour palette using CSS variables. Brown represents the traditional, handmade identity of the bakery, while the lighter colours create a welcoming appearance. This helps communicate the client's friendly bakery atmosphere and makes the website visually consistent.
+I selected a warm brown, orange and cream colour palette to reflect the traditional, handmade identity of The Corner Loaf. Rather than using general colour names, I defined specific hexadecimal colour values using CSS variables to maintain consistency throughout the website.
+
+The primary colour is Saddle Brown (`#8b4513`), which is used for the hero section, buttons and other important elements. The secondary colour is Chocolate (`#d2691e`), while Sandy Brown (`#f4a460`) provides a lighter accent for hover effects. I also selected Dark Brown (`#4a2c0a`) for the navigation bar, footer and headings to create contrast and visual hierarchy.
+
+For lighter areas, I used Cream (`#fdf6ec`), Wheat (`#f5deb3`), Off-white (`#f9f9f9`) and White (`#ffffff`). These colours provide a softer background and prevent the darker brown shades from overwhelming the page.
+
+I stored these values as CSS custom properties inside the `:root` selector so that colours can be reused and changed consistently without editing individual selectors.
+
+| Purpose | Colour Name | Hexadecimal Value |
+|---|---|---|
+| Primary | Saddle Brown | `#8b4513` |
+| Secondary | Chocolate | `#d2691e` |
+| Accent | Sandy Brown | `#f4a460` |
+| Dark | Dark Brown | `#4a2c0a` |
+| Background | Off-white | `#f9f9f9` |
+| Surface | White | `#ffffff` |
+| Alternate Rows | Cream | `#fdf6ec` |
+| Text | Near Black | `#222222` |
+| Light | Wheat | `#f5deb3` |
 
 ## 2. Typography
 
-I selected Verdana as the main font because it is simple and easy to read. I also created a consistent type scale using CSS variables for headings and body text. This helps customers read product descriptions, prices and important information easily.
+I selected Verdana as the main font because it is simple and easy to read. I also created a consistent type scale using CSS variables: 14px for small text, 16px for body text, 20px for H3 headings, 24px for H2 headings and 36px for the main H1 heading. This helps customers read product descriptions, prices and important information easily.
 
 ## 3. Page Layout
 
@@ -17,11 +34,11 @@ I chose a centred content layout with a maximum width of 1200px. This prevents c
 
 ## 4. Navigation
 
-I placed the navigation bar at the top of the page and included links to Home, Menu, Pre-Orders, About and Contact. This allows customers to find important information quickly without having to search through the entire page.
+I placed the navigation bar at the top of the page and included links to Home, Menu, Pre-Orders, About and Contact. I used a Dark Brown background (`#4a2c0a`) with Wheat-coloured links (`#f5deb3`) to maintain the website's colour scheme while making the navigation easy to identify.
 
 ## 5. Hero Section
 
-I placed the bakery name and location directly below the navigation bar. I chose a strong brown background with white text to make the bakery identity immediately noticeable to visitors.
+I placed the bakery name and location directly below the navigation bar. I used the primary Saddle Brown colour (`#8b4513`) as the background with white text to make the bakery identity immediately noticeable to visitors. The large heading and letter spacing also help establish a clear visual hierarchy.
 
 ## 6. Section Order
 
@@ -37,7 +54,7 @@ I chose a table to display product names, descriptions, prices and availability.
 
 ## 9. Availability Status Colours
 
-I used different background colours for availability statuses: green for available, yellow for low availability and red for sold-out products. These colours help customers recognise availability information quickly. The daily board currently displays scheduled products rather than real-time stock levels.
+I used three different background colours to distinguish availability statuses. Green (`#e0f2e5`) represents available products, yellow (`#fff0cc`) represents low availability and red (`#fce4e4`) represents sold-out products. I chose these colours because they provide familiar visual indicators that help customers understand product availability quickly. The daily board currently displays scheduled products rather than real-time stock levels.
 
 ## 10. FAQ Accordion
 
@@ -81,16 +98,16 @@ I added visible focus styles to interactive elements such as buttons, FAQ contro
 
 ## 20. Smooth Scrolling
 
-I enabled smooth scrolling for navigation between page sections. This creates a more comfortable browsing experience when customers move between different parts of the website.
+I enabled smooth scrolling for navigation between page sections. This creates a more comfortable browsing experience when customers move between different parts of the page.
 
 ## 21. Location and Business Information
 
-I placed the bakery's location, opening hours and contact details in separate information boxes. This makes essential information easy to identify, particularly for customers planning a visit.
+I placed the bakery's location, opening hours and contact details in separate information boxes. I used different light background colours to distinguish the three boxes: Light Orange (`#ffe0b2`) for location, Light Green (`#c8e6c9`) for opening hours and Light Blue (`#bbdefb`) for contact information. This makes essential business information easier to identify.
 
 ## 22. Footer
 
-I chose a simple footer with the bakery name and copyright information. The dark brown background maintains the website's colour consistency and provides a clear ending to the page.
+I chose a simple footer with the bakery name and copyright information. I used the Dark Brown colour (`#4a2c0a`) for the background and Wheat (`#f5deb3`) for the text. This maintains the website's colour consistency and provides a clear ending to the page.
 
 ## Conclusion
 
-The decisions made throughout the redesign were guided by the needs of The Corner Loaf and its customers. The main priorities were improving mobile usability, making product availability easier to understand, presenting information clearly and making it easier for customers to place pre-orders or contact the bakery.
+The decisions made throughout the redesign were guided by the needs of The Corner Loaf and its customers. The main priorities were improving mobile usability, making product availability easier to understand, presenting information clearly and making it easier for customers to place pre-orders or contact the bakery. The use of specific colour values, consistent typography and responsive layouts also helps create a recognisable and consistent visual identity for the bakery.
