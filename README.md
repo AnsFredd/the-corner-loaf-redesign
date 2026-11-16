@@ -1,3 +1,4 @@
+
 # The Corner Loaf Website Redesign
 
 ## Project Overview
@@ -7,6 +8,14 @@ This project is a responsive redesign of The Corner Loaf bakery website for the 
 The goal of the redesign is to improve the experience for customers who visit the website on their phones while commuting or on the move. The redesigned website makes it easier to find important information, view scheduled product availability, place pre-orders, contact the bakery, and learn more about the business.
 
 The redesign also aims to better reflect The Corner Loaf's warm, welcoming, and community-focused identity.
+
+## Live Website
+
+The redesigned website can be accessed using the link below:
+
+https://ansfredd.github.io/the-corner-loaf-redesign/
+
+This allows my pair to access and view the finished website.
 
 ## Business Problem
 
@@ -88,3 +97,4 @@ the-corner-loaf-redesign/
 │
 └── assets/
     └── sketch.png
+```
