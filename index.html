@@ -1,14 +1,25 @@
 
 <!doctype html>
-<html>
+<html lang="en">
+
   <head>
     <title>The Corner Loaf - Fresh Baked Daily</title>
+
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="The Corner Loaf offers fresh handmade breads, pastries and baked treats in East Legon, Accra."
+    />
+
     <link href="css/styles.css" rel="stylesheet" />
   </head>
 
   <body>
+
+    <!-- Navigation -->
     <nav class="top-bar" aria-label="Main navigation">
       <ul id="main-menu">
         <li><a href="#home">Home</a></li>
@@ -19,6 +30,7 @@
       </ul>
     </nav>
 
+    <!-- Hero Section -->
     <header class="hero" id="home">
       <h1>THE CORNER LOAF</h1>
       <p>Fresh Baked Daily in East Legon, Accra</p>
@@ -28,27 +40,27 @@
 
       <!-- Weekly Menu Section -->
       <section id="menu">
-        <h2>This Week's Bakes</h2>
 
-        <!-- <p>
-          Every week we bake a fresh selection of breads, pastries, and sweet
-          treats. Here is what is coming out of the oven this week.
-        </p> -->
+        <h2>This Week's Bakes</h2>
 
         <!-- Daily Product Availability Board -->
         <div class="availability-board">
+
           <div class="availability-heading">
+
             <div>
               <h3>Today's Scheduled Bakes</h3>
+
               <p>
-                Products shown are based on our baking schedule. Please contact
-                us to confirm availability.
+                Products shown are based on our baking schedule.
+                Please contact us to confirm availability.
               </p>
             </div>
 
             <span class="today-label" id="availability-date">
               Today's Bakes
             </span>
+
           </div>
 
           <div
@@ -59,13 +71,15 @@
           ></div>
 
           <p>
-            Our bakes are made in small batches. Availability can change
-            throughout the day.
+            Our bakes are made in small batches.
+            Availability can change throughout the day.
           </p>
+
         </div>
 
-        <!-- Weekly Menu Organised by Day -->
+        <!-- Weekly Menu Table -->
         <div class="table-container">
+
           <table class="menu-table">
 
             <caption>
@@ -198,7 +212,7 @@
                 <td>
                   <ul class="day-prices">
                     <li>18.00</li>
-                    <li>15.00 / slice</li>
+                    <li>15.00</li>
                     <li>20.00</li>
                   </ul>
                 </td>
@@ -213,21 +227,26 @@
               </tr>
 
             </tbody>
+
           </table>
+
         </div>
+
       </section>
 
       <!-- FAQ Section -->
       <section id="faq">
+
         <h2>Pre-Order FAQ</h2>
 
         <p>
-          Everything you need to know about placing a pre-order with us.
+          Quick answers to common pre-order questions.
         </p>
 
         <div class="faq-list">
 
           <div class="faq-item">
+
             <h3>
               <button
                 type="button"
@@ -241,15 +260,15 @@
 
             <div class="faq-body" hidden id="faq-answer-1">
               <p>
-                We ask for at least one day's notice before your chosen
-                collection day. For large orders or custom items, two to three
-                days is better. This gives us time to plan our bake and make
-                sure everything is ready for you.
+                Please order at least one day ahead. Large or custom
+                orders may require two to three days.
               </p>
             </div>
+
           </div>
 
           <div class="faq-item">
+
             <h3>
               <button
                 type="button"
@@ -263,15 +282,15 @@
 
             <div class="faq-body" hidden id="faq-answer-2">
               <p>
-                Come to the bakery at your agreed collection time. We will have
-                your order bagged and labelled. If you are running late, let us
-                know — we can usually hold orders for up to two hours after the
-                agreed time.
+                Collect your labelled order at the agreed time.
+                Late collections can usually be held for up to two hours.
               </p>
             </div>
+
           </div>
 
           <div class="faq-item">
+
             <h3>
               <button
                 type="button"
@@ -285,15 +304,15 @@
 
             <div class="faq-body" hidden id="faq-answer-3">
               <p>
-                Yes, but please let us know as early as possible. If we have
-                already started baking your order, we may not be able to cancel
-                it. Changes to quantity are usually fine if you give us a day's
-                notice.
+                Yes. Contact us as early as possible.
+                Changes may not be possible once baking has started.
               </p>
             </div>
+
           </div>
 
           <div class="faq-item">
+
             <h3>
               <button
                 type="button"
@@ -307,27 +326,28 @@
 
             <div class="faq-body" hidden id="faq-answer-4">
               <p>
-                We do not currently offer delivery. All orders must be collected
-                from the bakery in person. We are looking at delivery options
-                for the future — follow us on Instagram to hear when that
-                changes.
+                We currently offer collection from the bakery only.
               </p>
             </div>
+
           </div>
 
         </div>
+
       </section>
 
       <!-- Pre-Order Section -->
       <section id="preorder">
+
         <h2>Place a Pre-Order</h2>
 
         <p>
-          Fill in the form below and we will be in touch to confirm your order
-          and collection time.
+          Complete the form and we will contact you to confirm
+          your order and collection time.
         </p>
 
         <div class="preorder-section">
+
           <form class="preorder-form">
 
             <label for="customer-name">Your Name</label>
@@ -341,7 +361,9 @@
               required
             />
 
-            <label for="order-details">What would you like to order?</label>
+            <label for="order-details">
+              What would you like to order?
+            </label>
 
             <textarea
               id="order-details"
@@ -358,37 +380,48 @@
           </form>
 
           <div id="preorder-list"></div>
+
         </div>
+
       </section>
 
       <!-- About Section -->
       <section id="about">
+
         <h2>About The Corner Loaf</h2>
 
         <p>
-          Marcus started The Corner Loaf after years of baking at home for
-          friends and family. What started as a hobby turned into a proper small
-          bakery when demand grew too much to keep up with. Everything is made
-          by hand in small batches, no mass production, no shortcuts.
+          Marcus started The Corner Loaf after years of baking at home
+          for friends and family. What started as a hobby turned into
+          a small bakery as demand grew. Everything is handmade in
+          small batches, with no mass production or shortcuts.
         </p>
 
         <div class="info-boxes">
 
           <div class="info-box location-box">
+
             <h3>Location</h3>
+
             <p>17 Boundary Road</p>
             <p>East Legon, Accra</p>
+
           </div>
 
           <div class="info-box hours-box">
+
             <h3>Hours</h3>
+
             <p>Monday to Friday: 7am - 5pm</p>
             <p>Saturday: 7am - 2pm</p>
             <p>Sunday: Closed</p>
+
           </div>
 
           <div class="info-box contact-box">
+
             <h3>Contact</h3>
+
             <p>
               WhatsApp:
               <a href="tel:+233551000000">0551 000 000</a>
@@ -400,18 +433,21 @@
                 thecornerloaf@email.com
               </a>
             </p>
+
           </div>
 
         </div>
+
       </section>
 
       <!-- Contact Section -->
       <section class="contact-section" id="contact">
+
         <h2>Send Us a Message</h2>
 
         <p>
-          Not sure what to order or have a special request? Send us a message
-          and we will get back to you.
+          Have a question or special request?
+          Send us a message and we will get back to you.
         </p>
 
         <form class="contact-form">
@@ -459,16 +495,21 @@
           ></p>
 
         </form>
+
       </section>
 
     </main>
 
     <!-- Footer -->
     <footer class="footer">
+
       <p>The Corner Loaf &copy; 2026. Handmade in Accra.</p>
+
     </footer>
 
+    <!-- JavaScript -->
     <script src="js/script.js" defer></script>
 
   </body>
+
 </html>

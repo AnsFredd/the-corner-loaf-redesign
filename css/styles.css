@@ -109,7 +109,7 @@ body {
 }
 
 section {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 h2 {
@@ -117,7 +117,7 @@ h2 {
   color: var(--color-dark);
   border-bottom: 2px solid var(--color-primary);
   padding-bottom: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 h3 {
@@ -127,7 +127,7 @@ h3 {
 }
 
 section > p {
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 /* Daily Availability Board */
@@ -136,8 +136,8 @@ section > p {
   background-color: var(--color-alt-row);
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  padding: 12px;
-  margin: 25px 0 30px;
+  padding: 10px;
+  margin: 20px 0 25px;
 }
 
 .availability-heading {
@@ -145,7 +145,7 @@ section > p {
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .availability-heading p {
@@ -166,14 +166,14 @@ section > p {
 .availability-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 
 .availability-item {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  padding: 15px;
+  padding: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -307,7 +307,7 @@ section > p {
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
 
 .faq-item {
@@ -323,7 +323,7 @@ section > p {
 .faq-trigger {
   display: block;
   width: 100%;
-  padding: 15px;
+  padding: 10px 12px;
   background-color: var(--color-alt-row);
   border: none;
   color: var(--color-dark);
@@ -344,7 +344,7 @@ section > p {
 }
 
 .faq-body {
-  padding: 15px;
+  padding: 10px 12px;
   background-color: var(--color-surface);
 }
 
@@ -363,7 +363,7 @@ section > p {
 }
 
 .preorder-section {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 /* Form Layout */
@@ -373,7 +373,7 @@ section > p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 6px;
 }
 
 /* Form Labels */
@@ -383,7 +383,7 @@ section > p {
   font-weight: bold;
   color: var(--color-dark);
   font-size: var(--text-small);
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 /* Text Inputs */
@@ -428,7 +428,7 @@ textarea.form-field {
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: flex-start;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .form-submit:hover {
@@ -441,29 +441,29 @@ textarea.form-field {
 }
 
 #preorder-list {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .contact-feedback {
   font-size: var(--text-small);
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 /* Information Boxes */
 
 .info-boxes {
   display: flex;
-  gap: 20px;
-  margin-top: 15px;
+  gap: 15px;
+  margin-top: 12px;
   flex-wrap: wrap;
 }
 
 .info-box {
   flex: 1 1 200px;
   min-width: 0;
-  padding: 15px;
+  padding: 12px;
   font-size: var(--text-small);
-  line-height: 1.8;
+  line-height: 1.7;
   border-radius: 4px;
 }
 
@@ -480,11 +480,11 @@ textarea.form-field {
 }
 
 .info-box h3 {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .info-box p {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .info-box a {
@@ -499,7 +499,7 @@ textarea.form-field {
 /* Contact Section */
 
 .contact-section {
-  margin-top: 35px;
+  margin-top: 25px;
 }
 
 /* Footer */
@@ -526,7 +526,7 @@ textarea.form-field {
   }
 
   .info-boxes {
-    gap: 15px;
+    gap: 12px;
   }
 
 }
@@ -534,6 +534,14 @@ textarea.form-field {
 /* Mobile Phone Responsiveness */
 
 @media screen and (max-width: 600px) {
+
+  .top-bar {
+    padding: 12px 15px;
+  }
+
+  .top-bar ul {
+    gap: 12px 18px;
+  }
 
   .top-bar a {
     font-size: 12px;
@@ -549,7 +557,7 @@ textarea.form-field {
   }
 
   .availability-board {
-    padding: 15px;
+    padding: 12px;
   }
 
   .availability-heading {
@@ -585,7 +593,7 @@ textarea.form-field {
   .info-boxes {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     width: 100%;
   }
 
