@@ -1,3 +1,4 @@
+
 // Product Availability Indicator
 
 const daysOfWeek = [
@@ -14,45 +15,54 @@ const products = [
   {
     name: "Sourdough Loaf",
     price: 35,
+    category: "bread",
     days: ["Tuesday", "Friday"],
   },
   {
     name: "Chin Chin",
     price: 20,
+    category: "snack",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
   },
   {
     name: "Whole Wheat Loaf",
     price: 28,
+    category: "bread",
     days: ["Monday", "Wednesday", "Friday"],
   },
   {
     name: "Butter Croissants",
     price: 18,
+    category: "pastry",
     days: ["Saturday"],
   },
   {
     name: "Banana Bread",
     price: 15,
+    category: "bread",
     days: ["Thursday", "Saturday"],
   },
   {
     name: "Meat Pies",
     price: 12,
+    category: "snack",
     days: ["Wednesday", "Friday"],
   },
 ];
 
 // Get the current day
+
 const currentDayIndex = new Date().getDay();
 const currentDay = daysOfWeek[currentDayIndex];
 
 // Find products scheduled for today
+
 const availableProducts = products.filter((product) => {
   return product.days.includes(currentDay);
 });
 
 // Display scheduled products
+
 const availabilityList = document.querySelector("#availability-list");
 const availabilityDate = document.querySelector("#availability-date");
 
@@ -90,12 +100,105 @@ if (availabilityList && availabilityDate) {
   }
 }
 
+
+// Product Filtering
+
+const filterButtons = document.querySelectorAll(".filter-button");
+const menuRows = document.querySelectorAll(".menu-table tbody tr");
+const filterFeedback = document.querySelector("#filter-feedback");
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+
+    // Get the selected category
+
+    const selectedCategory = button.dataset.filter;
+
+    let visibleProducts = 0;
+
+    // Update the active filter button
+
+    filterButtons.forEach((filterButton) => {
+      filterButton.classList.remove("active");
+      filterButton.setAttribute("aria-pressed", "false");
+    });
+
+    button.classList.add("active");
+    button.setAttribute("aria-pressed", "true");
+
+    // Filter products in the weekly menu
+
+    menuRows.forEach((row) => {
+
+      const productItems = row.querySelectorAll(".day-products li");
+      const priceItems = row.querySelectorAll(".day-prices li");
+
+      // Keep the Sunday closed message visible
+
+      if (productItems.length === 0) {
+        row.hidden = false;
+        return;
+      }
+
+      let visibleInRow = 0;
+
+      productItems.forEach((productItem, index) => {
+
+        const productName = productItem.textContent.trim();
+
+        const product = products.find((item) => {
+          return item.name === productName;
+        });
+
+        const matchesCategory =
+          selectedCategory === "all" ||
+          (product && product.category === selectedCategory);
+
+        productItem.hidden = !matchesCategory;
+
+        // Keep the matching price beside its product
+
+        if (priceItems[index]) {
+          priceItems[index].hidden = !matchesCategory;
+        }
+
+        if (matchesCategory) {
+          visibleInRow++;
+        }
+
+      });
+
+      // Hide days without matching products
+
+      row.hidden = visibleInRow === 0;
+
+      visibleProducts += visibleInRow;
+
+    });
+
+    // Display filtering feedback
+
+    if (filterFeedback) {
+      if (selectedCategory === "all") {
+        filterFeedback.textContent =
+          `Showing all ${visibleProducts} scheduled product listings in the weekly menu.`;
+      } else {
+        filterFeedback.textContent =
+          `Showing ${visibleProducts} ${selectedCategory} product listings in the weekly menu.`;
+      }
+    }
+
+  });
+});
+
+
 // Pre-order FAQ Accordion
 
 const faqTriggers = document.querySelectorAll(".faq-trigger");
 
 faqTriggers.forEach((trigger) => {
   trigger.addEventListener("click", () => {
+
     const answerId = trigger.getAttribute("aria-controls");
     const answer = document.getElementById(answerId);
 
@@ -107,6 +210,7 @@ faqTriggers.forEach((trigger) => {
     answer.hidden = isExpanded;
 
     trigger.setAttribute("aria-expanded", String(!isExpanded));
+
   });
 });
 
@@ -118,6 +222,7 @@ const preorderList = document.getElementById("preorder-list");
 
 if (preOrder && preorderList) {
   preOrder.addEventListener("submit", (event) => {
+
     event.preventDefault();
 
     const name = document
@@ -129,6 +234,7 @@ if (preOrder && preorderList) {
       .value.trim();
 
     // Validate the pre-order fields
+
     if (!name || !orderDetails) {
       preorderList.textContent =
         "Please complete all required fields before submitting.";
@@ -138,6 +244,7 @@ if (preOrder && preorderList) {
     }
 
     // Create the order card
+
     const parentContainer = document.createElement("div");
     const customerName = document.createElement("p");
     const customerOrderDetails = document.createElement("p");
@@ -153,6 +260,7 @@ if (preOrder && preorderList) {
     preorderList.appendChild(parentContainer);
 
     // Display confirmation feedback
+
     const successMessage = document.createElement("p");
 
     successMessage.textContent =
@@ -164,7 +272,9 @@ if (preOrder && preorderList) {
     preorderList.appendChild(successMessage);
 
     // Clear the form
+
     preOrder.reset();
+
   });
 }
 
@@ -176,6 +286,7 @@ const contactFeedback = document.querySelector(".contact-feedback");
 
 if (contactForm && contactFeedback) {
   contactForm.addEventListener("submit", (event) => {
+
     event.preventDefault();
 
     const contactName = document
@@ -191,6 +302,7 @@ if (contactForm && contactFeedback) {
       .value.trim();
 
     // Check that all required fields are completed
+
     if (!contactName || !contactEmail || !contactMessage) {
       contactFeedback.textContent =
         "Please complete all required fields.";
@@ -200,12 +312,15 @@ if (contactForm && contactFeedback) {
     }
 
     // Display confirmation feedback
+
     contactFeedback.textContent =
       "Thank you! Your message has been submitted successfully.";
 
     contactFeedback.style.color = "green";
 
     // Clear the form after submission
+
     contactForm.reset();
+
   });
 }

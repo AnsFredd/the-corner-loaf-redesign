@@ -77,6 +77,70 @@
 
         </div>
 
+        <!-- Product Filtering Section -->
+        <div class="product-filter">
+
+          <h3>Browse Products by Category</h3>
+
+          <p>
+            Select a category to find the products you are looking for.
+          </p>
+
+          <div
+            class="filter-buttons"
+            role="group"
+            aria-label="Filter products by category"
+          >
+
+            <button
+              type="button"
+              class="filter-button active"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              All
+            </button>
+
+            <button
+              type="button"
+              class="filter-button"
+              data-filter="bread"
+              aria-pressed="false"
+            >
+              Bread
+            </button>
+
+            <button
+              type="button"
+              class="filter-button"
+              data-filter="pastry"
+              aria-pressed="false"
+            >
+              Pastry
+            </button>
+
+            <button
+              type="button"
+              class="filter-button"
+              data-filter="snacks"
+              aria-pressed="false"
+            >
+              Snacks
+            </button>
+
+          </div>
+
+          <p
+            class="filter-feedback"
+            id="filter-feedback"
+            aria-live="polite"
+            role="status"
+          >
+            Showing all products.
+          </p>
+
+        </div>
+
         <!-- Weekly Menu Table -->
         <div class="table-container">
 
@@ -102,8 +166,8 @@
 
                 <td>
                   <ul class="day-products">
-                    <li>Whole Wheat Loaf</li>
-                    <li>Chin Chin</li>
+                    <li data-category="bread">Whole Wheat Loaf</li>
+                    <li data-category="snacks">Chin Chin</li>
                   </ul>
                 </td>
 
@@ -121,8 +185,8 @@
 
                 <td>
                   <ul class="day-products">
-                    <li>Sourdough Loaf</li>
-                    <li>Chin Chin</li>
+                    <li data-category="bread">Sourdough Loaf</li>
+                    <li data-category="snacks">Chin Chin</li>
                   </ul>
                 </td>
 
@@ -140,9 +204,9 @@
 
                 <td>
                   <ul class="day-products">
-                    <li>Whole Wheat Loaf</li>
-                    <li>Meat Pies</li>
-                    <li>Chin Chin</li>
+                    <li data-category="bread">Whole Wheat Loaf</li>
+                    <li data-category="pastry">Meat Pies</li>
+                    <li data-category="snacks">Chin Chin</li>
                   </ul>
                 </td>
 
@@ -161,8 +225,8 @@
 
                 <td>
                   <ul class="day-products">
-                    <li>Banana Bread</li>
-                    <li>Chin Chin</li>
+                    <li data-category="bread">Banana Bread</li>
+                    <li data-category="snacks">Chin Chin</li>
                   </ul>
                 </td>
 
@@ -180,10 +244,10 @@
 
                 <td>
                   <ul class="day-products">
-                    <li>Sourdough Loaf</li>
-                    <li>Whole Wheat Loaf</li>
-                    <li>Meat Pies</li>
-                    <li>Chin Chin</li>
+                    <li data-category="bread">Sourdough Loaf</li>
+                    <li data-category="bread">Whole Wheat Loaf</li>
+                    <li data-category="pastry">Meat Pies</li>
+                    <li data-category="snacks">Chin Chin</li>
                   </ul>
                 </td>
 
@@ -203,9 +267,9 @@
 
                 <td>
                   <ul class="day-products">
-                    <li>Butter Croissants</li>
-                    <li>Banana Bread</li>
-                    <li>Chin Chin</li>
+                    <li data-category="pastry">Butter Croissants</li>
+                    <li data-category="bread">Banana Bread</li>
+                    <li data-category="snacks">Chin Chin</li>
                   </ul>
                 </td>
 
