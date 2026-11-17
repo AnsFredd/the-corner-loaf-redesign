@@ -50,7 +50,15 @@ I added a daily availability board near the beginning of the menu section. This 
 
 ## 8. Weekly Menu Table
 
-I chose a table to display product names, descriptions, prices and availability. This presents the bakery's full weekly menu in an organised format, allowing customers to compare products and check prices easily.
+I chose a table to display the bakery's weekly menu, including the products available each day and their prices. This presents the bakery's full weekly offering in an organised format, allowing customers to compare products and check prices easily.
+
+The original sketch displayed the weekly menu as a small card-based layout showing only a few example bakery products. During development, I replaced this layout with a table organised by day, product and price.
+
+I made this change because the final menu contained more information than the original sketch represented. A card-based layout would have required customers to view multiple individual items, whereas a table allows all weekly information to be viewed in a single structured format.
+
+The table improves readability, supports a larger amount of content and makes it easier for customers to identify which products are available on specific days. Although the final implementation differs from the original sketch, the purpose of the section remains the same: to communicate product availability and pricing clearly.
+
+This change was therefore made to improve usability and better meet the client's requirement of helping customers understand the bakery's weekly product schedule.
 
 ## 9. Availability Status Colours
 
