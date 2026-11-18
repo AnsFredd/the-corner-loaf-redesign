@@ -21,7 +21,7 @@ const products = [
   {
     name: "Chin Chin",
     price: 20,
-    category: "snack",
+    category: "snacks",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
   },
   {
@@ -45,7 +45,7 @@ const products = [
   {
     name: "Meat Pies",
     price: 12,
-    category: "snack",
+    category: "pastry",
     days: ["Wednesday", "Friday"],
   },
 ];

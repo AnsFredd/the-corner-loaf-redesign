@@ -2,111 +2,180 @@
 
 ## Overview
 
-The redesigned website was reviewed against the main issues identified during the diagnosis stage. The goal was to create a website that is easier to use on mobile devices, more accessible, and better aligned with Marcus's business goals.
+The redesign was evaluated against the problems identified during the diagnosis phase and the business goals described in the brief. The primary goal was not simply to modernise the website, but to help customers quickly answer a key question identified by Marcus: whether there is bread available today.
 
-## Issue 1: Customers Could Not Quickly Identify Available Products
+The evaluation therefore focuses on how effectively the redesign supports customer decision-making, improves mobile usability, increases accessibility and reflects the character of a small, local bakery.
 
-### Original Problem
+## Prioritisation Decisions
 
-Customers had to read through a weekly schedule table to work out which products were available on a particular day.
+Several improvements were possible, but not all issues were equally important.
 
-### Solution
+The highest priority was helping customers find product availability information quickly. The diagnosis found that customers had to scan a weekly schedule to determine whether products were available on a particular day. This directly affected customer convenience and potentially reduced visits and sales opportunities.
 
-A "Today's Scheduled Bakes" availability board was added near the top of the page. JavaScript automatically displays products scheduled for the current day.
+The second priority was mobile usability. The brief described customers checking information while commuting, making responsive design essential.
 
-### Result
+Accessibility improvements were prioritised next because they affect the ability of many users to successfully navigate and interact with the website.
 
-Customers can quickly identify which products are scheduled for the day before reading the full menu, making it easier to decide whether to visit the bakery. A notice also explains that availability should be confirmed with the bakery because the board does not track real-time stock.
+Lower-priority enhancements, such as additional visual decoration, photography and advanced styling effects, were deferred because they did not contribute directly to the business goals identified in the brief.
 
-## Issue 2: Poor Mobile Experience
+---
 
-### Original Problem
+## Evaluation of Key Improvements
 
-The original website used fixed-width layouts that did not adapt well to smaller screens.
+### 1. Product Availability
 
-### Solution
+#### Original Problem
 
-The redesign uses a responsive layout with flexible widths, Flexbox, CSS Grid, and media queries.
+Customers could not immediately identify which products were available on a particular day.
 
-### Result
+#### Implemented Solution
 
-The website is designed to adapt to different screen sizes and provide a more convenient browsing experience on phones and tablets.
+A "Today's Scheduled Bakes" board was introduced near the top of the page. JavaScript automatically displays products scheduled for the current day.
 
-## Issue 3: Weak Semantic Structure
+#### Evaluation
 
-### Original Problem
+This was the most important improvement implemented in the redesign because it directly addresses the primary customer problem identified by Marcus.
 
-The original website relied heavily on generic div elements.
+Customers no longer need to read the entire weekly schedule before deciding whether the bakery has products available that day. This significantly reduces effort for commuters making quick decisions while travelling.
 
-### Solution
+The solution also supports the business goal of making product information easier to discover.
 
-Semantic elements such as nav, header, main, section, and footer were introduced.
+#### Limitation
 
-### Result
+The feature displays scheduled products rather than real-time stock availability. Customers are advised to contact the bakery to confirm stock before visiting.
 
-The page structure is easier for browsers, search engines, and assistive technologies to understand.
+---
 
-## Issue 4: Accessibility Problems
+### 2. Mobile Experience
 
-### Original Problem
+#### Original Problem
 
-Forms lacked labels, table headings were not properly marked up, and FAQ controls were not accessible.
+The starter website used fixed-width layouts which created usability problems on smaller screens.
 
-### Solution
+#### Implemented Solution
 
-- Labels were added to all form fields.
-- Table headings use th elements.
-- FAQ items use buttons with ARIA attributes.
-- Focus styles were added for keyboard users.
+The redesign introduces responsive layouts using flexible widths, Flexbox, CSS Grid and mobile breakpoints.
 
-### Result
+#### Evaluation
 
-The website provides clearer form labels, improved table structure, and more accessible FAQ controls. These changes make the website easier to navigate using assistive technologies and keyboards.
+This improvement was prioritised because many visitors are likely to access the site on mobile devices.
 
-## Issue 5: Missing Interaction Features
+The redesigned layout adapts to smaller screens and allows important information to remain accessible without horizontal scrolling.
 
-### Original Problem
+This supports the commuter use case described in the brief.
 
-The FAQ accordion, pre-order tracker, and contact form validation were not implemented.
+---
 
-### Solution
+### 3. Semantic Structure and Accessibility
 
-JavaScript was added to:
+#### Original Problem
 
-- Toggle FAQ answers when customers select questions.
-- Validate pre-order form fields and display submitted order details on the webpage.
-- Validate contact form input and provide success or error feedback.
+The starter site relied heavily on generic elements and contained several accessibility issues.
 
-### Result
+#### Implemented Solution
 
-The FAQ accordion works, and both forms provide browser-side validation and feedback. The pre-order tracker displays submitted order details on the webpage.
+The redesign introduced semantic elements, accessible table headers, labelled form controls, focus indicators and button-based FAQ controls with ARIA attributes.
 
-Form submissions are not transmitted to the bakery through a server or email service.
+#### Evaluation
+
+These changes improve the experience for keyboard users and users of assistive technology while creating a more meaningful page structure.
+
+Basic keyboard testing confirmed that:
+
+- Navigation links can receive keyboard focus.
+- FAQ controls can be operated using keyboard input.
+- Form fields remain accessible through keyboard navigation.
+- Focus indicators remain visible during interaction.
+
+The page also includes an appropriate language attribute and semantic landmarks that help assistive technologies understand the page structure.
+
+#### Limitation
+
+Formal accessibility testing tools and screen reader testing were not available during the project. As a result, accessibility improvements were evaluated primarily through manual inspection and keyboard walkthroughs.
+
+---
+
+### 4. Interactive Features
+
+#### Original Problem
+
+The FAQ accordion, pre-order functionality and contact form interactions were not implemented in the starter project.
+
+#### Implemented Solution
+
+JavaScript functionality was added for FAQ expansion, basic pre-order tracking and form validation.
+
+#### Evaluation
+
+These features improve usability by providing immediate feedback to customers and allowing interaction without page reloads.
+
+The FAQ section is now easier to navigate, while form validation helps prevent incomplete submissions.
+
+#### Limitation
+
+The forms currently operate only within the browser and do not send information to the bakery.
+
+---
 
 ## Design Evaluation
 
+### Alignment with the Brief
+
+Marcus described The Corner Loaf as a small, community-focused bakery rather than a corporate brand.
+
+The redesign supports this requirement through:
+
+- A warm brown colour palette inspired by baked goods.
+- Simple and familiar navigation.
+- Content that focuses on products and customer needs rather than marketing language.
+- A short introduction that tells Marcus's story without dominating the page.
+
+The hero title styling was intentionally softened to avoid an overly corporate appearance.
+
 ### Colour Palette
 
-A warm brown colour palette was chosen to reflect the bakery's welcoming and handmade identity.
+The chosen palette uses warm browns, creams and bakery-inspired neutral colours to support the handmade identity of the business.
+
+The information cards were also updated to use tones that better match the overall bakery theme.
 
 ### Typography
 
-A consistent type scale was introduced using CSS variables to improve readability and visual hierarchy.
+A consistent type scale was implemented using design tokens and responsive sizing adjustments.
 
-### Spacing
+This improves hierarchy while maintaining readability across different screen sizes.
 
-Consistent padding, margins, and spacing values were used throughout the page to improve layout and readability.
+### Spacing and Layout
 
-## Trade-Offs
+Consistent spacing values were applied throughout the interface to create a cleaner structure and improve scanability, particularly on smaller screens.
 
-The product availability board displays products based on the bakery's schedule rather than real-time stock levels.
+---
 
-This approach was chosen because real-time stock data is not available within the project's scope. A notice encourages customers to contact the bakery to confirm availability before visiting.
+## Deferred Improvements and Trade-Offs
 
-The pre-order and contact forms also provide browser-side feedback rather than transmitting submissions to a server. A backend integration would be required to deliver actual orders and messages to the bakery.
+Several possible improvements were intentionally left outside the project scope.
+
+### Real-Time Inventory
+
+The availability board uses the bakery schedule rather than real-time stock data.
+
+Implementing live inventory would require backend systems that were outside the available project scope.
+
+### Online Order Processing
+
+The pre-order form does not submit information to a server or email service.
+
+A production implementation would require backend infrastructure and order management processes.
+
+### Additional Customer Convenience Features
+
+Features such as WhatsApp ordering, delivery tracking, customer accounts and online payment processing could provide additional value but were not prioritised because they did not address the most important problem identified during diagnosis.
+
+---
 
 ## Conclusion
 
-The redesign addresses the main usability, accessibility, and business problems identified during the diagnosis stage. The website provides a responsive layout, improved navigation, accessible form controls, interactive FAQ functionality, and a daily scheduled availability board.
+The redesign successfully addresses the most significant issues identified during diagnosis.
 
-These improvements make important information easier to find and help customers make more informed decisions about visiting The Corner Loaf.
+The strongest outcome is the prioritisation of product availability information, helping customers quickly determine what is being baked on a given day. Combined with responsive layouts, accessibility improvements and meaningful interactions, the redesigned website is substantially better aligned with both customer needs and business goals than the original starter implementation.
+
+While some limitations remain, particularly around real-time stock information and backend integration, those limitations were accepted in favour of solving the highest-priority usability problems first.

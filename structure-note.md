@@ -1,23 +1,43 @@
 # Structure Note
 
-The page structure was designed around the needs of The Corner Loaf's customers, particularly commuters who often check the website on their phones while walking or travelling to work.
+The page structure was designed before development and was based on the needs described in the brief. The most important insight from Marcus was that customers often struggle to answer a simple question: whether there is bread available today. Because many customers are commuters checking the site while walking, travelling, or making quick purchasing decisions, the structure prioritises access to availability information over background information about the bakery.
 
-The navigation appears at the top of the page to help visitors move easily between the main sections, including the menu, pre-orders, about information and contact details.
+## Priority 1: Find Out What Is Available Today
 
-The hero section appears immediately after the navigation because it introduces The Corner Loaf and communicates its identity as a bakery offering freshly baked bread and pastries.
+The navigation appears at the top of the page so visitors can quickly move to any section without excessive scrolling.
 
-The menu section follows the hero section. It begins with an introduction to the bakery's weekly offerings, followed by the "Today's Scheduled Bakes" availability board. This board is positioned near the top of the page because the owner identified that customers often struggle to determine which products are available on a particular day. Displaying scheduled products prominently helps visitors find this information quickly. Customers are also reminded to contact the bakery to confirm availability because the board does not display real-time stock levels.
+The hero section follows immediately after the navigation. Its purpose is to quickly identify the bakery and reassure visitors that they are in the correct place. It intentionally stays brief so customers can reach important information quickly.
 
-The weekly menu table appears directly after the availability board. It provides more detailed information about the bakery's products, descriptions, prices and regular baking schedule for customers who want to explore the full menu.
+The menu section is placed directly after the hero because product availability is the most important customer need identified in the brief. The "Today's Scheduled Bakes" board appears before the weekly menu because customers are more likely to want an immediate answer about today's products than details about the full weekly schedule.
 
-The Pre-Order FAQ follows the weekly menu. It answers common questions about ordering in advance, collection, cancellations and delivery. Placing these answers before the pre-order form allows customers to understand the ordering process before submitting a request.
+This decision prioritises task completion over exploration. Customers can quickly determine whether a product is scheduled for today before deciding whether they need additional information.
 
-The pre-order section appears after the FAQ. It provides a form where customers can enter their name and order details to make a pre-order request.
+## Priority 2: Support Ordering Decisions
 
-The About section follows the pre-order form. It introduces Marcus and the story behind The Corner Loaf, helping communicate the bakery's warm, local and community-focused identity.
+The weekly menu appears directly after the availability board. Once customers know what may be available today, they can browse the complete baking schedule, compare products and view prices.
 
-The contact section appears near the bottom of the page. It provides the bakery's contact information and a message form for customers who have questions or special requests.
+The FAQ section is intentionally placed before the pre-order form. Customers often have questions about ordering, collection, cancellations and delivery before submitting an order request. Providing answers first helps reduce uncertainty and allows customers to complete the form with greater confidence.
 
-Finally, a simple footer reinforces the bakery's identity and provides copyright information.
+The pre-order section appears immediately after the FAQ because it supports the user's next likely action. Once customers have found the information they need, they can place an order without having to search for the form elsewhere on the page.
 
-The overall structure prioritises product discovery and scheduled availability before providing additional information, ordering options and contact details. This helps customers find important information without having to search through the entire page.
+## Priority 3: Build Trust and Personality
+
+The About section is positioned after the menu and pre-order features. This was a deliberate trade-off.
+
+Marcus's story and the bakery's community-focused identity are important, but they do not directly help a commuter decide whether to visit the bakery or place an order. For that reason, availability information and ordering tools were prioritised higher in the page structure.
+
+The About section still plays an important role by communicating that The Corner Loaf is a small, handmade bakery rather than a large commercial brand. This helps support the friendly and local tone described in the brief.
+
+## Priority 4: Contact and Follow-Up
+
+The contact section appears near the bottom of the page because most visitors will only need it after viewing the menu, reading the FAQ or learning about the bakery. Customers who need additional information can easily find the contact options once they have completed the earlier stages of their journey.
+
+The footer remains simple and provides a clear end point to the page while reinforcing the bakery's identity.
+
+## Mobile-First Considerations
+
+The structure was designed with mobile users in mind. Visitors checking the website while travelling should be able to reach critical information with minimal scrolling. The most important content, including product availability, menu information and ordering options, is positioned near the top of the page. Lower-priority content such as business background information and contact details appears later because it is less likely to be required during a quick visit.
+
+## Summary
+
+The structure prioritises customer goals rather than organisational information. Product availability, menu information and ordering actions appear first because they support the main business objective of helping customers decide whether to visit or pre-order. Information about the bakery and contact options remains available but is intentionally placed lower because it is less critical during a customer's initial visit.

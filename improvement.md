@@ -1,66 +1,103 @@
-
 # Additional Improvement
 
 ## Improvement Chosen
 
-An interactive product filtering feature was added to the weekly menu section of the website.
+An interactive product filtering feature was added to the weekly menu section.
 
-This feature allows customers to filter bakery products by category, such as bread, pastries and snacks, using JavaScript.
+The feature allows customers to filter products by category, including bread, pastries and snacks, without reloading the page. Customers can also choose to view all products.
 
-Customers can also select the All option to view the complete weekly menu.
-
----
-
-## Why This Improvement Was Added
-
-During the diagnosis stage, one of the problems identified was that important information was difficult for customers to find on the original website.
-
-Customers had to go through the full menu to find specific products they were interested in. This could make browsing the menu more time-consuming, particularly for customers using mobile devices.
-
-Marcus also explained that many customers access the website while commuting or travelling and need information quickly. This made improving the way customers browse the weekly menu a useful area for additional improvement.
+Unlike the "Today's Scheduled Bakes" board, which focuses on answering whether products are available today, this feature focuses on helping customers browse the wider menu more efficiently.
 
 ---
 
-## How It Works
+## Why This Improvement Was Chosen
 
-JavaScript is used to filter the products displayed in the weekly menu based on the category selected by the customer.
+The diagnosis identified that customers often had to scan large amounts of information to find products they were interested in.
 
-Customers can select from different product categories, including bread, pastries and snacks.
+While the availability board addressed the highest-priority problem of finding out what is available today, customers still needed to browse the complete weekly menu when comparing products or planning future purchases.
 
-When a category is selected, the website displays only the products belonging to that category. Customers can select the All option to return to the complete product list.
+This improvement was selected because it supports the same goal of reducing effort for customers while remaining achievable within the scope of the project.
 
-The filtering happens directly on the webpage without requiring the page to reload.
+The feature was also particularly relevant to mobile users, who may find it less convenient to scroll through the entire menu repeatedly while travelling or commuting.
+
+---
+
+## How the Feature Works
+
+JavaScript is used to filter the weekly menu by category.
+
+Customers can choose from:
+
+- All
+- Bread
+- Pastry
+- Snacks
+
+When a category is selected:
+
+- Products that belong to the selected category remain visible.
+- Products that do not match are hidden.
+- The menu updates immediately without a page refresh.
+- Feedback is provided to inform customers how many matching products are being displayed.
+
+This creates a faster browsing experience while preserving access to the complete menu.
 
 ---
 
 ## Value for Customers
 
-This improvement provides several benefits for customers:
+The feature provides several benefits:
 
-- Customers can find specific types of bakery products without going through the entire menu.
-- Customers can browse products more quickly by selecting their preferred category.
-- Mobile users can find relevant products more easily without having to scroll through the full menu.
-- Customers can return to the complete menu by selecting the All option.
+- Reduces the amount of information customers must scan.
+- Makes it easier to find preferred products.
+- Supports faster browsing on mobile devices.
+- Helps customers compare products within a specific category.
+- Allows customers to quickly return to the full menu when required.
+
+The improvement is particularly useful for returning customers who already know which product categories they are interested in purchasing.
 
 ---
 
 ## Value for the Business
 
-This improvement supports Marcus's business goals by:
+Although the feature does not directly increase sales on its own, it supports customer decision-making by making products easier to discover.
 
-- Making the bakery's product range easier for customers to explore.
-- Improving the visibility of different product categories.
-- Helping customers discover products they may be interested in purchasing.
-- Making the website a more useful and convenient tool for promoting the bakery's products.
+This creates several potential business benefits:
+
+- Improved visibility of the bakery's product range.
+- Reduced effort required to browse the menu.
+- Increased likelihood that customers find products that meet their needs.
+- Better support for mobile users, who represent an important customer group in the brief.
+
+The feature also encourages customers to explore products beyond a single day’s availability board.
 
 ---
 
-## Reflection
+## Trade-Offs and Limitations
 
-This improvement provides an additional way for customers to interact with the weekly menu.
+The filtering feature improves navigation but does not change the underlying bakery schedule.
 
-Although the original menu already displays the bakery's products and their scheduled availability, the filtering feature makes it easier for customers to find specific types of products.
+Customers are still dependent on the weekly menu and scheduled availability information provided by the bakery.
 
-It also improves the mobile browsing experience by reducing the need to go through the entire menu.
+The feature also relies on manually maintained product data. If new products or categories are introduced, the filtering configuration must be updated to remain accurate.
 
-Overall, this improvement makes product information easier to access and helps customers browse the bakery's offerings more efficiently.
+A more advanced implementation could include:
+
+- Menu search functionality.
+- Multiple filters applied simultaneously.
+- Real-time inventory filtering.
+- Product recommendations based on customer interests.
+
+These enhancements were not prioritised because they would provide less value than solving the core availability and usability problems identified during diagnosis.
+
+---
+
+## Evaluation
+
+The filtering feature was selected as an additional improvement because it extends the usefulness of the weekly menu without introducing unnecessary complexity.
+
+It complements the "Today's Scheduled Bakes" board by helping customers explore products after identifying what is available.
+
+While the feature is not as important as the availability board, it improves efficiency, supports mobile users and contributes to a smoother browsing experience overall.
+
+For those reasons, it was considered a valuable enhancement that aligns with the needs of both customers and the business.

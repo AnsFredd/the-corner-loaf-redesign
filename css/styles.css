@@ -22,8 +22,8 @@
   --text-small: 14px;
   --text-body: 16px;
   --text-h3: 20px;
-  --text-h2: 24px;
-  --text-h1: 36px;
+  --text-h2: 25px;
+  --text-h1: 31px;
 }
 
 /* General Styles */
@@ -88,7 +88,7 @@ body {
 
 .hero h1 {
   font-size: var(--text-h1);
-  letter-spacing: 4px;
+  letter-spacing: 1px;
   margin-bottom: 8px;
 }
 
@@ -206,16 +206,6 @@ section > p {
 .status-available {
   background-color: #e0f2e5;
   color: #205c35;
-}
-
-.status-low {
-  background-color: #fff0cc;
-  color: #805400;
-}
-
-.status-sold-out {
-  background-color: #fce4e4;
-  color: #922d2d;
 }
 
 /* Product Filtering */
@@ -528,15 +518,15 @@ textarea.form-field {
 }
 
 .location-box {
-  background-color: #ffe0b2;
+  background-color: #f5e6d3;
 }
 
 .hours-box {
-  background-color: #c8e6c9;
+  background-color: #efe0cd;
 }
 
 .contact-box {
-  background-color: #bbdefb;
+  background-color: #e8d7c1;
 }
 
 .info-box h3 {
@@ -576,11 +566,7 @@ textarea.form-field {
 /* Tablet Responsiveness */
 
 @media screen and (max-width: 768px) {
-
-  .hero h1 {
-    font-size: 30px;
-  }
-
+  
   .wrapper {
     padding: 25px 20px;
   }
@@ -594,7 +580,11 @@ textarea.form-field {
 /* Mobile Phone Responsiveness */
 
 @media screen and (max-width: 600px) {
-
+  :root {
+    --text-h1: 24px;
+    --text-h2: 20px;
+    --text-h3: 18px;
+  }
   .top-bar {
     padding: 12px 15px;
   }
@@ -612,8 +602,7 @@ textarea.form-field {
   }
 
   .hero h1 {
-    font-size: 25px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
   }
 
   .availability-board {
@@ -655,14 +644,6 @@ textarea.form-field {
 
   .wrapper {
     padding: 20px 15px;
-  }
-
-  h2 {
-    font-size: 19px;
-  }
-
-  h3 {
-    font-size: 17px;
   }
 
   .info-boxes {
@@ -724,9 +705,8 @@ textarea.form-field {
 
 @media screen and (max-width: 400px) {
 
-  .hero h1 {
-    font-size: 21px;
-    letter-spacing: 1px;
+  :root {
+    --text-h1: 22px;
   }
 
   .wrapper {

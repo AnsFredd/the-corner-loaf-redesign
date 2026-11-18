@@ -18,7 +18,41 @@
 | The contact message field is unsuitable for longer messages. | A single-line text input is used instead of a multi-line text area. | The message field uses `<input type="text" placeholder="Your message" class="form-field">`. | Customers sending enquiries or special requests. | Customers may find it difficult to provide detailed information, making communication less convenient. |
 | The contact form does not validate user input or provide feedback. | The JavaScript functionality has not been implemented. | The `script.js` file contains comments describing validation and success messages, but no code. | Customers submitting enquiries. | Users may not know whether their message was successfully received. |
 | Contact information is difficult to use on mobile devices. | The phone number and email address are plain text. | The contact section displays contact details without `tel:` or `mailto:` links. | Mobile users. | Customers cannot contact the bakery quickly with a single tap. |
+| The website is harder to maintain and update than necessary. | Styling is duplicated and lacks a consistent design system. | The starter stylesheet contains repeated styling patterns and does not use reusable variables or design tokens. | Future developers and the business. | Changes take longer to make and visual inconsistencies are more likely to appear as the website evolves. |
 | Navigation links do not lead anywhere useful. | Placeholder links are used. | All navigation links use `href="#"`. | All users. | The navigation feels unfinished and does not help users move through the website. |
+
+## Priority Ranking
+
+Not all issues have the same impact on customers or the business. The problems were prioritised based on their effect on customer decision-making and Marcus's business goals.
+
+### High Priority
+
+1. Customers cannot quickly tell what is available today.
+2. The website is difficult to use on phones.
+3. The pre-order feature does not work as intended.
+
+These issues directly affect a customer's ability to decide whether to visit the bakery or place an order. They therefore have the greatest potential impact on revenue and customer satisfaction.
+
+### Medium Priority
+
+- Important information is difficult to scan.
+- The FAQ accordion does not work.
+- The contact form does not validate user input or provide feedback.
+- Contact information is difficult to use on mobile devices.
+- The menu table is not fully accessible.
+
+These issues affect usability and convenience but do not completely prevent customers from finding information.
+
+### Lower Priority
+
+- The heading structure is unclear.
+- The page structure is not very accessible.
+- The contact form uses an incorrect field type for email addresses.
+- The contact message field is unsuitable for longer messages.
+- Navigation links do not lead anywhere useful.
+- The website is harder to maintain and update than necessary.
+
+These issues should still be addressed but are less likely to be the primary reason a customer leaves the website.
 
 ## Overall Diagnosis
 
@@ -30,4 +64,6 @@ The website also has accessibility problems caused by weak semantic HTML, poor h
 
 In addition, several planned interactive features, including the FAQ accordion, pre-order tracker, and contact form validation, have not been implemented because the JavaScript file is empty. The form buttons also do not trigger normal HTML form submission.
 
-Overall, the website does not fully support Marcus's goal of helping customers quickly decide whether to visit the bakery, and this may contribute to lost walk-in sales and reduced customer confidence.
+The starter project also lacks a consistent design system, making the codebase more difficult to maintain and increasing the likelihood of visual inconsistencies as the website grows.
+
+Overall, the website does not fully support Marcus's goal of helping customers quickly decide whether to visit the bakery, and this may contribute to lost walk-in sales, reduced customer confidence and missed ordering opportunities.
