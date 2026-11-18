@@ -17,6 +17,10 @@
   --color-border: #e0e0e0;
   --color-gray: #444444;
 
+  --color-location-box: #f5e6d3;
+  --color-hours-box: #efe0cd;
+  --color-contact-box: #e8d7c1;
+
   --font-family: Verdana, sans-serif;
 
   --text-small: 14px;
@@ -518,15 +522,15 @@ textarea.form-field {
 }
 
 .location-box {
-  background-color: #f5e6d3;
+  background-color: var(--color-location-box);
 }
 
 .hours-box {
-  background-color: #efe0cd;
+  background-color: var(--color-hours-box);
 }
 
 .contact-box {
-  background-color: #e8d7c1;
+  background-color: var(--color-contact-box);
 }
 
 .info-box h3 {
@@ -566,7 +570,7 @@ textarea.form-field {
 /* Tablet Responsiveness */
 
 @media screen and (max-width: 768px) {
-  
+
   .wrapper {
     padding: 25px 20px;
   }
