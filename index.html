@@ -1,561 +1,779 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <title>The Corner Loaf - Fresh Baked Daily</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Enjoy freshly handmade breads, pastries and baked treats at The Corner Loaf in East Legon, Accra."
+  >
 
-    <meta charset="UTF-8" />
+  <title>The Corner Loaf | Freshly Baked with Love</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-    <meta
-      name="description"
-      content="The Corner Loaf offers fresh handmade breads, pastries and baked treats in East Legon, Accra."
-    />
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="js/script.js" defer></script>
+</head>
 
-    <link href="css/styles.css" rel="stylesheet" />
-  </head>
+<body>
 
-  <body>
+  <!-- Navigation -->
+  <nav class="top-bar" aria-label="Main navigation">
 
-    <nav class="top-bar" aria-label="Main navigation">
-      <ul id="main-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#preorder">Pre-Orders</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <a href="#home" class="brand-name">The Corner Loaf</a>
 
-    <header class="hero" id="home">
-      <h1>The Corner Loaf</h1>
-      <p>Fresh Baked Daily in East Legon, Accra</p>
-    </header>
+    <button
+      type="button"
+      class="menu-toggle"
+      id="menu-toggle"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
 
-    <main class="wrapper">
+    <ul id="main-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Our Menu</a></li>
+      <li><a href="#preorder">Pre-Orders</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-      <section id="menu">
+  </nav>
 
-        <h2>This Week's Bakes</h2>
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-content">
 
-        <div class="availability-board">
+      <p class="hero-tagline">HANDCRAFTED WITH LOVE IN EAST LEGON</p>
 
-          <div class="availability-heading">
+      <h1>Freshly Baked,<br>Made with Love.</h1>
 
+      <p class="hero-description">
+        Discover delicious handmade breads, golden pastries
+        and homemade treats, freshly prepared for our community.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#menu" class="hero-button primary-button">Explore Our Menu</a>
+        <a href="#preorder" class="hero-button secondary-button">Place a Pre-Order</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="wrapper">
+
+    <section id="menu">
+
+      <div class="section-heading">
+        <p class="section-label">Fresh from our oven</p>
+        <h2>Our Freshly Baked Goodness</h2>
+        <p>
+          From wholesome breads to delicious pastries,
+          there's something special waiting for you.
+        </p>
+      </div>
+
+      <!-- Today's Availability -->
+      <div class="availability-board">
+
+        <div class="availability-heading">
+          <div>
+            <h3>Today's Scheduled Bakes</h3>
+            <p>
+              See what's on our baking schedule today.
+              Contact us to confirm availability.
+            </p>
+          </div>
+
+          <span class="today-label" id="availability-date">Today's Bakes</span>
+        </div>
+
+        <div
+          class="availability-list"
+          id="availability-list"
+          aria-live="polite"
+          role="status"
+        ></div>
+
+        <p class="availability-note">
+          Our products are prepared in small batches.
+          Availability may change throughout the day.
+        </p>
+
+      </div>
+
+      <div class="product-filter">
+
+        <div class="filter-intro">
+          <p class="section-label">Explore the menu</p>
+          <h3>Find Your Favourite</h3>
+          <p>
+            Choose a category to find the products
+            available throughout the week.
+          </p>
+        </div>
+
+        <div
+          class="filter-buttons"
+          role="group"
+          aria-label="Filter products by category"
+        >
+          <button
+            type="button"
+            class="filter-button active"
+            data-filter="all"
+            aria-pressed="true"
+          >All Products</button>
+
+          <button
+            type="button"
+            class="filter-button"
+            data-filter="bread"
+            aria-pressed="false"
+          >Bread</button>
+
+          <button
+            type="button"
+            class="filter-button"
+            data-filter="pastry"
+            aria-pressed="false"
+          >Pastries</button>
+
+          <button
+            type="button"
+            class="filter-button"
+            data-filter="snacks"
+            aria-pressed="false"
+          >Snacks</button>
+        </div>
+
+        <p
+          class="filter-feedback"
+          id="filter-feedback"
+          aria-live="polite"
+          role="status"
+        >Showing all products.</p>
+
+      </div>
+
+      <!-- Weekly Baking Schedule -->
+      <div class="menu-days">
+
+        <!-- Monday -->
+        <article class="menu-day-card">
+
+          <div class="day-heading">
             <div>
-              <h3>Today's Scheduled Bakes</h3>
-
-              <p>
-                Products shown are based on our baking schedule.
-                Please contact us to confirm availability.
-              </p>
+              <h3>Monday</h3>
+              <span>Start the week fresh</span>
             </div>
-
-            <span class="today-label" id="availability-date">
-              Today's Bakes
-            </span>
-
+            <span class="day-count">2 Bakes</span>
           </div>
 
-          <div
-            class="availability-list"
-            id="availability-list"
-            aria-live="polite"
-            role="status"
-          ></div>
-
-          <p>
-            Our bakes are made in small batches.
-            Availability can change throughout the day.
-          </p>
-
-        </div>
-
-        <div class="product-filter">
-
-          <h3>Browse Products by Category</h3>
-
-          <p>
-            Select a category to find the products you are looking for.
-          </p>
-
-          <div
-            class="filter-buttons"
-            role="group"
-            aria-label="Filter products by category"
+          <img
+            class="day-photo"
+            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85"
+            alt="Freshly baked artisan bread"
+            loading="lazy"
           >
 
-            <button
-              type="button"
-              class="filter-button active"
-              data-filter="all"
-              aria-pressed="true"
-            >
-              All
-            </button>
+          <div class="day-products">
 
-            <button
-              type="button"
-              class="filter-button"
-              data-filter="bread"
-              aria-pressed="false"
-            >
-              Bread
-            </button>
+            <div class="menu-product" data-category="bread">
+              <div class="product-details">
+                <span class="product-category">Bread</span>
+                <h4>Whole Wheat Loaf</h4>
+              </div>
+              <p class="product-price">GH₵ 28.00</p>
+            </div>
 
-            <button
-              type="button"
-              class="filter-button"
-              data-filter="pastry"
-              aria-pressed="false"
-            >
-              Pastry
-            </button>
-
-            <button
-              type="button"
-              class="filter-button"
-              data-filter="snacks"
-              aria-pressed="false"
-            >
-              Snacks
-            </button>
+            <div class="menu-product" data-category="snacks">
+              <div class="product-details">
+                <span class="product-category">Snack</span>
+                <h4>Chin Chin</h4>
+              </div>
+              <p class="product-price">GH₵ 20.00</p>
+            </div>
 
           </div>
+        </article>
 
-          <p
-            class="filter-feedback"
-            id="filter-feedback"
-            aria-live="polite"
-            role="status"
+        <!-- Tuesday -->
+        <article class="menu-day-card">
+
+          <div class="day-heading">
+            <div>
+              <h3>Tuesday</h3>
+              <span>Freshly prepared favourites</span>
+            </div>
+            <span class="day-count">2 Bakes</span>
+          </div>
+
+          <img
+            class="day-photo"
+            src="https://ik.imagekit.io/kuuwgr5owx/panaderia-montano/landing-montano/pan-masa-madre-montano-oeste-cali-bellavista.webp"
+            alt="Fresh sourdough loaf"
+            loading="lazy"
           >
-            Showing all products.
-          </p>
 
-        </div>
+          <div class="day-products">
 
-        <div class="table-container">
+            <div class="menu-product" data-category="bread">
+              <div class="product-details">
+                <span class="product-category">Bread</span>
+                <h4>Sourdough Loaf</h4>
+              </div>
+              <p class="product-price">GH₵ 35.00</p>
+            </div>
 
-          <table class="menu-table">
+            <div class="menu-product" data-category="snacks">
+              <div class="product-details">
+                <span class="product-category">Snack</span>
+                <h4>Chin Chin</h4>
+              </div>
+              <p class="product-price">GH₵ 20.00</p>
+            </div>
 
-            <caption>
-              Weekly bakery menu organised by day
-            </caption>
+          </div>
+        </article>
 
-            <thead>
-              <tr class="table-header">
-                <th scope="col">Day</th>
-                <th scope="col">Products Available</th>
-                <th scope="col">Price (GH₵)</th>
-              </tr>
-            </thead>
+        <!-- Wednesday -->
+        <article class="menu-day-card">
 
-            <tbody>
+          <div class="day-heading">
+            <div>
+              <h3>Wednesday</h3>
+              <span>A little something for everyone</span>
+            </div>
+            <span class="day-count">3 Bakes</span>
+          </div>
 
-              <tr>
-                <td><strong>Monday</strong></td>
+          <img
+            class="day-photo"
+            src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/aussie_meat_pie.jpg"
+            alt="Golden freshly baked meat pies"
+            loading="lazy"
+          >
 
-                <td>
-                  <ul class="day-products">
-                    <li data-category="bread">Whole Wheat Loaf</li>
-                    <li data-category="snacks">Chin Chin</li>
-                  </ul>
-                </td>
+          <div class="day-products">
 
-                <td>
-                  <ul class="day-prices">
-                    <li>28.00</li>
-                    <li>20.00</li>
-                  </ul>
-                </td>
-              </tr>
+            <div class="menu-product" data-category="bread">
+              <div class="product-details">
+                <span class="product-category">Bread</span>
+                <h4>Whole Wheat Loaf</h4>
+              </div>
+              <p class="product-price">GH₵ 28.00</p>
+            </div>
 
-              <!-- Tuesday -->
-              <tr class="alt-row">
-                <td><strong>Tuesday</strong></td>
+            <div class="menu-product" data-category="pastry">
+              <div class="product-details">
+                <span class="product-category">Pastry</span>
+                <h4>Meat Pies</h4>
+              </div>
+              <p class="product-price">GH₵ 12.00</p>
+            </div>
 
-                <td>
-                  <ul class="day-products">
-                    <li data-category="bread">Sourdough Loaf</li>
-                    <li data-category="snacks">Chin Chin</li>
-                  </ul>
-                </td>
+            <div class="menu-product" data-category="snacks">
+              <div class="product-details">
+                <span class="product-category">Snack</span>
+                <h4>Chin Chin</h4>
+              </div>
+              <p class="product-price">GH₵ 20.00</p>
+            </div>
 
-                <td>
-                  <ul class="day-prices">
-                    <li>35.00</li>
-                    <li>20.00</li>
-                  </ul>
-                </td>
-              </tr>
+          </div>
+        </article>
 
-              <tr>
-                <td><strong>Wednesday</strong></td>
+        <article class="menu-day-card">
 
-                <td>
-                  <ul class="day-products">
-                    <li data-category="bread">Whole Wheat Loaf</li>
-                    <li data-category="pastry">Meat Pies</li>
-                    <li data-category="snacks">Chin Chin</li>
-                  </ul>
-                </td>
+          <div class="day-heading">
+            <div>
+              <h3>Thursday</h3>
+              <span>Sweet and satisfying</span>
+            </div>
+            <span class="day-count">2 Bakes</span>
+          </div>
 
-                <td>
-                  <ul class="day-prices">
-                    <li>28.00</li>
-                    <li>12.00</li>
-                    <li>20.00</li>
-                  </ul>
-                </td>
-              </tr>
+          <img
+            class="day-photo"
+            src="https://itsonly.recipes/images/recipeimages/classic-banana-bread.webp"
+            alt="Freshly baked banana bread"
+            loading="lazy"
+          >
 
-              <tr class="alt-row">
-                <td><strong>Thursday</strong></td>
+          <div class="day-products">
 
-                <td>
-                  <ul class="day-products">
-                    <li data-category="bread">Banana Bread</li>
-                    <li data-category="snacks">Chin Chin</li>
-                  </ul>
-                </td>
+            <div class="menu-product" data-category="bread">
+              <div class="product-details">
+                <span class="product-category">Bread</span>
+                <h4>Banana Bread</h4>
+              </div>
+              <p class="product-price">GH₵ 15.00</p>
+            </div>
 
-                <td>
-                  <ul class="day-prices">
-                    <li>15.00</li>
-                    <li>20.00</li>
-                  </ul>
-                </td>
-              </tr>
+            <div class="menu-product" data-category="snacks">
+              <div class="product-details">
+                <span class="product-category">Snack</span>
+                <h4>Chin Chin</h4>
+              </div>
+              <p class="product-price">GH₵ 20.00</p>
+            </div>
 
-              <tr>
-                <td><strong>Friday</strong></td>
+          </div>
+        </article>
 
-                <td>
-                  <ul class="day-products">
-                    <li data-category="bread">Sourdough Loaf</li>
-                    <li data-category="bread">Whole Wheat Loaf</li>
-                    <li data-category="pastry">Meat Pies</li>
-                    <li data-category="snacks">Chin Chin</li>
-                  </ul>
-                </td>
+        <article class="menu-day-card">
 
-                <td>
-                  <ul class="day-prices">
-                    <li>35.00</li>
-                    <li>28.00</li>
-                    <li>12.00</li>
-                    <li>20.00</li>
-                  </ul>
-                </td>
-              </tr>
+          <div class="day-heading">
+            <div>
+              <h3>Friday</h3>
+              <span>Get ready for the weekend</span>
+            </div>
+            <span class="day-count">4 Bakes</span>
+          </div>
 
-              <tr class="alt-row">
-                <td><strong>Saturday</strong></td>
+          <img
+            class="day-photo"
+            src="https://d1w7312wesee68.cloudfront.net/080X_mKU_ZH0ZCv_dZNwfXgG39pILi82cux7inZd6dQ/resize%3Afit%3A720%3A720/plain/s3%3A/toasttab/menu_service/restaurants/8a033eac-0c2c-4414-ae10-c2c02f2d3b88/MenuItem/f8e7e7f1-e9be-4481-a6d8-436b0a037349.png"
+            alt="Golden butter croissant"
+            loading="lazy"
+          >
 
-                <td>
-                  <ul class="day-products">
-                    <li data-category="pastry">Butter Croissants</li>
-                    <li data-category="bread">Banana Bread</li>
-                    <li data-category="snacks">Chin Chin</li>
-                  </ul>
-                </td>
+          <div class="day-products">
 
-                <td>
-                  <ul class="day-prices">
-                    <li>18.00</li>
-                    <li>15.00</li>
-                    <li>20.00</li>
-                  </ul>
-                </td>
-              </tr>
+            <div class="menu-product" data-category="bread">
+              <div class="product-details">
+                <span class="product-category">Bread</span>
+                <h4>Sourdough Loaf</h4>
+              </div>
+              <p class="product-price">GH₵ 35.00</p>
+            </div>
 
-              <tr>
-                <td><strong>Sunday</strong></td>
-                <td colspan="2">
-                  Closed – No baking or collections.
-                </td>
-              </tr>
+            <div class="menu-product" data-category="bread">
+              <div class="product-details">
+                <span class="product-category">Bread</span>
+                <h4>Whole Wheat Loaf</h4>
+              </div>
+              <p class="product-price">GH₵ 28.00</p>
+            </div>
 
-            </tbody>
+            <div class="menu-product" data-category="pastry">
+              <div class="product-details">
+                <span class="product-category">Pastry</span>
+                <h4>Meat Pies</h4>
+              </div>
+              <p class="product-price">GH₵ 12.00</p>
+            </div>
 
-          </table>
+            <div class="menu-product" data-category="snacks">
+              <div class="product-details">
+                <span class="product-category">Snack</span>
+                <h4>Chin Chin</h4>
+              </div>
+              <p class="product-price">GH₵ 20.00</p>
+            </div>
 
-        </div>
+          </div>
+        </article>
 
-      </section>
+        <!-- Saturday -->
+        <article class="menu-day-card">
 
-      <section id="faq">
+          <div class="day-heading">
+            <div>
+              <h3>Saturday</h3>
+              <span>Weekend bakery treats</span>
+            </div>
+            <span class="day-count">3 Bakes</span>
+          </div>
 
-        <h2>Pre-Order FAQ</h2>
+          <img
+            class="day-photo"
+            src="https://cdn.shopify.com/s/files/1/0521/2415/6104/articles/Chin_Chin.jpg?v=1639595235"
+            alt="Bowl of golden Ghanaian chin chin"
+            loading="lazy"
+          >
 
+          <div class="day-products">
+
+            <div class="menu-product" data-category="pastry">
+              <div class="product-details">
+                <span class="product-category">Pastry</span>
+                <h4>Butter Croissants</h4>
+              </div>
+              <p class="product-price">GH₵ 18.00</p>
+            </div>
+
+            <div class="menu-product" data-category="bread">
+              <div class="product-details">
+                <span class="product-category">Bread</span>
+                <h4>Banana Bread</h4>
+              </div>
+              <p class="product-price">GH₵ 15.00</p>
+            </div>
+
+            <div class="menu-product" data-category="snacks">
+              <div class="product-details">
+                <span class="product-category">Snack</span>
+                <h4>Chin Chin</h4>
+              </div>
+              <p class="product-price">GH₵ 20.00</p>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Sunday -->
+        <article class="menu-day-card closed-day">
+
+          <div class="day-heading">
+            <div>
+              <h3>Sunday</h3>
+              <span>Our day to rest</span>
+            </div>
+            <span class="day-count">Closed</span>
+          </div>
+
+          <div class="closed-content">
+            <div class="closed-icon">休</div>
+            <div>
+              <h4>We're Closed on Sundays</h4>
+              <p>
+                Our ovens take a little break on Sundays.
+                We'll be back to serve you with fresh bakes on Monday.
+              </p>
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+
+      <div class="section-heading">
+        <p class="section-label">Good to know</p>
+        <h2>A Few Things to Know</h2>
         <p>
-          Quick answers to common pre-order questions.
+          Have questions about ordering?
+          Here are some helpful answers.
         </p>
+      </div>
 
-        <div class="faq-list">
+      <div class="faq-list">
 
-          <div class="faq-item">
+        <div class="faq-item">
+          <h3>
+            <button
+              type="button"
+              class="faq-trigger"
+              aria-expanded="false"
+              aria-controls="faq-answer-1"
+            >How far in advance do I need to order?</button>
+          </h3>
 
-            <h3>
-              <button
-                type="button"
-                class="faq-trigger"
-                aria-expanded="false"
-                aria-controls="faq-answer-1"
-              >
-                How far in advance do I need to order?
-              </button>
-            </h3>
-
-            <div class="faq-body" hidden id="faq-answer-1">
-              <p>
-                Please order at least one day ahead. Large or custom
-                orders may require two to three days.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="faq-item">
-
-            <h3>
-              <button
-                type="button"
-                class="faq-trigger"
-                aria-expanded="false"
-                aria-controls="faq-answer-2"
-              >
-                How do I collect my order?
-              </button>
-            </h3>
-
-            <div class="faq-body" hidden id="faq-answer-2">
-              <p>
-                Collect your labelled order at the agreed time.
-                Late collections can usually be held for up to two hours.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="faq-item">
-
-            <h3>
-              <button
-                type="button"
-                class="faq-trigger"
-                aria-expanded="false"
-                aria-controls="faq-answer-3"
-              >
-                Can I cancel or change my order?
-              </button>
-            </h3>
-
-            <div class="faq-body" hidden id="faq-answer-3">
-              <p>
-                Yes. Contact us as early as possible.
-                Changes may not be possible once baking has started.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="faq-item">
-
-            <h3>
-              <button
-                type="button"
-                class="faq-trigger"
-                aria-expanded="false"
-                aria-controls="faq-answer-4"
-              >
-                Do you deliver?
-              </button>
-            </h3>
-
-            <div class="faq-body" hidden id="faq-answer-4">
-              <p>
-                We currently offer collection from the bakery only.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      <section id="preorder">
-
-        <h2>Place a Pre-Order</h2>
-
-        <p>
-          Complete the form and we will contact you to confirm
-          your order and collection time.
-        </p>
-
-        <div class="preorder-section">
-
-          <form class="preorder-form">
-
-            <label for="customer-name">Your Name</label>
-
-            <input
-              type="text"
-              id="customer-name"
-              name="customer-name"
-              placeholder="Enter your name"
-              class="form-field"
-              required
-            />
-
-            <label for="order-details">
-              What would you like to order?
-            </label>
-
-            <textarea
-              id="order-details"
-              name="order-details"
-              placeholder="Enter your order"
-              class="form-field"
-              required
-            ></textarea>
-
-            <button type="submit" class="form-submit">
-              Submit Pre-Order
-            </button>
-
-          </form>
-
-          <div id="preorder-list"></div>
-
-        </div>
-
-      </section>
-
-      <section id="about">
-
-        <h2>About The Corner Loaf</h2>
-
-        <p>
-          Marcus started The Corner Loaf after years of baking at home
-          for friends and family. What started as a hobby turned into
-          a small bakery as demand grew. Everything is handmade in
-          small batches, with no mass production or shortcuts.
-        </p>
-
-        <div class="info-boxes">
-
-          <div class="info-box location-box">
-
-            <h3>Location</h3>
-
-            <p>17 Boundary Road</p>
-            <p>East Legon, Accra</p>
-
-          </div>
-
-          <div class="info-box hours-box">
-
-            <h3>Hours</h3>
-
-            <p>Monday to Friday: 7am - 5pm</p>
-            <p>Saturday: 7am - 2pm</p>
-            <p>Sunday: Closed</p>
-
-          </div>
-
-          <div class="info-box contact-box">
-
-            <h3>Contact</h3>
-
+          <div class="faq-body" hidden id="faq-answer-1">
             <p>
-              WhatsApp:
-              <a href="tel:+233551000000">0551 000 000</a>
+              Please order at least one day ahead.
+              Large or custom orders may require two to three days.
             </p>
-
-            <p>
-              Email:
-              <a href="mailto:thecornerloaf@email.com">
-                thecornerloaf@email.com
-              </a>
-            </p>
-
           </div>
-
         </div>
 
-      </section>
+        <div class="faq-item">
+          <h3>
+            <button
+              type="button"
+              class="faq-trigger"
+              aria-expanded="false"
+              aria-controls="faq-answer-2"
+            >How do I collect my order?</button>
+          </h3>
 
-      <section class="contact-section" id="contact">
+          <div class="faq-body" hidden id="faq-answer-2">
+            <p>
+              Collect your labelled order at the agreed time.
+              Late collections can usually be held for up to two hours.
+            </p>
+          </div>
+        </div>
 
-        <h2>Send Us a Message</h2>
+        <div class="faq-item">
+          <h3>
+            <button
+              type="button"
+              class="faq-trigger"
+              aria-expanded="false"
+              aria-controls="faq-answer-3"
+            >Can I cancel or change my order?</button>
+          </h3>
 
+          <div class="faq-body" hidden id="faq-answer-3">
+            <p>
+              Yes. Contact us as early as possible.
+              Changes may not be possible once baking has started.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3>
+            <button
+              type="button"
+              class="faq-trigger"
+              aria-expanded="false"
+              aria-controls="faq-answer-4"
+            >Do you deliver?</button>
+          </h3>
+
+          <div class="faq-body" hidden id="faq-answer-4">
+            <p>We currently offer collection from the bakery only.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pre-Order Section -->
+    <section id="preorder">
+
+      <div class="section-heading">
+        <p class="section-label">Made fresh for you</p>
+        <h2>Something Delicious Awaits</h2>
         <p>
-          Have a question or special request?
-          Send us a message and we will get back to you.
+          Have your favourites prepared for you.
+          Send us your pre-order request and we'll contact you
+          to confirm the details.
         </p>
+      </div>
 
-        <form class="contact-form">
+      <div class="preorder-section">
 
-          <label for="contact-name">Name</label>
+        <div class="form-intro">
+          <h3>Place Your Pre-Order</h3>
+          <p>Tell us what you'd like and we'll get back to you.</p>
+        </div>
 
+        <form class="preorder-form">
+
+          <label for="customer-name">Your Name</label>
           <input
             type="text"
-            name="contact-name"
-            id="contact-name"
-            placeholder="Your name"
+            id="customer-name"
+            name="customer-name"
+            placeholder="Enter your name"
             class="form-field"
             required
-          />
+          >
 
-          <label for="contact-email">Email</label>
-
-          <input
-            type="email"
-            name="contact-email"
-            id="contact-email"
-            placeholder="Email address"
-            class="form-field"
-            required
-          />
-
-          <label for="contact-message">Your Message</label>
-
+          <label for="order-details">What would you like to order?</label>
           <textarea
-            id="contact-message"
-            name="contact-message"
-            placeholder="Your message"
+            id="order-details"
+            name="order-details"
+            placeholder="Tell us which breads or pastries you'd like..."
             class="form-field"
             required
           ></textarea>
 
           <button type="submit" class="form-submit">
-            Send Message
+            Send Pre-Order Request
           </button>
-
-          <p
-            class="contact-feedback"
-            aria-live="polite"
-            role="status"
-          ></p>
 
         </form>
 
-      </section>
+        <div id="preorder-list" aria-live="polite"></div>
 
-    </main>
+      </div>
+    </section>
 
-    <footer class="footer">
+    <!-- About Section -->
+    <section id="about">
 
-      <p>The Corner Loaf &copy; 2026. Handmade in Accra.</p>
+      <div class="section-heading">
+        <p class="section-label">Our story</p>
+        <h2>A Little About Our Bakery</h2>
+      </div>
 
-    </footer>
+      <div class="about-content">
 
-    <script src="js/script.js" defer></script>
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=85"
+            alt="Baker preparing fresh dough in a bakery"
+            loading="lazy"
+          >
+        </div>
 
-  </body>
+        <div class="about-text">
+          <p>
+            Marcus started The Corner Loaf after years of baking at home
+            for friends and family. What began as a simple love for baking
+            gradually grew into a small local bakery as more people
+            discovered his handmade treats.
+          </p>
 
+          <p>
+            Today, we continue to prepare our breads and pastries
+            in small batches, with care, quality ingredients and
+            a passion for bringing freshly baked goodness to
+            the East Legon community.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bakery Information -->
+      <div class="info-boxes">
+
+        <div class="info-box">
+          <h3>Find Us</h3>
+          <p>17 Boundary Road</p>
+          <p>East Legon, Accra</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Opening Hours</h3>
+          <p>Monday – Friday: 7am – 5pm</p>
+          <p>Saturday: 7am – 2pm</p>
+          <p>Sunday: Closed</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Get in Touch</h3>
+
+          <p>
+            WhatsApp:
+            <a
+              href="https://wa.me/233551000000"
+              target="_blank"
+              rel="noopener noreferrer"
+            >0551 000 000</a>
+          </p>
+
+          <p>
+            Email:
+            <a href="mailto:thecornerloaf@email.com">
+              thecornerloaf@email.com
+            </a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+
+      <div class="section-heading">
+        <p class="section-label">Say hello</p>
+        <h2>We'd Love to Hear From You</h2>
+        <p>
+          Have a question, a special request or simply want
+          to say hello? Send us a message.
+        </p>
+      </div>
+
+      <form class="contact-form">
+
+        <div class="contact-form-heading">
+          <h3>Send Us a Message</h3>
+          <p>Fill in the details below and we'll be in touch.</p>
+        </div>
+
+        <label for="contact-name">Your Name</label>
+        <input
+          type="text"
+          name="contact-name"
+          id="contact-name"
+          placeholder="Enter your name"
+          class="form-field"
+          required
+        >
+
+        <label for="contact-email">Email Address</label>
+        <input
+          type="email"
+          name="contact-email"
+          id="contact-email"
+          placeholder="Enter your email"
+          class="form-field"
+          required
+        >
+
+        <label for="contact-message">Your Message</label>
+        <textarea
+          id="contact-message"
+          name="contact-message"
+          placeholder="Write your message here..."
+          class="form-field"
+          required
+        ></textarea>
+
+        <button type="submit" class="form-submit">Send Message</button>
+
+        <p
+          class="contact-feedback"
+          aria-live="polite"
+          role="status"
+        ></p>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+
+    <div class="footer-content">
+
+      <div class="footer-brand">
+        <h2>The Corner Loaf</h2>
+        <p>
+          Freshly handmade breads, pastries and baked treats
+          made with love in East Legon, Accra.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#menu">Our Menu</a>
+        <a href="#preorder">Pre-Order</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-message">
+        <h3>Fresh From Our Oven</h3>
+        <p>
+          Good bread, delicious pastries and a little
+          happiness in every bite.
+        </p>
+        <a href="#menu" class="footer-button">Explore Our Menu</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>The Corner Loaf © 2026. Handmade with love in Accra.</p>
+    </div>
+
+  </footer>
+
+</body>
 </html>

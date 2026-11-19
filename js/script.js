@@ -1,5 +1,45 @@
 
-// Product Availability Indicator
+// Mobile Hamburger Menu
+
+const menuToggle = document.querySelector(".menu-toggle");
+const mainMenu = document.querySelector("#main-menu");
+
+if (menuToggle && mainMenu) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Open navigation menu" : "Close navigation menu"
+    );
+
+    mainMenu.classList.toggle("is-open", !isOpen);
+  });
+
+  // Close the menu when a navigation link is clicked.
+  const menuLinks = mainMenu.querySelectorAll("a");
+
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      mainMenu.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    });
+  });
+
+  // Close the menu when Escape is pressed.
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      mainMenu.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    }
+  });
+}
+
+
+// Product Availability
 
 const daysOfWeek = [
   "Sunday",
@@ -50,18 +90,11 @@ const products = [
   },
 ];
 
-// Get the current day
-
-const currentDayIndex = new Date().getDay();
-const currentDay = daysOfWeek[currentDayIndex];
-
-// Find products scheduled for today
+const currentDay = daysOfWeek[new Date().getDay()];
 
 const availableProducts = products.filter((product) => {
   return product.days.includes(currentDay);
 });
-
-// Display scheduled products
 
 const availabilityList = document.querySelector("#availability-list");
 const availabilityDate = document.querySelector("#availability-date");
@@ -72,24 +105,25 @@ if (availabilityList && availabilityDate) {
   if (availableProducts.length > 0) {
     availableProducts.forEach((product) => {
       const productCard = document.createElement("div");
+      const productDetails = document.createElement("div");
       const productName = document.createElement("h4");
       const productPrice = document.createElement("p");
       const productStatus = document.createElement("span");
 
-      productName.textContent = product.name;
-      productPrice.textContent = `GH₵ ${product.price}`;
-      productStatus.textContent = "Scheduled for today";
-
       productCard.classList.add("availability-item");
+      productDetails.classList.add("availability-details");
       productName.classList.add("availability-product");
       productPrice.classList.add("availability-price");
-      productStatus.classList.add(
-        "availability-status",
-        "status-available"
-      );
+      productStatus.classList.add("availability-status");
 
-      productCard.appendChild(productName);
-      productCard.appendChild(productPrice);
+      productName.textContent = product.name;
+      productPrice.textContent = `GH₵ ${product.price.toFixed(2)}`;
+      productStatus.textContent = "Scheduled today";
+
+      productDetails.appendChild(productName);
+      productDetails.appendChild(productPrice);
+
+      productCard.appendChild(productDetails);
       productCard.appendChild(productStatus);
 
       availabilityList.appendChild(productCard);
@@ -104,19 +138,53 @@ if (availabilityList && availabilityDate) {
 // Product Filtering
 
 const filterButtons = document.querySelectorAll(".filter-button");
-const menuRows = document.querySelectorAll(".menu-table tbody tr");
+const menuProducts = document.querySelectorAll(".menu-product");
+const menuDayCards = document.querySelectorAll(".menu-day-card");
 const filterFeedback = document.querySelector("#filter-feedback");
+
+function filterMenu(selectedCategory) {
+  let visibleProducts = 0;
+
+  menuProducts.forEach((product) => {
+    const matchesCategory =
+      selectedCategory === "all" ||
+      product.dataset.category === selectedCategory;
+
+    product.hidden = !matchesCategory;
+
+    if (matchesCategory) {
+      visibleProducts++;
+    }
+  });
+
+  menuDayCards.forEach((dayCard) => {
+    // Keep the Sunday closed card visible for every filter.
+    if (dayCard.classList.contains("closed-day")) {
+      dayCard.hidden = false;
+      return;
+    }
+
+    const hasVisibleProducts = Array.from(
+      dayCard.querySelectorAll(".menu-product")
+    ).some((product) => !product.hidden);
+
+    dayCard.hidden = !hasVisibleProducts;
+  });
+
+  if (filterFeedback) {
+    if (selectedCategory === "all") {
+      filterFeedback.textContent =
+        `Showing all ${visibleProducts} scheduled product listings in the weekly menu.`;
+    } else {
+      filterFeedback.textContent =
+        `Showing ${visibleProducts} ${selectedCategory} product listings in the weekly menu.`;
+    }
+  }
+}
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-
-    // Get the selected category
-
     const selectedCategory = button.dataset.filter;
-
-    let visibleProducts = 0;
-
-    // Update the active filter button
 
     filterButtons.forEach((filterButton) => {
       filterButton.classList.remove("active");
@@ -126,155 +194,76 @@ filterButtons.forEach((button) => {
     button.classList.add("active");
     button.setAttribute("aria-pressed", "true");
 
-    // Filter products in the weekly menu
-
-    menuRows.forEach((row) => {
-
-      const productItems = row.querySelectorAll(".day-products li");
-      const priceItems = row.querySelectorAll(".day-prices li");
-
-      // Keep the Sunday closed message visible
-
-      if (productItems.length === 0) {
-        row.hidden = false;
-        return;
-      }
-
-      let visibleInRow = 0;
-
-      productItems.forEach((productItem, index) => {
-
-        const productName = productItem.textContent.trim();
-
-        const product = products.find((item) => {
-          return item.name === productName;
-        });
-
-        const matchesCategory =
-          selectedCategory === "all" ||
-          (product && product.category === selectedCategory);
-
-        productItem.hidden = !matchesCategory;
-
-        // Keep the matching price beside its product
-
-        if (priceItems[index]) {
-          priceItems[index].hidden = !matchesCategory;
-        }
-
-        if (matchesCategory) {
-          visibleInRow++;
-        }
-
-      });
-
-      // Hide days without matching products
-
-      row.hidden = visibleInRow === 0;
-
-      visibleProducts += visibleInRow;
-
-    });
-
-    // Display filtering feedback
-
-    if (filterFeedback) {
-      if (selectedCategory === "all") {
-        filterFeedback.textContent =
-          `Showing all ${visibleProducts} scheduled product listings in the weekly menu.`;
-      } else {
-        filterFeedback.textContent =
-          `Showing ${visibleProducts} ${selectedCategory} product listings in the weekly menu.`;
-      }
-    }
-
+    filterMenu(selectedCategory);
   });
 });
 
 
-// Pre-order FAQ Accordion
+// FAQ Accordion
 
 const faqTriggers = document.querySelectorAll(".faq-trigger");
 
 faqTriggers.forEach((trigger) => {
   trigger.addEventListener("click", () => {
-
     const answerId = trigger.getAttribute("aria-controls");
     const answer = document.getElementById(answerId);
 
-    if (!answer) return;
+    if (!answer) {
+      return;
+    }
 
     const isExpanded =
       trigger.getAttribute("aria-expanded") === "true";
 
     answer.hidden = isExpanded;
-
     trigger.setAttribute("aria-expanded", String(!isExpanded));
-
   });
 });
 
 
-// Pre-order Tracker
+// Pre-Order Tracker
 
-const preOrder = document.querySelector(".preorder-form");
-const preorderList = document.getElementById("preorder-list");
+const preOrderForm = document.querySelector(".preorder-form");
+const preorderList = document.querySelector("#preorder-list");
 
-if (preOrder && preorderList) {
-  preOrder.addEventListener("submit", (event) => {
-
+if (preOrderForm && preorderList) {
+  preOrderForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const name = document
-      .getElementById("customer-name")
+    const customerName = document
+      .querySelector("#customer-name")
       .value.trim();
 
     const orderDetails = document
-      .getElementById("order-details")
+      .querySelector("#order-details")
       .value.trim();
 
-    // Validate the pre-order fields
-
-    if (!name || !orderDetails) {
+    if (!customerName || !orderDetails) {
       preorderList.textContent =
         "Please complete all required fields before submitting.";
-
-      preorderList.style.color = "red";
       return;
     }
 
-    // Create the order card
+    const orderCard = document.createElement("div");
+    const nameParagraph = document.createElement("p");
+    const orderParagraph = document.createElement("p");
+    const feedback = document.createElement("p");
 
-    const parentContainer = document.createElement("div");
-    const customerName = document.createElement("p");
-    const customerOrderDetails = document.createElement("p");
+    orderCard.classList.add("order-card");
+    feedback.classList.add("preorder-feedback", "form-feedback", "success");
 
-    parentContainer.classList.add("order-card");
-
-    customerName.textContent = name;
-    customerOrderDetails.textContent = orderDetails;
-
-    parentContainer.appendChild(customerName);
-    parentContainer.appendChild(customerOrderDetails);
-
-    preorderList.appendChild(parentContainer);
-
-    // Display confirmation feedback
-
-    const successMessage = document.createElement("p");
-
-    successMessage.textContent =
+    nameParagraph.textContent = customerName;
+    orderParagraph.textContent = orderDetails;
+    feedback.textContent =
       "Your pre-order request has been added successfully.";
 
-    successMessage.classList.add("preorder-feedback");
-    successMessage.style.color = "green";
+    orderCard.appendChild(nameParagraph);
+    orderCard.appendChild(orderParagraph);
 
-    preorderList.appendChild(successMessage);
+    preorderList.appendChild(orderCard);
+    preorderList.appendChild(feedback);
 
-    // Clear the form
-
-    preOrder.reset();
-
+    preOrderForm.reset();
   });
 }
 
@@ -286,41 +275,33 @@ const contactFeedback = document.querySelector(".contact-feedback");
 
 if (contactForm && contactFeedback) {
   contactForm.addEventListener("submit", (event) => {
-
     event.preventDefault();
 
     const contactName = document
-      .getElementById("contact-name")
+      .querySelector("#contact-name")
       .value.trim();
 
     const contactEmail = document
-      .getElementById("contact-email")
+      .querySelector("#contact-email")
       .value.trim();
 
     const contactMessage = document
-      .getElementById("contact-message")
+      .querySelector("#contact-message")
       .value.trim();
 
-    // Check that all required fields are completed
+    contactFeedback.classList.remove("success", "error", "form-feedback");
 
     if (!contactName || !contactEmail || !contactMessage) {
       contactFeedback.textContent =
         "Please complete all required fields.";
-
-      contactFeedback.style.color = "red";
+      contactFeedback.classList.add("form-feedback", "error");
       return;
     }
 
-    // Display confirmation feedback
-
     contactFeedback.textContent =
       "Thank you! Your message has been submitted successfully.";
-
-    contactFeedback.style.color = "green";
-
-    // Clear the form after submission
+    contactFeedback.classList.add("form-feedback", "success");
 
     contactForm.reset();
-
   });
 }
