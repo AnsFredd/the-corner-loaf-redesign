@@ -1,11 +1,10 @@
-
 # The Corner Loaf Website Redesign
 
 ## Project Overview
 
 This project is a responsive redesign of The Corner Loaf bakery website for the EE01 – From Client Brief to Web Page module.
 
-The goal of the redesign is to improve the experience for customers who visit the website on their phones while commuting or on the move. The redesigned website makes it easier to find important information, view scheduled product availability, place pre-orders, contact the bakery, and learn more about the business.
+The goal of the redesign is to improve the experience for customers who visit the website on their phones while commuting or on the move. The redesigned website makes it easier to browse products, navigate between sections, place pre-orders, contact the bakery, and learn more about the business.
 
 The redesign also aims to better reflect The Corner Loaf's warm, welcoming, and community-focused identity.
 
@@ -13,7 +12,7 @@ The redesign also aims to better reflect The Corner Loaf's warm, welcoming, and 
 
 The redesigned website can be accessed using the link below:
 
-https://ansfredd.github.io/the-corner-loaf-redesign/
+[https://ansfredd.github.io/the-corner-loaf-redesign/](https://ansfredd.github.io/the-corner-loaf-redesign/)
 
 This allows my pair to access and view the finished website.
 
@@ -38,7 +37,7 @@ This project addresses the following objectives:
 - Diagnose issues in the existing website and identify their root causes.
 - Build a responsive and semantic website using HTML and CSS.
 - Evaluate the rebuilt website against accessibility and visual consistency principles.
-- Propose and implement an additional improvement that adds value for customers and the business.
+- Propose and implement additional improvements that add value for customers and the business.
 
 ## Deliverables
 
@@ -66,8 +65,9 @@ This project addresses the following objectives:
 
 ### Create
 
-- Additional scheduled bakery availability board
-- Business justification explaining the improvement's value to customers and the business
+- Interactive product filtering feature
+- Responsive hamburger navigation for smaller screens
+- Business justification explaining the improvements' value to customers and the business
 
 ## Form Functionality
 
@@ -97,4 +97,3 @@ the-corner-loaf-redesign/
 │
 └── assets/
     └── sketch.png
-```

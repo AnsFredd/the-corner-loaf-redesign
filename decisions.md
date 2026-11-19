@@ -6,27 +6,17 @@ This decision log records the design and development choices made during the red
 
 I selected a warm brown, orange and cream colour palette to reflect the traditional, handmade identity of The Corner Loaf. Rather than using general colour names, I defined specific hexadecimal colour values using CSS variables to maintain consistency throughout the website.
 
-The primary colour is Saddle Brown (`#8b4513`), which is used for the hero section, buttons and other important elements. The secondary colour is Chocolate (`#d2691e`), while Sandy Brown (`#f4a460`) provides a lighter accent for hover effects. I also selected Dark Brown (`#4a2c0a`) for the navigation bar, footer and headings to create contrast and visual hierarchy.
+The primary colour is a warm brown (`#8b4b27`), which is used for important elements such as buttons and other visual features. The secondary colour (`#bd7745`) provides another warm shade, while the accent colour (`#e8b77e`) adds lighter highlights. Dark Brown (`#382317`) provides contrast for darker elements and text.
 
-For lighter areas, I used Cream (`#fdf6ec`), Wheat (`#f5deb3`), Off-white (`#f9f9f9`) and White (`#ffffff`). These colours provide a softer background and prevent the darker brown shades from overwhelming the page.
+I also defined background and surface colours to keep the website light, welcoming and easy to read.
 
 I stored these values as CSS custom properties inside the `:root` selector so that colours can be reused and changed consistently without editing individual selectors.
 
-| Purpose | Colour Name | Hexadecimal Value |
-|---|---|---|
-| Primary | Saddle Brown | `#8b4513` |
-| Secondary | Chocolate | `#d2691e` |
-| Accent | Sandy Brown | `#f4a460` |
-| Dark | Dark Brown | `#4a2c0a` |
-| Background | Off-white | `#f9f9f9` |
-| Surface | White | `#ffffff` |
-| Alternate Rows | Cream | `#fdf6ec` |
-| Text | Near Black | `#222222` |
-| Light | Wheat | `#f5deb3` |
-
 ## 2. Typography
 
-I selected Verdana as the main font because it is simple and easy to read. I also created a consistent type scale using CSS variables: 14px for small text, 16px for body text, 20px for H3 headings, 24px for H2 headings and 36px for the main H1 heading. This helps customers read product descriptions, prices and important information easily.
+I selected a clear and readable font for the website because customers need to read product descriptions, prices and important business information easily.
+
+I also created reusable CSS variables for typography, including font sizes and font-family settings. This helps maintain consistency across headings, paragraphs, buttons and other text elements.
 
 ## 3. Page Layout
 
@@ -34,11 +24,13 @@ I chose a centred content layout with a maximum width of 1200px. This prevents c
 
 ## 4. Navigation
 
-I placed the navigation bar at the top of the page and included links to Home, Menu, Pre-Orders, About and Contact. I used a Dark Brown background (`#4a2c0a`) with Wheat-coloured links (`#f5deb3`) to maintain the website's colour scheme while making the navigation easy to identify.
+I placed the navigation bar at the top of the page and included links to Home, Menu, Pre-Orders, About and Contact. I used colours from the website's brown and cream palette to maintain consistency while making the navigation easy to identify.
+
+I also introduced a hamburger navigation menu for smaller screens. This keeps the navigation area compact on mobile devices and allows customers to open and close the navigation links when needed.
 
 ## 5. Hero Section
 
-I placed the bakery name and location directly below the navigation bar. I used the primary Saddle Brown colour (`#8b4513`) as the background with white text to make the bakery identity immediately noticeable to visitors. The large heading and letter spacing also help establish a clear visual hierarchy.
+I placed the bakery name and location directly below the navigation bar. I used the primary colour as the background with contrasting text to make the bakery identity immediately noticeable to visitors. The large heading and letter spacing also help establish a clear visual hierarchy.
 
 ## 6. Section Order
 
@@ -48,21 +40,23 @@ I arranged the page so that customers see the bakery introduction and product in
 
 I added a daily availability board near the beginning of the menu section. This decision addresses the client's problem of customers struggling to identify which products are available on a particular day. JavaScript checks the current day and displays the products scheduled for that day, helping customers find relevant information quickly.
 
-## 8. Weekly Menu Table
+The board displays scheduled products rather than real-time stock levels.
 
-I chose a table to display the bakery's weekly menu, including the products available each day and their prices. This presents the bakery's full weekly offering in an organised format, allowing customers to compare products and check prices easily.
+## 8. Weekly Menu Design
 
-The original sketch displayed the weekly menu as a small card-based layout showing only a few example bakery products. During development, I replaced this layout with a table organised by day, product and price.
+I chose a card-based layout to display the bakery's weekly menu. Each product is presented with an image, name, description and price.
 
-I made this change because the final menu contained more information than the original sketch represented. A card-based layout would have required customers to view multiple individual items, whereas a table allows all weekly information to be viewed in a single structured format.
+The original sketch displayed the weekly menu as a small card-based layout showing only a few example bakery products. During development, I expanded this idea to present the products more clearly and make the menu easier to browse.
 
-The table improves readability, supports a larger amount of content and makes it easier for customers to identify which products are available on specific days. Although the final implementation differs from the original sketch, the purpose of the section remains the same: to communicate product availability and pricing clearly.
+I chose product cards because they allow customers to identify individual bakery items visually instead of having to read through a large table of information. The images also help customers understand what the products look like before making a purchase decision.
 
-This change was therefore made to improve usability and better meet the client's requirement of helping customers understand the bakery's weekly product schedule.
+This design supports the client's requirement of making the bakery's products easier to discover and understand.
 
 ## 9. Availability Status Colours
 
-I used three different background colours to distinguish availability statuses. Green (`#e0f2e5`) represents available products, yellow (`#fff0cc`) represents low availability and red (`#fce4e4`) represents sold-out products. I chose these colours because they provide familiar visual indicators that help customers understand product availability quickly. The daily board currently displays scheduled products rather than real-time stock levels.
+I used different background colours to distinguish availability statuses. These provide familiar visual indicators that help customers understand product availability quickly.
+
+The daily board displays scheduled products rather than real-time stock levels, so the colours communicate the displayed availability information rather than live inventory quantities.
 
 ## 10. FAQ Accordion
 
@@ -82,27 +76,35 @@ I chose to display clear confirmation and error messages after form interactions
 
 ## 14. Responsive Design – Tablet Breakpoint
 
-I introduced a media query at 768px to adjust the hero heading, content padding and information box spacing. This helps maintain a comfortable layout on tablet-sized screens.
+I introduced a media query at 768px to adjust the layout for tablet-sized screens. This helps maintain comfortable spacing and prevents content from appearing too crowded on smaller devices.
 
 ## 15. Responsive Design – Mobile Breakpoint
 
-I introduced a breakpoint at 600px to adjust the navigation text, heading sizes, content spacing and information boxes. I also changed the daily availability board from two columns to one column. This makes the information easier to read on mobile phones, which are important to the client's commuting customers.
+I introduced a mobile breakpoint to adjust the navigation, heading sizes, content spacing and other layout elements for smaller screens.
+
+The hamburger navigation replaces the full navigation links on smaller screens, allowing customers to access the different website sections without overcrowding the header.
+
+The product layout also adjusts to available screen space so that customers can browse the menu more comfortably on mobile phones.
 
 ## 16. Responsive Design – Small Mobile Breakpoint
 
-I added a further breakpoint at 400px to reduce heading sizes and content padding on smaller phones. This prevents the layout from feeling cramped on narrow screens.
+I added a further breakpoint for smaller phones to adjust heading sizes and content spacing. This prevents the layout from feeling cramped on narrow screens.
 
 ## 17. Flexible Information Boxes
 
 I used Flexbox and wrapping for the location, opening hours and contact information boxes. This allows the boxes to sit alongside one another when space permits and stack vertically on smaller screens. Customers can therefore access important business information more easily.
 
-## 18. Table Responsiveness
+## 18. Product Filtering
 
-I placed the weekly menu table inside a container with horizontal overflow enabled. This allows customers using smaller screens to access the full table without forcing the entire webpage to become wider than the device screen.
+I added an interactive product filtering feature to the weekly menu section. This allows customers to filter products by category, including Bread, Pastry and Snacks. Customers can also select All to view the complete menu.
+
+JavaScript updates the displayed products when a category is selected. Products that do not match the selected category are hidden, while matching products remain visible. The menu updates without requiring a page refresh.
+
+I also included feedback showing how many matching products are displayed. This makes it easier for customers to browse the bakery's products without having to scan the entire menu.
 
 ## 19. Accessibility and Keyboard Focus
 
-I added visible focus styles to interactive elements such as buttons, FAQ controls and form fields. This helps customers who use a keyboard to navigate the website identify which element they are interacting with.
+I added visible focus styles to interactive elements such as buttons, navigation controls, FAQ controls and form fields. This helps customers who use a keyboard to navigate the website identify which element they are interacting with.
 
 ## 20. Smooth Scrolling
 
@@ -110,12 +112,16 @@ I enabled smooth scrolling for navigation between page sections. This creates a 
 
 ## 21. Location and Business Information
 
-I placed the bakery's location, opening hours and contact details in separate information boxes. I used different light background colours to distinguish the three boxes: Light Orange (`#ffe0b2`) for location, Light Green (`#c8e6c9`) for opening hours and Light Blue (`#bbdefb`) for contact information. This makes essential business information easier to identify.
+I placed the bakery's location, opening hours and contact details in separate information boxes. I used different background treatments to distinguish the three boxes. This makes essential business information easier to identify.
 
 ## 22. Footer
 
-I chose a simple footer with the bakery name and copyright information. I used the Dark Brown colour (`#4a2c0a`) for the background and Wheat (`#f5deb3`) for the text. This maintains the website's colour consistency and provides a clear ending to the page.
+I chose a simple footer with the bakery name and copyright information. I used colours from the website's palette to maintain visual consistency and provide a clear ending to the page.
 
 ## Conclusion
 
-The decisions made throughout the redesign were guided by the needs of The Corner Loaf and its customers. The main priorities were improving mobile usability, making product availability easier to understand, presenting information clearly and making it easier for customers to place pre-orders or contact the bakery. The use of specific colour values, consistent typography and responsive layouts also helps create a recognisable and consistent visual identity for the bakery.
+The decisions made throughout the redesign were guided by the needs of The Corner Loaf and its customers. The main priorities were improving mobile usability, presenting products clearly, making navigation easier and helping customers place pre-orders or contact the bakery.
+
+The use of reusable CSS variables, consistent typography and responsive layouts also helps create a recognisable and consistent visual identity for the bakery.
+
+The interactive product filtering and hamburger navigation provide additional improvements by making it easier for customers to browse products and navigate the website, particularly on mobile devices.

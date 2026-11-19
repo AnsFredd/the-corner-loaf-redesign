@@ -2,7 +2,7 @@
 
 ## Overview
 
-The redesign was evaluated against the problems identified during the diagnosis phase and the business goals described in the brief. The primary goal was not simply to modernise the website, but to help customers quickly answer a key question identified by Marcus: whether there is bread available today.
+The redesign was evaluated against the problems identified during the diagnosis phase and the business goals described in the brief. The primary goal was not simply to modernise the website, but to help customers quickly answer a key question identified by Marcus: whether there are products scheduled for baking today.
 
 The evaluation therefore focuses on how effectively the redesign supports customer decision-making, improves mobile usability, increases accessibility and reflects the character of a small, local bakery.
 
@@ -10,13 +10,13 @@ The evaluation therefore focuses on how effectively the redesign supports custom
 
 Several improvements were possible, but not all issues were equally important.
 
-The highest priority was helping customers find product availability information quickly. The diagnosis found that customers had to scan a weekly schedule to determine whether products were available on a particular day. This directly affected customer convenience and potentially reduced visits and sales opportunities.
+The highest priority was helping customers find product availability information quickly. The diagnosis found that customers had to scan the weekly menu to determine which products were scheduled for a particular day. This directly affected customer convenience and potentially reduced visits and sales opportunities.
 
 The second priority was mobile usability. The brief described customers checking information while commuting, making responsive design essential.
 
 Accessibility improvements were prioritised next because they affect the ability of many users to successfully navigate and interact with the website.
 
-Lower-priority enhancements, such as additional visual decoration, photography and advanced styling effects, were deferred because they did not contribute directly to the business goals identified in the brief.
+Lower-priority enhancements, such as additional visual decoration and advanced styling effects, were deferred because they did not contribute directly to the business goals identified in the brief.
 
 ---
 
@@ -26,17 +26,19 @@ Lower-priority enhancements, such as additional visual decoration, photography a
 
 #### Original Problem
 
-Customers could not immediately identify which products were available on a particular day.
+Customers could not immediately identify which products were scheduled for a particular day.
 
 #### Implemented Solution
 
 A "Today's Scheduled Bakes" board was introduced near the top of the page. JavaScript automatically displays products scheduled for the current day.
 
+The weekly menu was also organised into individual day cards, making the products and their prices easier to scan.
+
 #### Evaluation
 
 This was the most important improvement implemented in the redesign because it directly addresses the primary customer problem identified by Marcus.
 
-Customers no longer need to read the entire weekly schedule before deciding whether the bakery has products available that day. This significantly reduces effort for commuters making quick decisions while travelling.
+Customers no longer need to read through the entire weekly menu before deciding whether the bakery has products scheduled for that day. This reduces the effort involved for commuters making quick decisions while travelling.
 
 The solution also supports the business goal of making product information easier to discover.
 
@@ -56,11 +58,15 @@ The starter website used fixed-width layouts which created usability problems on
 
 The redesign introduces responsive layouts using flexible widths, Flexbox, CSS Grid and mobile breakpoints.
 
+A collapsible hamburger navigation menu was also introduced for smaller screens.
+
 #### Evaluation
 
 This improvement was prioritised because many visitors are likely to access the site on mobile devices.
 
-The redesigned layout adapts to smaller screens and allows important information to remain accessible without horizontal scrolling.
+The redesigned layout adapts to smaller screens, keeps the navigation accessible and allows important information to remain visible without horizontal scrolling.
+
+The product cards, forms and other content sections also adjust to smaller screen sizes.
 
 This supports the commuter use case described in the brief.
 
@@ -74,7 +80,7 @@ The starter site relied heavily on generic elements and contained several access
 
 #### Implemented Solution
 
-The redesign introduced semantic elements, accessible table headers, labelled form controls, focus indicators and button-based FAQ controls with ARIA attributes.
+The redesign uses semantic HTML elements, labelled form controls, visible focus indicators and button-based FAQ controls with ARIA attributes.
 
 #### Evaluation
 
@@ -103,13 +109,13 @@ The FAQ accordion, pre-order functionality and contact form interactions were no
 
 #### Implemented Solution
 
-JavaScript functionality was added for FAQ expansion, basic pre-order tracking and form validation.
+JavaScript functionality was added for FAQ expansion, product filtering, basic pre-order tracking and form validation.
 
 #### Evaluation
 
-These features improve usability by providing immediate feedback to customers and allowing interaction without page reloads.
+These features improve usability by allowing customers to interact with the website and receive immediate feedback without unnecessary page reloads.
 
-The FAQ section is now easier to navigate, while form validation helps prevent incomplete submissions.
+The FAQ section allows customers to expand and collapse answers, while the product filters make it easier to find products by category. Form validation also helps prevent incomplete submissions.
 
 #### Limitation
 
@@ -127,26 +133,29 @@ The redesign supports this requirement through:
 
 - A warm brown colour palette inspired by baked goods.
 - Simple and familiar navigation.
-- Content that focuses on products and customer needs rather than marketing language.
+- A product-focused menu with clear prices.
+- Content that focuses on customer needs rather than excessive marketing language.
 - A short introduction that tells Marcus's story without dominating the page.
 
-The hero title styling was intentionally softened to avoid an overly corporate appearance.
+The overall design was kept simple and welcoming to reflect the identity of the business.
 
 ### Colour Palette
 
 The chosen palette uses warm browns, creams and bakery-inspired neutral colours to support the handmade identity of the business.
 
-The information cards were also updated to use tones that better match the overall bakery theme.
+The colours are also organised using CSS variables, making them easier to maintain and update consistently throughout the website.
 
 ### Typography
 
-A consistent type scale was implemented using design tokens and responsive sizing adjustments.
+A consistent type scale was implemented using reusable CSS variables for font families and common font sizes.
 
-This improves hierarchy while maintaining readability across different screen sizes.
+Responsive font-size adjustments help maintain a clear hierarchy while keeping text readable across different screen sizes.
 
 ### Spacing and Layout
 
-Consistent spacing values were applied throughout the interface to create a cleaner structure and improve scanability, particularly on smaller screens.
+Consistent spacing was applied throughout the interface to create a cleaner structure and improve scanability, particularly on smaller screens.
+
+The menu cards, FAQ section and information areas were also adjusted to create a more organised layout.
 
 ---
 
@@ -176,6 +185,6 @@ Features such as WhatsApp ordering, delivery tracking, customer accounts and onl
 
 The redesign successfully addresses the most significant issues identified during diagnosis.
 
-The strongest outcome is the prioritisation of product availability information, helping customers quickly determine what is being baked on a given day. Combined with responsive layouts, accessibility improvements and meaningful interactions, the redesigned website is substantially better aligned with both customer needs and business goals than the original starter implementation.
+The strongest outcome is the prioritisation of product availability information, helping customers quickly determine what is scheduled to be baked on a given day. Combined with the redesigned weekly menu cards, responsive layouts, accessibility improvements and interactive features, the website is substantially better aligned with both customer needs and business goals than the original starter implementation.
 
 While some limitations remain, particularly around real-time stock information and backend integration, those limitations were accepted in favour of solving the highest-priority usability problems first.

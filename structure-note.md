@@ -4,7 +4,7 @@ The page structure was designed before development and was based on the needs de
 
 ## Priority 1: Find Out What Is Available Today
 
-The navigation appears at the top of the page so visitors can quickly move to any section without excessive scrolling.
+The navigation appears at the top of the page so visitors can quickly move to any section without excessive scrolling. On smaller screens, a hamburger menu keeps the navigation compact and allows visitors to open and close the navigation links when needed.
 
 The hero section follows immediately after the navigation. Its purpose is to quickly identify the bakery and reassure visitors that they are in the correct place. It intentionally stays brief so customers can reach important information quickly.
 
@@ -14,7 +14,9 @@ This decision prioritises task completion over exploration. Customers can quickl
 
 ## Priority 2: Support Ordering Decisions
 
-The weekly menu appears directly after the availability board. Once customers know what may be available today, they can browse the complete baking schedule, compare products and view prices.
+The weekly menu appears directly after the availability board. Once customers have checked what is scheduled for today, they can browse the complete weekly menu, compare products and view prices.
+
+I also added interactive product filtering to the weekly menu. Customers can select categories such as Bread, Pastry and Snacks, or choose All to view the complete menu. This makes it easier to find particular products without having to scan the entire menu.
 
 The FAQ section is intentionally placed before the pre-order form. Customers often have questions about ordering, collection, cancellations and delivery before submitting an order request. Providing answers first helps reduce uncertainty and allows customers to complete the form with greater confidence.
 
@@ -36,8 +38,12 @@ The footer remains simple and provides a clear end point to the page while reinf
 
 ## Mobile-First Considerations
 
-The structure was designed with mobile users in mind. Visitors checking the website while travelling should be able to reach critical information with minimal scrolling. The most important content, including product availability, menu information and ordering options, is positioned near the top of the page. Lower-priority content such as business background information and contact details appears later because it is less likely to be required during a quick visit.
+The structure was designed with mobile users in mind. Visitors checking the website while travelling should be able to reach critical information with minimal scrolling. The most important content, including product availability, menu information and ordering options, is positioned near the top of the page.
+
+The hamburger navigation makes it easier to access the website's sections on smaller screens without overcrowding the header. Product filtering also supports mobile browsing by allowing customers to narrow down the menu to the categories they want to see.
+
+Lower-priority content such as business background information and contact details appears later because it is less likely to be required during a quick visit.
 
 ## Summary
 
-The structure prioritises customer goals rather than organisational information. Product availability, menu information and ordering actions appear first because they support the main business objective of helping customers decide whether to visit or pre-order. Information about the bakery and contact options remains available but is intentionally placed lower because it is less critical during a customer's initial visit.
+The structure prioritises customer goals rather than organisational information. Product availability, menu information and ordering actions appear first because they support the main business objective of helping customers decide whether to visit or pre-order. The hamburger navigation and product filtering further improve the mobile browsing experience. Information about the bakery and contact options remains available but is intentionally placed lower because it is less critical during a customer's initial visit.
