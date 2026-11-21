@@ -118,12 +118,10 @@
           <span class="today-label" id="availability-date">Today's Bakes</span>
         </div>
 
-        <div
+        <ul
           class="availability-list"
           id="availability-list"
-          aria-live="polite"
-          role="status"
-        ></div>
+        ></ul>
 
         <p class="availability-note">
           Our products are prepared in small batches.
@@ -190,11 +188,11 @@
       <div class="menu-days">
 
         <!-- Monday -->
-        <article class="menu-day-card">
+        <article class="menu-day-card" aria-labelledby="day-monday">
 
           <div class="day-heading">
             <div>
-              <h3>Monday</h3>
+              <h3 id="day-monday">Monday</h3>
               <span>Start the week fresh</span>
             </div>
             <span class="day-count">2 Bakes</span>
@@ -203,37 +201,37 @@
           <img
             class="day-photo"
             src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85"
-            alt="Freshly baked artisan bread"
+            alt=""
             loading="lazy"
           >
 
-          <div class="day-products">
+          <ul class="day-products">
 
-            <div class="menu-product" data-category="bread">
+            <li class="menu-product" data-category="bread">
               <div class="product-details">
                 <span class="product-category">Bread</span>
-                <h4>Whole Wheat Loaf</h4>
+                <p class="product-name">Whole Wheat Loaf</p>
               </div>
               <p class="product-price">GH₵ 28.00</p>
-            </div>
+            </li>
 
-            <div class="menu-product" data-category="snacks">
+            <li class="menu-product" data-category="snacks">
               <div class="product-details">
                 <span class="product-category">Snack</span>
-                <h4>Chin Chin</h4>
+                <p class="product-name">Chin Chin</p>
               </div>
               <p class="product-price">GH₵ 20.00</p>
-            </div>
+            </li>
 
-          </div>
+          </ul>
         </article>
 
         <!-- Tuesday -->
-        <article class="menu-day-card">
+        <article class="menu-day-card" aria-labelledby="day-tuesday">
 
           <div class="day-heading">
             <div>
-              <h3>Tuesday</h3>
+              <h3 id="day-tuesday">Tuesday</h3>
               <span>Freshly prepared favourites</span>
             </div>
             <span class="day-count">2 Bakes</span>
@@ -242,37 +240,37 @@
           <img
             class="day-photo"
             src="https://ik.imagekit.io/kuuwgr5owx/panaderia-montano/landing-montano/pan-masa-madre-montano-oeste-cali-bellavista.webp"
-            alt="Fresh sourdough loaf"
+            alt=""
             loading="lazy"
           >
 
-          <div class="day-products">
+          <ul class="day-products">
 
-            <div class="menu-product" data-category="bread">
+            <li class="menu-product" data-category="bread">
               <div class="product-details">
                 <span class="product-category">Bread</span>
-                <h4>Sourdough Loaf</h4>
+                <p class="product-name">Sourdough Loaf</p>
               </div>
               <p class="product-price">GH₵ 35.00</p>
-            </div>
+            </li>
 
-            <div class="menu-product" data-category="snacks">
+            <li class="menu-product" data-category="snacks">
               <div class="product-details">
                 <span class="product-category">Snack</span>
-                <h4>Chin Chin</h4>
+                <p class="product-name">Chin Chin</p>
               </div>
               <p class="product-price">GH₵ 20.00</p>
-            </div>
+            </li>
 
-          </div>
+          </ul>
         </article>
 
         <!-- Wednesday -->
-        <article class="menu-day-card">
+        <article class="menu-day-card" aria-labelledby="day-wednesday">
 
           <div class="day-heading">
             <div>
-              <h3>Wednesday</h3>
+              <h3 id="day-wednesday">Wednesday</h3>
               <span>A little something for everyone</span>
             </div>
             <span class="day-count">3 Bakes</span>
@@ -281,45 +279,45 @@
           <img
             class="day-photo"
             src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/aussie_meat_pie.jpg"
-            alt="Golden freshly baked meat pies"
+            alt=""
             loading="lazy"
           >
 
-          <div class="day-products">
+          <ul class="day-products">
 
-            <div class="menu-product" data-category="bread">
+            <li class="menu-product" data-category="bread">
               <div class="product-details">
                 <span class="product-category">Bread</span>
-                <h4>Whole Wheat Loaf</h4>
+                <p class="product-name">Whole Wheat Loaf</p>
               </div>
               <p class="product-price">GH₵ 28.00</p>
-            </div>
+            </li>
 
-            <div class="menu-product" data-category="pastry">
+            <li class="menu-product" data-category="pastry">
               <div class="product-details">
                 <span class="product-category">Pastry</span>
-                <h4>Meat Pies</h4>
+                <p class="product-name">Meat Pies</p>
               </div>
               <p class="product-price">GH₵ 12.00</p>
-            </div>
+            </li>
 
-            <div class="menu-product" data-category="snacks">
+            <li class="menu-product" data-category="snacks">
               <div class="product-details">
                 <span class="product-category">Snack</span>
-                <h4>Chin Chin</h4>
+                <p class="product-name">Chin Chin</p>
               </div>
               <p class="product-price">GH₵ 20.00</p>
-            </div>
+            </li>
 
-          </div>
+          </ul>
         </article>
 
         <!-- Thursday -->
-        <article class="menu-day-card">
+        <article class="menu-day-card" aria-labelledby="day-thursday">
 
           <div class="day-heading">
             <div>
-              <h3>Thursday</h3>
+              <h3 id="day-thursday">Thursday</h3>
               <span>Sweet and satisfying</span>
             </div>
             <span class="day-count">2 Bakes</span>
@@ -328,37 +326,37 @@
           <img
             class="day-photo"
             src="https://itsonly.recipes/images/recipeimages/classic-banana-bread.webp"
-            alt="Freshly baked banana bread"
+            alt=""
             loading="lazy"
           >
 
-          <div class="day-products">
+          <ul class="day-products">
 
-            <div class="menu-product" data-category="bread">
+            <li class="menu-product" data-category="bread">
               <div class="product-details">
                 <span class="product-category">Bread</span>
-                <h4>Banana Bread</h4>
+                <p class="product-name">Banana Bread</p>
               </div>
               <p class="product-price">GH₵ 15.00</p>
-            </div>
+            </li>
 
-            <div class="menu-product" data-category="snacks">
+            <li class="menu-product" data-category="snacks">
               <div class="product-details">
                 <span class="product-category">Snack</span>
-                <h4>Chin Chin</h4>
+                <p class="product-name">Chin Chin</p>
               </div>
               <p class="product-price">GH₵ 20.00</p>
-            </div>
+            </li>
 
-          </div>
+          </ul>
         </article>
 
         <!-- Friday -->
-        <article class="menu-day-card">
+        <article class="menu-day-card" aria-labelledby="day-friday">
 
           <div class="day-heading">
             <div>
-              <h3>Friday</h3>
+              <h3 id="day-friday">Friday</h3>
               <span>Get ready for the weekend</span>
             </div>
             <span class="day-count">4 Bakes</span>
@@ -367,53 +365,53 @@
           <img
             class="day-photo"
             src="https://d1w7312wesee68.cloudfront.net/080X_mKU_ZH0ZCv_dZNwfXgG39pILi82cux7inZd6dQ/resize%3Afit%3A720%3A720/plain/s3%3A/toasttab/menu_service/restaurants/8a033eac-0c2c-4414-ae10-c2c02f2d3b88/MenuItem/f8e7e7f1-e9be-4481-a6d8-436b0a037349.png"
-            alt="Golden butter croissant"
+            alt=""
             loading="lazy"
           >
 
-          <div class="day-products">
+          <ul class="day-products">
 
-            <div class="menu-product" data-category="bread">
+            <li class="menu-product" data-category="bread">
               <div class="product-details">
                 <span class="product-category">Bread</span>
-                <h4>Sourdough Loaf</h4>
+                <p class="product-name">Sourdough Loaf</p>
               </div>
               <p class="product-price">GH₵ 35.00</p>
-            </div>
+            </li>
 
-            <div class="menu-product" data-category="bread">
+            <li class="menu-product" data-category="bread">
               <div class="product-details">
                 <span class="product-category">Bread</span>
-                <h4>Whole Wheat Loaf</h4>
+                <p class="product-name">Whole Wheat Loaf</p>
               </div>
               <p class="product-price">GH₵ 28.00</p>
-            </div>
+            </li>
 
-            <div class="menu-product" data-category="pastry">
+            <li class="menu-product" data-category="pastry">
               <div class="product-details">
                 <span class="product-category">Pastry</span>
-                <h4>Meat Pies</h4>
+                <p class="product-name">Meat Pies</p>
               </div>
               <p class="product-price">GH₵ 12.00</p>
-            </div>
+            </li>
 
-            <div class="menu-product" data-category="snacks">
+            <li class="menu-product" data-category="snacks">
               <div class="product-details">
                 <span class="product-category">Snack</span>
-                <h4>Chin Chin</h4>
+                <p class="product-name">Chin Chin</p>
               </div>
               <p class="product-price">GH₵ 20.00</p>
-            </div>
+            </li>
 
-          </div>
+          </ul>
         </article>
 
         <!-- Saturday -->
-        <article class="menu-day-card">
+        <article class="menu-day-card" aria-labelledby="day-saturday">
 
           <div class="day-heading">
             <div>
-              <h3>Saturday</h3>
+              <h3 id="day-saturday">Saturday</h3>
               <span>Weekend bakery treats</span>
             </div>
             <span class="day-count">3 Bakes</span>
@@ -422,52 +420,52 @@
           <img
             class="day-photo"
             src="https://cdn.shopify.com/s/files/1/0521/2415/6104/articles/Chin_Chin.jpg?v=1639595235"
-            alt="Bowl of golden Ghanaian chin chin"
+            alt=""
             loading="lazy"
           >
 
-          <div class="day-products">
+          <ul class="day-products">
 
-            <div class="menu-product" data-category="pastry">
+            <li class="menu-product" data-category="pastry">
               <div class="product-details">
                 <span class="product-category">Pastry</span>
-                <h4>Butter Croissants</h4>
+                <p class="product-name">Butter Croissants</p>
               </div>
               <p class="product-price">GH₵ 18.00</p>
-            </div>
+            </li>
 
-            <div class="menu-product" data-category="bread">
+            <li class="menu-product" data-category="bread">
               <div class="product-details">
                 <span class="product-category">Bread</span>
-                <h4>Banana Bread</h4>
+                <p class="product-name">Banana Bread</p>
               </div>
               <p class="product-price">GH₵ 15.00</p>
-            </div>
+            </li>
 
-            <div class="menu-product" data-category="snacks">
+            <li class="menu-product" data-category="snacks">
               <div class="product-details">
                 <span class="product-category">Snack</span>
-                <h4>Chin Chin</h4>
+                <p class="product-name">Chin Chin</p>
               </div>
               <p class="product-price">GH₵ 20.00</p>
-            </div>
+            </li>
 
-          </div>
+          </ul>
         </article>
 
         <!-- Sunday -->
-        <article class="menu-day-card closed-day">
+        <article class="menu-day-card closed-day" aria-labelledby="day-sunday">
 
           <div class="day-heading">
             <div>
-              <h3>Sunday</h3>
+              <h3 id="day-sunday">Sunday</h3>
               <span>Our day to rest</span>
             </div>
             <span class="day-count">Closed</span>
           </div>
 
           <div class="closed-content">
-            <div class="closed-icon">休</div>
+            <div class="closed-icon" aria-hidden="true">休</div>
             <div>
               <h4>We're Closed on Sundays</h4>
               <p>
@@ -503,7 +501,7 @@
               class="faq-trigger"
               aria-expanded="false"
               aria-controls="faq-answer-1"
-            >How far in advance do I need to order?</button>
+            >How far in advance do I need to order?<span class="faq-icon" aria-hidden="true"></span></button>
           </h3>
 
           <div class="faq-body" hidden id="faq-answer-1">
@@ -521,7 +519,7 @@
               class="faq-trigger"
               aria-expanded="false"
               aria-controls="faq-answer-2"
-            >How do I collect my order?</button>
+            >How do I collect my order?<span class="faq-icon" aria-hidden="true"></span></button>
           </h3>
 
           <div class="faq-body" hidden id="faq-answer-2">
@@ -539,7 +537,7 @@
               class="faq-trigger"
               aria-expanded="false"
               aria-controls="faq-answer-3"
-            >Can I cancel or change my order?</button>
+            >Can I cancel or change my order?<span class="faq-icon" aria-hidden="true"></span></button>
           </h3>
 
           <div class="faq-body" hidden id="faq-answer-3">
@@ -557,7 +555,7 @@
               class="faq-trigger"
               aria-expanded="false"
               aria-controls="faq-answer-4"
-            >Do you deliver?</button>
+            >Do you deliver?<span class="faq-icon" aria-hidden="true"></span></button>
           </h3>
 
           <div class="faq-body" hidden id="faq-answer-4">
@@ -588,6 +586,8 @@
           <p>Tell us what you'd like and we'll get back to you.</p>
         </div>
 
+        <p class="form-instructions">All fields are required.</p>
+
         <form class="preorder-form">
 
           <label for="customer-name">Your Name</label>
@@ -597,6 +597,8 @@
             name="customer-name"
             placeholder="Enter your name"
             class="form-field"
+            autocomplete="name"
+            aria-describedby="preorder-feedback"
             required
           >
 
@@ -606,12 +608,15 @@
             name="order-details"
             placeholder="Tell us which breads or pastries you'd like..."
             class="form-field"
+            aria-describedby="preorder-feedback"
             required
           ></textarea>
 
           <button type="submit" class="form-submit">
             Send Pre-Order Request
           </button>
+
+          <p id="preorder-feedback" class="form-feedback error" role="alert" hidden></p>
 
         </form>
 
@@ -714,6 +719,8 @@
           <p>Fill in the details below and we'll be in touch.</p>
         </div>
 
+      <p class="form-instructions">All fields are required.</p>
+
         <label for="contact-name">Your Name</label>
         <input
           type="text"
@@ -721,6 +728,8 @@
           id="contact-name"
           placeholder="Enter your name"
           class="form-field"
+          autocomplete="name"
+          aria-describedby="contact-error"
           required
         >
 
@@ -731,6 +740,8 @@
           id="contact-email"
           placeholder="Enter your email"
           class="form-field"
+          autocomplete="email"
+          aria-describedby="contact-error"
           required
         >
 
@@ -740,10 +751,13 @@
           name="contact-message"
           placeholder="Write your message here..."
           class="form-field"
+          aria-describedby="contact-error"
           required
         ></textarea>
 
         <button type="submit" class="form-submit">Send Message</button>
+
+        <p id="contact-error" class="form-feedback error" role="alert" hidden></p>
 
         <p
           class="contact-feedback"

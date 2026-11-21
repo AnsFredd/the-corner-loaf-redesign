@@ -58,7 +58,7 @@ WAVE showed six possible-heading alerts at the six menu prices: GHâ‚µ35.00, GHâ‚
 
 ## Test scope
 
-This audit covers the single live page from navigation through footer, the automated results listed above, the recorded keyboard and screen-reader observations, the supplied responsive and text-size captures, the measured contrast pairs, and the 27 rendered interactive targets listed in the [testing log](testing-log.md). The evidence files are in `docs/eeo2/screenshots/`; the source links above are pinned to the peer repository commit shown at the top of this report.
+This audit covers the single live page from navigation through footer, the automated results listed above, the recorded keyboard and screen-reader observations, the supplied responsive and text-size captures, the measured contrast pairs, and the 27 rendered interactive targets listed in the [testing log](testing-log.md). The evidence files are in `docs/ee02/screenshots/`; the source links above are pinned to the peer repository commit shown at the top of this report.
 
 ## Evidence index
 

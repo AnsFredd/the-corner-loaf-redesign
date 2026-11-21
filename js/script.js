@@ -104,9 +104,9 @@ if (availabilityList && availabilityDate) {
 
   if (availableProducts.length > 0) {
     availableProducts.forEach((product) => {
-      const productCard = document.createElement("div");
+      const productCard = document.createElement("li");
       const productDetails = document.createElement("div");
-      const productName = document.createElement("h4");
+      const productName = document.createElement("p");
       const productPrice = document.createElement("p");
       const productStatus = document.createElement("span");
 
@@ -129,8 +129,11 @@ if (availabilityList && availabilityDate) {
       availabilityList.appendChild(productCard);
     });
   } else {
-    availabilityList.textContent =
+    const emptyMessage = document.createElement("li");
+    emptyMessage.classList.add("availability-empty");
+    emptyMessage.textContent =
       "No scheduled bakes today. Please check back tomorrow.";
+    availabilityList.appendChild(emptyMessage);
   }
 }
 
@@ -167,6 +170,15 @@ function filterMenu(selectedCategory) {
     const hasVisibleProducts = Array.from(
       dayCard.querySelectorAll(".menu-product")
     ).some((product) => !product.hidden);
+
+    const visibleCount = Array.from(
+      dayCard.querySelectorAll(".menu-product")
+    ).filter((product) => !product.hidden).length;
+    const dayCount = dayCard.querySelector(".day-count");
+
+    if (dayCount) {
+      dayCount.textContent = `${visibleCount} ${visibleCount === 1 ? "Bake" : "Bakes"}`;
+    }
 
     dayCard.hidden = !hasVisibleProducts;
   });
@@ -225,24 +237,57 @@ faqTriggers.forEach((trigger) => {
 
 const preOrderForm = document.querySelector(".preorder-form");
 const preorderList = document.querySelector("#preorder-list");
+const preorderFeedback = document.querySelector("#preorder-feedback");
+const customerNameInput = document.querySelector("#customer-name");
+const orderDetailsInput = document.querySelector("#order-details");
 
-if (preOrderForm && preorderList) {
+if (
+  preOrderForm &&
+  preorderList &&
+  preorderFeedback &&
+  customerNameInput &&
+  orderDetailsInput
+) {
+  [customerNameInput, orderDetailsInput].forEach((field) => {
+    field.addEventListener("input", () => {
+      if (field.value.trim()) {
+        field.removeAttribute("aria-invalid");
+      }
+
+      if (customerNameInput.value.trim() && orderDetailsInput.value.trim()) {
+        preorderFeedback.textContent = "";
+        preorderFeedback.hidden = true;
+      }
+    });
+  });
+
   preOrderForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const customerName = document
-      .querySelector("#customer-name")
-      .value.trim();
+    const customerName = customerNameInput.value.trim();
+    const orderDetails = orderDetailsInput.value.trim();
+    const missingFields = [];
 
-    const orderDetails = document
-      .querySelector("#order-details")
-      .value.trim();
+    customerNameInput.toggleAttribute("aria-invalid", !customerName);
+    orderDetailsInput.toggleAttribute("aria-invalid", !orderDetails);
 
-    if (!customerName || !orderDetails) {
-      preorderList.textContent =
-        "Please complete all required fields before submitting.";
+    if (!customerName) {
+      missingFields.push("your name");
+    }
+
+    if (!orderDetails) {
+      missingFields.push("what you would like to order");
+    }
+
+    if (missingFields.length > 0) {
+      preorderFeedback.textContent = `Please enter ${missingFields.join(" and ")}.`;
+      preorderFeedback.hidden = false;
+      (customerName ? orderDetailsInput : customerNameInput).focus();
       return;
     }
+
+    preorderFeedback.textContent = "";
+    preorderFeedback.hidden = true;
 
     const orderCard = document.createElement("div");
     const nameParagraph = document.createElement("p");
@@ -272,32 +317,76 @@ if (preOrderForm && preorderList) {
 
 const contactForm = document.querySelector(".contact-form");
 const contactFeedback = document.querySelector(".contact-feedback");
+const contactError = document.querySelector("#contact-error");
+const contactNameInput = document.querySelector("#contact-name");
+const contactEmailInput = document.querySelector("#contact-email");
+const contactMessageInput = document.querySelector("#contact-message");
 
-if (contactForm && contactFeedback) {
+if (
+  contactForm &&
+  contactFeedback &&
+  contactError &&
+  contactNameInput &&
+  contactEmailInput &&
+  contactMessageInput
+) {
+  const contactFields = [
+    contactNameInput,
+    contactEmailInput,
+    contactMessageInput,
+  ];
+
+  contactFields.forEach((field) => {
+    field.addEventListener("input", () => {
+      if (field.value.trim()) {
+        field.removeAttribute("aria-invalid");
+      }
+
+      if (contactFields.every((contactField) => contactField.value.trim())) {
+        contactError.textContent = "";
+        contactError.hidden = true;
+      }
+    });
+  });
+
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const contactName = document
-      .querySelector("#contact-name")
-      .value.trim();
+    const contactName = contactNameInput.value.trim();
+    const contactEmail = contactEmailInput.value.trim();
+    const contactMessage = contactMessageInput.value.trim();
+    const missingFields = [];
 
-    const contactEmail = document
-      .querySelector("#contact-email")
-      .value.trim();
+    contactNameInput.toggleAttribute("aria-invalid", !contactName);
+    contactEmailInput.toggleAttribute("aria-invalid", !contactEmail);
+    contactMessageInput.toggleAttribute("aria-invalid", !contactMessage);
 
-    const contactMessage = document
-      .querySelector("#contact-message")
-      .value.trim();
+    if (!contactName) {
+      missingFields.push("your name");
+    }
+
+    if (!contactEmail) {
+      missingFields.push("your email address");
+    }
+
+    if (!contactMessage) {
+      missingFields.push("your message");
+    }
 
     contactFeedback.classList.remove("success", "error", "form-feedback");
 
-    if (!contactName || !contactEmail || !contactMessage) {
-      contactFeedback.textContent =
-        "Please complete all required fields.";
-      contactFeedback.classList.add("form-feedback", "error");
+    if (missingFields.length > 0) {
+      contactError.textContent = `Please enter ${missingFields.join(", ").replace(/, ([^,]+)$/, " and $1")}.`;
+      contactError.hidden = false;
+      const firstInvalidField = contactFields.find(
+        (field) => !field.value.trim()
+      );
+      firstInvalidField.focus();
       return;
     }
 
+    contactError.textContent = "";
+    contactError.hidden = true;
     contactFeedback.textContent =
       "Thank you! Your message has been submitted successfully.";
     contactFeedback.classList.add("form-feedback", "success");
