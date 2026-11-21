@@ -1,33 +1,91 @@
-# EE02 testing log — partner site
+# Testing log: The Corner Loaf by Elvis Fosu Owusu
 
-- Site: https://esfokom-a.github.io/the-corner-loaf/
-- Tester: Frederick Ansah
-- Date: 21 November 2026; exact times for manual checks were not recorded
-- Status: Complete for the checks recorded here; limitations remain as listed
+- **Site:** https://esfokom-a.github.io/the-corner-loaf/
+- **Source reviewed:** [peer repository at commit `8a80c538`](https://github.com/esfokom-a/the-corner-loaf/tree/8a80c538ebcd044fb17a0be37dc45e672a803d69)
+- **Tester:** Frederick Ansah
+- **Date:** Saturday, 21 November 2026
+- **Standard:** WCAG 2.2 Level AA
 
-| Area | What I checked and found | Evidence / method |
+## Saturday 21 November 2026
+
+### Source review and colour measurement
+
+The peer source confirms that product names are `<h3>` headings and menu prices are paragraph text inside product list items. That supports the WAVE review: its six possible-heading markers sit on prices, not on missing headings. See the [menu markup](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L68-L114).
+
+All six order links have product-specific accessible names, although the visible text is “Order now”; see [the order-link markup](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L77-L111) and [additional bakes](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L115-L147). The [skip-link markup](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L19-L25) and [focus styles](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/css/styles.css#L81-L109) were checked against the focused browser rendering.
+
+Contrast ratios were calculated from rendered colors and the peer's [CSS color tokens and focus outline](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/css/styles.css#L2-L14). WCAG AA requires 4.5:1 for normal text ([SC 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)); non-text visual information such as component boundaries and states needs 3:1 against adjacent colors ([SC 1.4.11](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html)).
+
+| Rendered foreground | Background | Ratio | Result |
+|---|---|---:|---|
+| Body muted text `#6E584B` | Page cream `#FFF8F0` | 6.31:1 | AA pass |
+| Product price `#B54708` | Card `#FFFCF7` | 5.30:1 | AA pass |
+| Product title `#38271E` | Card `#FFFCF7` | 13.89:1 | AA pass |
+| WhatsApp text `#FFFFFF` | Button green `#0D7038` | 6.19:1 | AA pass |
+| Directions link `#B54708` | Sage panel `#EDF0E5` | 4.70:1 | AA pass |
+| Focus outline `#B54708` | Page cream `#FFF8F0` | 5.15:1 | 3:1 pass |
+| Focus outline `#B54708` | Card `#FFFCF7` | 5.30:1 | 3:1 pass |
+| Focus outline `#B54708` | Warm panel `#FBE8D4` | 4.55:1 | 3:1 pass |
+| Focus outline `#B54708` | Sage panel `#EDF0E5` | 4.70:1 | 3:1 pass |
+
+### Automated tools
+
+| Tool | Result | Evidence |
 |---|---|---|
-| WAVE automated scan | WAVE reported 0 errors, 0 contrast errors, 6 possible-heading alerts, 8 features, 22 structure items, 40 ARIA items and an AIM score of 9.9/10. Alerts require human review and are not confirmed failures by themselves. The saved captures show examples around product cards, opening hours and the FAQ; not all six were verified against exact elements. | [WAVE summary](screenshots/wave-result.png); [product cards](screenshots/wave-possible-headings-product-cards.png); [opening hours](screenshots/wave-possible-headings-hours.png); [FAQ](screenshots/wave-possible-headings-faq.png). The screenshots show the partner URL. |
-| Lighthouse mobile | Accessibility score 100. The report lists 10 manual checks; they were not all completed. | [Mobile Lighthouse result](screenshots/lighthouse-mobile-result.png); partner URL shown. |
-| Lighthouse desktop | Accessibility score 100. The report lists 10 manual checks; they were not all completed. | [Desktop Lighthouse result](screenshots/lighthouse-desktop-result.png); partner URL shown. |
-| Keyboard focus | Tabbed through 19 focus stops from “Skip to main content” to “Back to top.” Visible focus appeared on sampled controls shown in the evidence captures. The skip link was reached, but its focused state was not saved. | [Menu](screenshots/keyboard-focus-menu-today.png), [About Marcus](screenshots/keyboard-focus-about-marcus.png), [opening hours](screenshots/keyboard-focus-opening-hours.png), [Read more](screenshots/keyboard-focus-read-more.png), [Order now](screenshots/keyboard-focus-order-now.png), [other bakes](screenshots/keyboard-focus-other-bakes.png), [directions](screenshots/keyboard-focus-get-directions.png), [FAQ](screenshots/keyboard-focus-faq.png), [preorder WhatsApp](screenshots/keyboard-focus-preorder-whatsapp.png), [contact WhatsApp](screenshots/keyboard-focus-contact-whatsapp.png), [email](screenshots/keyboard-focus-email.png), [Back to top](screenshots/keyboard-focus-back-to-top.png). |
-| Keyboard operation | In-page navigation and the skip link worked. Product and FAQ disclosure controls responded to keyboard input and exposed expanded/collapsed states in the supplied accessibility information. | Manual keyboard check and supplied browser/accessibility observations. |
-| Narrow viewport | At 320 CSS pixels with default text, no horizontal overflow was observed. | Manual visual check; no screenshot saved. |
-| 200% browser page zoom | The supplied captures show the top/opening-hours area, a menu product card and the FAQ section reflowing. No horizontal scrollbar or clipped content is visible in these captured views. This is browser page zoom rather than text-only resizing; not every section is shown. | [Top/opening hours](screenshots/zoom-200-top.png), [menu product card](screenshots/zoom-200-menu-product.png), [FAQ](screenshots/zoom-200-faq.png). |
-| Screen reader and structure | The supplied narration reported landmarks, headings, product lists, image alternatives, product information, links and disclosure states. The auditor confirmed Saturday hours and closing time were announced. The product cards share the visible text “Order now,” while the screen reader’s links list distinguished them by product. | Auditor-provided narration and browser accessibility observations. Exact screen reader, browser version, mode and recording were not documented. |
-| Contrast | WAVE reported no contrast errors. No complete manual contrast measurement of all text, controls, focus indicators and states was recorded. | [WAVE summary](screenshots/wave-result.png); manual contrast review incomplete. |
-| Content accuracy | The top card says “Open today” until 5 p.m.; the schedule lists Saturday as 7 a.m.–2 p.m. | Observed in the site content. Content-accuracy concern, not a confirmed WCAG finding. |
-| Screen-reader external navigation artifact | A “Not found” result appeared after Enter activated an external link from a listing. It was caused by external-link navigation during the test and is excluded as a site defect. | Auditor clarification; do not count as an accessibility finding. |
-| Screenshot attribution | Evidence in `docs/eeo2/screenshots/` is for the peer site. Root `screenshots/lighthouse-mobile.png` and `screenshots/lighthouse-desktop.png` are for my redesign and were excluded. | Compared URLs shown in screenshots. |
+| WAVE | 0 errors, 0 contrast errors, 6 possible-heading alerts, 8 features, 22 structure items, 40 ARIA items, AIM score 9.9/10. Each possible-heading alert pointed to one of the six product prices. | [WAVE summary](screenshots/wave-result.png); [product cards](screenshots/wave-possible-headings-product-cards.png); [hours](screenshots/wave-possible-headings-hours.png); [FAQ](screenshots/wave-possible-headings-faq.png) |
+| Lighthouse mobile | Accessibility 100; 10 manual checks listed in the report. | [Mobile result](screenshots/lighthouse-mobile-result.png) |
+| Lighthouse desktop | Accessibility 100; 10 manual checks listed in the report. | [Desktop result](screenshots/lighthouse-desktop-result.png) |
 
-## Outcome
+### Keyboard and focus
 
-No WCAG 2.2 Level AA violation was confirmed in the checks recorded. The WAVE possible-heading alerts were not treated as violations without confirmation. There are no confirmed violations to rank. The opening-hours mismatch and the earlier skip-link outline overlap remain observations, not confirmed WCAG findings.
+The tab sequence had 19 focus stops from “Skip to main content” through “Back to top.” Focus was visible on sampled controls. Product and FAQ disclosure controls responded to keyboard input. The focused skip link was checked at the top of the page: its orange outline was visible, but it overlapped the “The Corner Loaf” heading. The link text remained visible. Source markup and styles are linked above; the saved [keyboard focus captures](screenshots/keyboard-focus-menu-today.png) through [Back to top](screenshots/keyboard-focus-back-to-top.png) show the sampled controls.
 
-## Coverage limits
+### Zoom, text size and reflow
 
-- Text-only enlargement, 400% zoom, exact target-size measurements and a complete manual contrast review were not recorded.
-- The six WAVE alerts were not all mapped to exact elements and inspected.
-- Lighthouse’s 10 manual checks per run were not all completed.
-- The exact screen-reader/browser setup and transcript/audio file were not recorded.
-- No axe run, forced-colors test, physical-device test or additional browser/assistive-technology combination was recorded.
+At a 320 CSS-pixel viewport with default text, no horizontal overflow was observed.
+
+At 200% browser page zoom, the top/opening-hours panel, a menu card and FAQs reflowed without visible clipping or horizontal scrolling in the supplied views: [top](screenshots/zoom-200-top.png), [menu](screenshots/zoom-200-menu-product.png), [FAQ](screenshots/zoom-200-faq.png).
+
+At 200% body font size set in DevTools, the supplied screenshots show the 640 CSS-pixel view at the top of the page and the 375 CSS-pixel view around preorder and about. No clipping or horizontal overflow is visible in the captured areas; the preorder button wraps onto two lines at 375 px and stays within its panel. This method is recorded as a DevTools body-font override, not browser page zoom: [640 px](screenshots/text-size-200-640px.png), [375 px](screenshots/text-size-200-375px.png).
+
+### Structure and screen-reader review
+
+The supplied narration/accessibility information reported banner, navigation, main and content-info landmarks, headings, product groupings, image alternatives, links and disclosure states. In the screen-reader links list, the order links were distinguished by product even though the visual text is shared. Saturday hours and closing time were announced. The source shows the [landmarks and navigation](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L19-L50), [product groupings](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L68-L114), and [weekly hours](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L150-L164).
+
+### Target size — WCAG 2.2 SC 2.5.8, Level AA
+
+The following rendered targets were measured in the peer page frame at 100% zoom using `getBoundingClientRect()`. Each target is listed in CSS pixels. The minimum is 24 × 24 CSS px; every listed target exceeds it. [W3C target-size guidance](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum).
+
+| Target | Width × height (CSS px) |
+|---|---:|
+| Skip to main content | 177 × 56 |
+| Menu today | 101.8 × 45 |
+| Location & hours | 139.1 × 45 |
+| Preorder FAQs | 122.8 × 45 |
+| Preorder (navigation) | 82.3 × 45 |
+| About Marcus | 117.3 × 45 |
+| Contact (navigation) | 76.1 × 45 |
+| Opening hours | 129.8 × 44 |
+| Read more — Sourdough Loaf | 86.3 × 44 |
+| Order now — Sourdough Loaf | 299.7 × 44 |
+| Read more — Whole Wheat Loaf | 86.3 × 44 |
+| Order now — Whole Wheat Loaf | 299.7 × 44 |
+| Read more — Chin Chin | 86.3 × 44 |
+| Order now — Chin Chin | 299.7 × 44 |
+| Our other bakes disclosure | 1022.3 × 44 |
+| Order now — Butter Croissants | 1022.3 × 44 |
+| Order now — Banana Bread | 1022.3 × 44 |
+| Order now — Meat Pies | 1022.3 × 44 |
+| Get directions | 133.6 × 44 |
+| FAQ — How far in advance do I need to order? | 1022.3 × 44 |
+| FAQ — How do I collect my order? | 1022.3 × 44 |
+| FAQ — Can I cancel or change my order? | 1022.3 × 44 |
+| FAQ — Do you deliver? | 1022.3 × 44 |
+| Preorder on WhatsApp | 234.2 × 44 |
+| Chat on WhatsApp | 203.1 × 44 |
+| Email | 182.5 × 44 |
+| Back to top | 80.9 × 44 |
+
+### Content observation
+
+The top panel says “Open today” until 5 p.m., while the schedule lists Saturday 7 a.m.–2 p.m. The [opening-panel markup](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L53-L59) and [hours list](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L160-L164) confirm the displayed wording. This is a content-accuracy observation, not a confirmed WCAG failure.
