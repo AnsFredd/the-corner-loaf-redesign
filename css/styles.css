@@ -1035,6 +1035,16 @@ textarea.form-field {
   .top-bar ul a:hover {
     background-color: rgba(255, 255, 255, 0.08);
   }
+
+  /* Keep the About copy readable beside the image at enlarged text sizes. */
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .info-boxes {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Mobile Layout */
@@ -1161,11 +1171,6 @@ textarea.form-field {
 
   .form-submit {
     width: 100%;
-  }
-
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: 20px;
   }
 
   .about-image img {
