@@ -1,125 +1,191 @@
-# EE02 write-up: fixes and further improvement
+# EE02: Independent audit verification and remediation
 
-- **My site:** https://ansfredd.github.io/the-corner-loaf-redesign/
-- **Audit received from:** Elvis Fosu Owusu ([copy of the received audit](audit-received-from-elvis-fosu.md))
+- **Site:** [The Corner Loaf redesign](https://ansfredd.github.io/the-corner-loaf-redesign/)
+- **Original audit received from:** Elvis Fosu Owusu ([received audit](audit-received-from-elvis-fosu.md))
+- **Audit and remediation notes:** [Audit of Elvis Fosu](audit-of-elvis-fosu.md) is a separate audit of the partner's site; this report covers my site.
 - **Updated:** 22 November 2026
-- **Implementation status:** The earlier audit fixes are published. The additional About-section layout refinement recorded below is in the current working tree and has not yet been published.
+- **Current implementation status:** The earlier audit fixes and About-section reflow update are deployed. The six menu-photo descriptions are in the current source and their NVDA result is pending the user's test after deployment. A skip link and the required additional accessibility feature are still to do.
 
-## Verification summary
+## Original audit findings: verification counts
 
-The received audit contained eight findings. Independent source and browser checks confirmed seven; the required-field notice finding was partly valid as a usability concern but was not a confirmed WCAG failure because the controls already had labels and native required attributes. No original finding was classified as a false positive or left unverified. Post-fix checks are listed separately below; some still need a fresh manual retest.
+The received audit listed eight primary findings. I compared them with the source, browser evidence, and the test evidence recorded below.
 
-| Finding | Independent verification | WCAG criterion | Action taken | Current status |
-|---|---|---|---|---|
-| 1. Weekly menu structure and product boundaries | Confirmed | 1.3.1 Info and Relationships (A) | Use lists, list items and day-labelled articles; make redundant menu photos decorative. | Source and browser accessibility tree checked; user reports NVDA review on the company laptop read the page content well. The hero image's empty alternative text is being corrected so it can be announced as a graphic. |
-| 2. Keyboard focus on FAQ and hero actions | Confirmed | 2.4.7 Focus Visible (AA); 1.4.11 Non-text Contrast (AA) | Keep FAQ focus inside its card and use contrasting hero focus rings. | Manual keyboard focus check passed on sampled controls. |
-| 3. Form boundaries and focus | Confirmed | 1.4.11 Non-text Contrast (AA) | Darken field borders and restore a visible focus outline. | Color pairs pass the measured 3:1 threshold; all form fields still need a keyboard focus walkthrough. |
-| 4. Whitespace-only pre-order errors | Confirmed | 3.3.1 Error Identification (A) | Trim values, identify missing fields, mark them invalid, move focus, and preserve prior confirmations. | Dummy pre-order and contact form checks passed locally; no messages were sent. |
-| 5. Text resizing | Confirmed | 1.4.4 Resize Text (AA) | Allow labels to scale and wrap; stack About content and information boxes at widths up to 768 px. | Earlier fix is deployed; About change is local and needs a visual retest before publication. |
-| 6. Autofill hints | Confirmed | 1.3.5 Identify Input Purpose (AA) | Add `autocomplete="name"` and `autocomplete="email"`. | Attributes confirmed in source; saved-profile suggestions not tested. |
-| 7. Required-field instructions | Partly valid | 3.3.2 Labels or Instructions (A) | Add “All fields are required.” to both forms. | Instruction is present; the original omission is not recorded as a confirmed WCAG failure. |
-| 8. Placeholder contrast | Confirmed | 1.4.3 Contrast (Minimum) (AA) | Darken placeholder color while retaining visible labels. | Selected placeholder color measures 5.90:1 against the white field. |
+| Verification result | Count | Meaning |
+|---|---:|---|
+| Confirmed | 7 | The issue described in the original audit was present and was addressed. |
+| Partly valid | 1 | The missing “all fields are required” instruction was a useful clarity improvement, but existing labels and native required attributes meant I did not confirm a WCAG failure. |
+| False positives | 0 | None of the eight primary findings was dismissed as a false positive. |
+| Unverified | 0 | Each of the eight primary findings was reviewed; some post-fix checks remain pending and are identified below. |
+| Original findings reviewed | 8 | Seven confirmed plus one partly valid. |
+| Additional issue independently identified | 1 | About-section reflow at 640 CSS px with text set to 200%; addressed and documented as Finding 5. |
 
-Four further implementation concerns were found during the menu and focus review; the additional About layout issue is described under Finding 5. WAVE's small-text alerts are recorded below for manual review and are not counted as confirmed violations.
+## Required findings table
 
-## Fixes
+| Finding | Original Audit | Independent Verification | WCAG Criterion | Action Taken | Final Status |
+|---|---|---|---|---|---|
+| 1. Weekly menu structure and product boundaries | Weekly products and availability were difficult to understand with a screen reader; product image text did not reliably describe the food. | Confirmed in source and the local accessibility tree. | 1.3.1 Info and Relationships (A); 1.1.1 Non-text Content (A) | Use native lists and named day articles; remove unnecessary product headings; add concise alternatives to the six weekly photos. | Structure and filtering were checked. Photo alternatives are in the working copy; deploy and confirm with NVDA. |
+| 2. Keyboard focus on FAQ and hero actions | FAQ focus outline was clipped; hero focus indicator lacked sufficient contrast. | Confirmed by source review and keyboard-focus evidence. | 2.4.7 Focus Visible (AA); 1.4.11 Non-text Contrast (AA) | Keep the focus outline visible outside the FAQ card and use contrasting focus indicators. | Supplied screenshots show focus on representative FAQ and hero controls; user reports keyboard focus works across the page controls. |
+| 3. Form control boundaries and focus | Form-field boundaries and focus indication were difficult to see. | Confirmed by source review, contrast measurements, and supplied keyboard-focus screenshots. | 1.4.11 Non-text Contrast (AA) | Darken field borders and provide visible focus styling. | Measured field boundaries exceed 3:1; supplied screenshots show focused fields. |
+| 4. Whitespace-only form errors | Whitespace-only input could bypass the intended required-field validation. | Confirmed by local form checks and the supplied live validation screenshot. | 3.3.1 Error Identification (A) | Trim entered values, identify missing fields, mark them invalid, move focus to the first invalid field, and preserve the existing success confirmation. | Empty/whitespace submission displays a clear error; the supplied screenshot shows the pre-order error. No message was sent externally. |
+| 5. Text resizing and reflow | Text enlargement caused narrow or overflowing content. | Confirmed. The About two-column layout at 640 px / 200% was additionally identified during the user's recheck. | 1.4.4 Resize Text (AA); 1.4.10 Reflow (AA) | Allow text and labels to wrap; stack About content and its information boxes at widths up to 768 px; let day counts wrap. | Supplied live screenshots show the About content stacked at 640 px / 200%; user reports the 375 px view is fine. |
+| 6. Autofill hints | Name and email fields lacked autocomplete tokens. | Confirmed in source. | 1.3.5 Identify Input Purpose (AA) | Add `autocomplete="name"` and `autocomplete="email"` to the matching fields. | Attributes are present. Chrome offered and filled saved name/email details in the UI test. |
+| 7. Required-field instructions | Forms did not tell users that all fields were required. | Partly valid: the instruction was absent, but visible labels and native `required` attributes were already present. | 3.3.2 Labels or Instructions (A) | Add “All fields are required.” before each form. | Instruction is present. This is recorded as a clarity improvement, not a confirmed WCAG failure. |
+| 8. Placeholder contrast | Placeholder text had insufficient contrast against the field background. | Confirmed; original contrast was reported as 2.85:1. | 1.4.3 Contrast (Minimum) (AA) | Change `--color-placeholder` to `#6f6257`. | The new color measures 5.90:1 against the white field background. |
+
+## Accessibility features and evidence
+
+| Feature | What it does and who it helps | Evidence and status |
+|---|---|---|
+| Product filters | Bread, pastries, snacks, and all products can be selected to narrow the menu. This helps people who need to find an item without scanning every product. | The filters are native buttons with pressed state and an update message. The user supplied focus screenshots for All Products and Snacks: [All Products](../../screenshots/keyboard-focus-filter-all.png) and [Snacks](../../screenshots/keyboard-focus-filter-snacks.png). Earlier local checks confirmed the selected category changes the visible products and counts. |
+| Mobile navigation menu | The menu button opens and closes the site navigation and exposes its expanded state. This helps mobile users and people who navigate by keyboard or assistive technology. | The button has an accessible name, `aria-expanded`, and `aria-controls`; JavaScript updates the name and state. The user reports keyboard operation works for the controls. The [brand focus](../../screenshots/keyboard-focus-brand.png) and [navigation link focus](../../screenshots/keyboard-focus-menu-link.png) captures document visible focus; they are not a separate capture of every menu state. |
+| Keyboard navigation and visible focus | Keyboard users can reach links, buttons, filters, and form controls and see which control is focused. This helps people who cannot use a mouse and users who need a clear visual location cue. | The user reports testing the page controls and says the links, buttons, and fields work with keyboard focus. Supplied examples include [hero actions](../../screenshots/keyboard-focus-hero-cta.png), [filters](../../screenshots/keyboard-focus-filter-all.png), [pre-order name field](../../screenshots/keyboard-focus-preorder-name.png), and [pre-order submit button](../../screenshots/keyboard-focus-preorder-submit.png). These are user-supplied captures; this report does not claim a new independent tab-through. |
+| Skip link | A skip link would let keyboard users bypass repeated navigation and go directly to the main content. | **To do:** The current `index.html` has no skip-link element. Add a “Skip to main content” link before navigation, give the `<main>` target an `id`, style the link to appear on focus, then verify it by keyboard and save a screenshot. |
+| Labelled forms and validation messages | Visible labels identify each field. On an incomplete submission, the page identifies what is missing and moves focus to the first invalid field. This helps screen-reader users, keyboard users, and people who benefit from clear correction instructions. | Both forms use `<label>` elements, required fields, and an announced error message. Evidence includes the [pre-order validation screenshot](../../screenshots/whitespace-preorder-live.png) and [redacted contact validation screenshot](../../screenshots/contact-validation-redacted.png). The user also supplied an incomplete-submission screenshot for each form. |
+| Saved-profile autofill | Browser autofill can place stored personal details in matching fields. This helps users avoid repeatedly typing their name and email, including users with motor or cognitive disabilities. | **Computer-use test:** Chrome offered saved profile choices in the name field. Selecting a profile filled the name; the contact email field showed an autofilled value and Chrome’s “Undo autofill” state. No form was submitted. The visible browser state contained personal details, so no screenshot was retained. |
+| Contact form | The contact form lets users send their name, email, and message to ask a question. This helps users who prefer to contact the bakery in writing. | The form has visible labels, required fields, name/email autocomplete tokens, and error/status feedback. Evidence: [contact validation](../../screenshots/contact-validation-redacted.png); the source is in [`index.html`](../../index.html#L704) and [`js/script.js`](../../js/script.js#L316). |
+| 200% text resizing and responsive reflow | Text and content can enlarge and reflow at narrow widths, helping people with low vision and users who magnify text. | User-supplied live-page screenshots show the About section at 640 CSS px with 200% text: [image and heading](../../screenshots/text-size-200-640-about-image.png), [story text](../../screenshots/text-size-200-640-about-text.png), and [375 px view](../../screenshots/text-size-200-375px.png). The user reports the 375 px view is fine. |
+| Image descriptions | Alternative text gives screen-reader users a text description of meaningful images. | The hero and About photo descriptions are in source. Six menu-product photos have the descriptions listed below. The six menu-photo NVDA result is **pending user test** after the updated code is pushed; no NVDA result is claimed for those new descriptions yet. |
+| WAVE report | WAVE provides an automated page review, including contrast alerts. | The saved report shows **0 contrast errors** (and 0 WAVE errors). It also shows 16 “Very small text” alerts on product-category labels; these alerts are documented as review prompts, not confirmed WCAG failures. Evidence: [WAVE summary](../../screenshots/wave-live-summary.png) and [category-label examples](../../screenshots/wave-small-text-category-overview.png). |
+| Lighthouse report | Lighthouse provides an automated accessibility score and manual review prompts. | The saved reports show Accessibility **100 on desktop and 100 on mobile**. Evidence: [desktop](../../screenshots/lighthouse-desktop.png) and [mobile](../../screenshots/lighthouse-mobile.png). |
+
+### Image descriptions in the current source
+
+| Image | Alternative text in source | Status |
+|---|---|---|
+| Hero loaves | “Freshly baked loaves of bread on a wooden surface” | Implemented. |
+| About-section photo | “Baker preparing fresh dough in a bakery” | Implemented. The user reports NVDA read the page well on the company laptop. |
+| Whole Wheat Loaf | “Assorted seeded and flour-dusted loaves of bread” | Implemented; NVDA result for the six menu photos is pending user test. |
+| Sourdough Loaf | “Rustic sourdough loaf on a wooden surface” | Implemented; NVDA result for the six menu photos is pending user test. |
+| Meat Pies | “Golden meat pies on a plate” | Implemented; NVDA result for the six menu photos is pending user test. |
+| Banana Bread | “Sliced banana bread with bananas” | Implemented; NVDA result for the six menu photos is pending user test. |
+| Butter Croissants | “Golden butter croissant on a plate” | Implemented; NVDA result for the six menu photos is pending user test. |
+| Chin Chin | “Chin chin pieces in a white bowl” | Implemented; NVDA result for the six menu photos is pending user test. |
+
+## Remediation details
 
 ### Finding 1: Weekly menu structure and product boundaries
 
-- **Reproduced before fixing:** Yes. The received audit describes the NVDA reading order and the accessibility tree: weekly products were generic containers, product names were repeated headings, day articles had no accessible names, the availability items were announced as one status message, and Friday's photo description named a croissant that was not on Friday's menu.
-- **Cause:** The day cards used generic `div` elements for product groups and product rows, the product name used an `h4`, the day articles had no label, and the one-time availability content used `role="status"` and `aria-live`.
-- **What I changed:** In [`index.html`](../../index.html#L118), the availability items and each day's products are lists with list items. The seven day articles are named by their day headings, and product names are plain text instead of extra headings. The menu photos are decorative because the product names are already stated in each list; this also removes the incorrect Friday croissant description. The decorative Sunday symbol and FAQ plus/minus marks are hidden from assistive technology. In [`js/script.js`](../../js/script.js#L99), generated availability items now use the same list structure. Filtering now refreshes each visible day's bake count and leaves the Sunday closed card visible.
-- **Why this fixes the cause, not just the symptom:** Assistive technology receives the relationships from native lists, list items, named day articles and the existing day headings. This gives screen-reader users a clear item boundary and day context instead of relying on visual cards or repeated product headings.
-- **How I verified it:** In the local Edge preview, the accessibility tree exposed the availability list, day-labelled article groups, and a list item for each product. I selected Pastries: Wednesday, Friday and Saturday each showed one bake, other product days were filtered out, the status text reported three pastry listings, and Sunday remained marked closed. The user reports that they reviewed the updated page with NVDA on the company laptop and that it read well. They can demonstrate the review during the assessment; no screenshot was available.
+- **Cause:** Weekly products were generic containers, product names were repeated headings, day articles lacked accessible names, and availability content was grouped as a live status message. One existing photo description did not match the food shown.
+- **Changes:** In [`index.html`](../../index.html#L118), availability and each day's products use lists and list items. The seven day articles are named by their day headings, and product names are plain text rather than extra headings. The Sunday decorative symbol and FAQ plus/minus marks are hidden from assistive technology. The six weekly menu photos now have concise alternative text describing the food shown. In [`js/script.js`](../../js/script.js#L99), generated availability items use the same list structure. Filtering refreshes each visible day's bake count and keeps the Sunday closed card visible.
+- **Evidence and verification:** The local Edge accessibility tree exposed the availability list, named day article groups, and product list items. In the local filter check, selecting Pastries showed one bake on Wednesday, Friday, and Saturday, filtered out other product days, updated the status text to three pastry listings, and kept Sunday marked closed. The user reports that NVDA on the company laptop read the page well during an earlier review. The six photo alternatives were added after that NVDA review; they still need deployment and an NVDA graphic-navigation check.
 
 ### Finding 2: Keyboard focus on the FAQ and hero actions
 
-- **Reproduced before fixing:** Yes. The received audit reports that the FAQ outline was clipped by its `overflow: hidden` card and that the hero focus ring blended into the dark photo.
-- **Cause:** The FAQ outline was outside its clipped parent, and the hero used a low-contrast brown focus ring on top of a photo overlay.
-- **What I changed:** [`css/styles.css`](../../css/styles.css#L438) moves the FAQ focus outline inside the card. Hero links now use a light outline and a dark outer ring so the focus state is distinct over the image.
-- **Why this fixes the cause, not just the symptom:** The FAQ indicator is drawn inside the clipping boundary, and the hero gets two contrasting rings rather than the old brown outline that matched the background.
-- **How I verified it:** In the local Edge preview, I used Tab to focus both hero actions and an FAQ question. The hero “Place a Pre-Order” action showed a clear double ring. A focused FAQ question showed a visible outline fully inside its card. On 22 November, the user also checked keyboard focus on the deployed page and supplied captures for the brand link, a navigation link, a hero action, product filters, an FAQ question, the pre-order name field and submit button. The user reports that links, buttons and form controls across the page were reachable by keyboard. I independently confirmed that Tab reaches the brand link and “Explore Our Menu” on the live page and that both show visible focus. Evidence: [brand](../../screenshots/keyboard-focus-brand.png), [navigation link](../../screenshots/keyboard-focus-menu-link.png), [hero action](../../screenshots/keyboard-focus-hero-cta.png), [filters](../../screenshots/keyboard-focus-filter-all.png) and [Snacks filter](../../screenshots/keyboard-focus-filter-snacks.png), [FAQ](../../screenshots/keyboard-focus-faq.png), [pre-order name](../../screenshots/keyboard-focus-preorder-name.png), and [pre-order submit](../../screenshots/keyboard-focus-preorder-submit.png).
+- **Cause:** The FAQ card clipped its focus outline, and the hero focus ring was difficult to distinguish against the dark background.
+- **Changes:** [`css/styles.css`](../../css/styles.css) allows the FAQ focus outline to remain visible and adjusts focus colors for contrast.
+- **Evidence and verification:** The user supplied keyboard-focus screenshots for the FAQ and hero calls to action, along with screenshots for the brand, menu link, and product filters. The user reports that keyboard focus works for the page's links, buttons, and controls. This report records the supplied examples and user report; it does not claim a fresh agent-run tab-through of every control.
 
 ### Finding 3: Form control boundaries and focus
 
-- **Reproduced before fixing:** Yes. The received audit measured the old field border at 1.33:1 against white and 1.09:1 against cream, and described focus being removed.
-- **Cause:** The fields used the very light `--color-border` as their only boundary and removed the browser outline on focus.
-- **What I changed:** [`css/styles.css`](../../css/styles.css#L725) uses the darker muted text color for field borders and restores a visible focus outline.
-- **Why this fixes the cause, not just the symptom:** The boundary color itself now separates each field from its background, and keyboard users also get a distinct focus indicator.
-- **How I verified it:** I recalculated the selected CSS color pairs: `#6f6257` against white is 5.90:1 and against cream `#f1e7d8` is 4.82:1. Both exceed 3:1 for non-text boundaries. The form focus rule is present in the stylesheet; I have not manually tabbed through every form field after the change.
+- **Cause:** The original field borders and focus indication did not stand out clearly enough from their backgrounds.
+- **Changes:** [`css/styles.css`](../../css/styles.css) darkens the control boundaries and provides visible focus styling.
+- **Evidence and verification:** The supplied screenshots show focus on the pre-order name field and submit button. The form-boundary color was measured above the 3:1 non-text contrast threshold. The user reports keyboard focus works across the form controls.
 
-### Finding 4: Whitespace-only pre-order errors
+### Finding 4: Whitespace-only form errors
 
-- **Reproduced before fixing:** Yes. The received audit reproduces a valid request followed by fields containing only spaces; the old handler replaced the prior confirmation with a generic error.
-- **Cause:** The submit handler wrote validation errors into the same element that held successful order confirmations and did not identify or mark the empty-after-trimming fields.
-- **What I changed:** [`index.html`](../../index.html#L589) adds visible required-field instructions and a separate alert for errors. [`js/script.js`](../../js/script.js#L237) checks trimmed values, marks invalid fields, names missing fields, focuses the first invalid field and keeps errors separate from the confirmation list. The contact form gets matching whitespace checks and field-specific feedback.
-- **Why this fixes the cause, not just the symptom:** Error text no longer replaces a previous confirmation, and the user is told which field needs attention and moved to it.
-- **How I verified it:** In the local Edge preview, I submitted a dummy order, then submitted both fields with spaces. The form named both missing values, focused the name field, and kept the earlier confirmation visible. I also submitted a contact form with spaces in the name and message and a valid dummy email; it identified those two fields and focused the name field. On 22 November, I repeated the pre-order spaces-only check on the deployed page: the alert named both missing fields and focus returned to “Your Name.” The user supplied the [live pre-order error screenshot](../../screenshots/whitespace-preorder-live.png). The user also checked the live contact form with a valid email and spaces-only name and message; the displayed error named the two missing fields, and focus was on the name field. The [contact validation evidence](../../screenshots/contact-validation-redacted.png) masks the email address from the supplied screenshot. These interactions were browser-side; no messages were sent. `node --check js/script.js` completed without errors.
+- **Cause:** Validation needed to treat whitespace-only values as empty and tell the user what to correct.
+- **Changes:** [`js/script.js`](../../js/script.js) trims submitted values, identifies missing required fields, sets invalid state, focuses the first invalid field, and retains the success confirmation for valid input.
+- **Evidence and verification:** A local form check covered blank and whitespace-only submission. The user supplied a live screenshot showing the pre-order validation message, and a redacted contact-form screenshot showing its validation message. These checks did not send a message to WhatsApp or another external service.
 
 ### Finding 5: Text resizing and reflow
 
-- **Reproduced before fixing:** Yes. The received audit reports brand and day-count overflow and undersized fixed pixel labels at 200% text size in 640 px and 375 px views.
-- **Cause:** The brand was forced onto one line, and several labels used fixed or very small sizes that did not follow the page text scale. A further 640 px check showed the About section also kept a two-column layout while text was enlarged to 200%, leaving a narrow text column and pushing the image lower in the section.
-- **What I changed:** [`css/styles.css`](../../css/styles.css) allows the brand name to wrap. Day counts can shrink and wrap, and the day count and hero tagline use the scalable `--text-xs` size instead of fixed tiny pixel values. The About image and copy now stack at viewport widths up to 768 px, and the About information boxes stack into one column at the same breakpoint.
-- **Why this fixes the cause, not just the symptom:** The layout can use additional lines as text enlarges, and these labels scale with the root font size instead of remaining artificially small. Stacking the About content at tablet widths gives enlarged text more width and prevents the image and narrow copy from competing side by side.
-- **How I verified it:** The supplied 640 px screenshot shows `font-size: 200%`; the supplied About screenshots show the long, narrow text column and image lower in the section before this refinement. The user reports that the About section is fine at 375 px. The new 768 px stacking rule is present in the local stylesheet; the updated layout still needs a fresh local visual check and a live check after publication. Evidence: [640 px setting](../../screenshots/text-size-200-640-settings.png), [About text](../../screenshots/text-size-200-640-about-text.png), and [About image](../../screenshots/text-size-200-640-about-image.png).
-
-### WAVE review of the deployed site
-
-- **Page checked:** [The Corner Loaf redesign](https://ansfredd.github.io/the-corner-loaf-redesign/).
-- **Observed result:** The supplied WAVE summary showed 0 errors, 0 contrast errors, 16 alerts labelled “Very small text,” 14 features, 40 structure items, 42 ARIA items, and an AIM score of 9.7/10. The summary also showed one Alternative text feature.
-- **Interpretation:** WAVE did not report automated errors in this scan. The 16 small-text alerts still need manual review; a zero-error result is not proof of full WCAG conformance. The About image has non-empty alternative text in the source. The prominent hero bread photo currently has empty alternative text and is being given a concise description so screen-reader users can identify it.
-- **Evidence:** [WAVE summary screenshot](../../screenshots/wave-live-summary.png).
-
-### Screen-reader image follow-up
-
-The user reports completing an NVDA review on the company laptop and says the page content read well. They can demonstrate this manual review during the assessment; no screenshot was available. Separately, source review found that the prominent hero bread photo used `alt=""`, which excludes it from the accessibility tree and graphic navigation. The About photo already has `alt="Baker preparing fresh dough in a bakery"` in [`index.html`](../../index.html), and the browser accessibility tree exposed that accessible name. The hero photo is being given a concise text alternative so it is announced as a graphic. The specific post-change proof point is that NVDA's graphics navigation reaches the hero photo and announces its description, then reaches the About photo and announces its description.
+- **Cause:** Some labels and day counts did not scale or wrap with enlarged text. Separately, the About section remained in two columns at 640 px / 200% text, leaving its story copy unusually narrow and moving the image down the page.
+- **Changes:** [`css/styles.css`](../../css/styles.css) lets the brand name, day counts, and labels wrap or scale. About image and copy now stack at widths up to 768 px; its information boxes also stack at that breakpoint.
+- **Evidence and verification:** The user supplied live-page screenshots at a 640 CSS-pixel viewport with `font-size: 200%` set on the body. The screenshots show the About heading and image in one column, followed by story text using the available width. The user reports that the 375 px view is fine. Evidence: [About heading and image](../../screenshots/text-size-200-640-about-image.png), [About story text](../../screenshots/text-size-200-640-about-text.png), [section continuation](../../screenshots/text-size-200-640-about-after-section.png), [story continuation](../../screenshots/text-size-200-640-about-after-story.png), and [375 px / 200% view](../../screenshots/text-size-200-375px.png).
 
 ### Finding 6: Autofill hints
 
-- **Reproduced before fixing:** Yes. The received audit found that name and email fields had no autocomplete tokens.
-- **Cause:** The fields did not identify their standard data purpose to browsers.
-- **What I changed:** The name fields now use `autocomplete="name"`; the email field uses `autocomplete="email"` in [`index.html`](../../index.html#L594).
-- **Why this fixes the cause, not just the symptom:** Browsers and assistive input tools can recognize common personal-data fields and offer the appropriate saved value.
-- **How I verified it:** I checked the attributes in the source. I have not tested browser autofill suggestions.
+- **Cause:** Name and email fields did not tell browsers their standard data purpose.
+- **Changes:** The name fields use `autocomplete="name"`; the email field uses `autocomplete="email"` in [`index.html`](../../index.html#L594).
+- **Evidence and verification:** The attributes were checked in source. Whether the browser offers saved-profile suggestions has not been tested.
 
 ### Finding 7: Required-field instructions
 
-- **Reproduced before fixing:** The audit noted that the forms did not say all fields were required.
-- **Cause:** Although visible labels and native `required` attributes were present, the page had no visible instruction explaining that every field was mandatory.
-- **What I changed:** Both forms now show “All fields are required.” before their fields in [`index.html`](../../index.html#L589) and [`index.html`](../../index.html#L722).
-- **Why this fixes the cause, not just the symptom:** Users can learn the requirement before attempting to submit. This is recorded as a usability improvement; the previous labels and native required attributes mean I am not treating it as a confirmed WCAG failure.
-- **How I verified it:** The instruction is visible in the local page and appears in the browser accessibility tree before each form's fields.
+- **Cause:** The forms did not state before the fields that all fields were required, even though their labels and native required attributes existed.
+- **Changes:** Both forms now show “All fields are required.” before their fields in [`index.html`](../../index.html#L589) and [`index.html`](../../index.html#L722).
+- **Evidence and verification:** The instruction is visible in the page and precedes each form's fields in the accessibility tree. It is treated as a clarity improvement, not a confirmed WCAG failure.
 
 ### Finding 8: Placeholder contrast
 
-- **Reproduced before fixing:** Yes. The received audit measured the old placeholder at 2.85:1.
-- **Cause:** `--color-placeholder` used a pale gray-brown on white fields.
-- **What I changed:** [`css/styles.css`](../../css/styles.css#L21) now sets it to `#6f6257`.
-- **Why this fixes the cause, not just the symptom:** The replacement color provides substantially more contrast while retaining the existing palette. Placeholder text remains supplementary; the visible labels remain the field names.
-- **How I verified it:** `#6f6257` measures 5.90:1 against the white field background, above the 4.5:1 normal-text requirement.
+- **Cause:** `--color-placeholder` used a pale gray-brown against white fields.
+- **Changes:** [`css/styles.css`](../../css/styles.css#L21) sets the placeholder color to `#6f6257` while keeping visible labels as the field names.
+- **Evidence and verification:** The updated placeholder color measures 5.90:1 against the white field background, above the 4.5:1 normal-text threshold.
 
-## Issues I found myself
+## Other observations from the received audit
 
-- The received audit noted that the day-count labels became stale when filtering. I updated each day's count from the visible product rows and preserved “Closed” for Sunday.
-- The Sunday decorative character and the FAQ plus/minus indicators could be included in assistive output. They are now marked decorative, while their controls retain their question text and expanded state.
-- The audit's Friday image alternative incorrectly described a croissant. The menu photos are now decorative because the adjacent text already names the products.
-- The hero's background fallback now uses the dark brand color. The focus-ring colors were also adjusted as described in Finding 2.
-- At 640 px with text enlarged to 200%, the About section remained in two columns and made the copy unusually narrow. The layout now stacks below 768 px; its visual retest is pending.
+These are supporting observations and refinements from the received audit, not extra independent findings:
 
-## Findings I did not fix, or disagree with
+- Day counts could become stale after filtering. The script now recalculates counts from the visible product rows and preserves “Closed” for Sunday.
+- The Sunday decorative character and FAQ plus/minus indicators could be included in assistive output. They are now decorative to assistive technology; the controls keep their question text and expanded state.
+- The Friday photo alternative did not match the item shown. The six weekly menu photos now have alternatives describing the food shown.
+- The hero background fallback now uses the dark brand color. The hero bread photo and About photo have descriptive alternatives in [`index.html`](../../index.html).
+- A visual line break in the hero title remains within one `h1`; it does not create two headings, so no heading change was needed.
+- The supplied WAVE screenshots show “Very small text” markers on uppercase product-category labels such as “BREAD,” “SNACK,” and “PASTRY.” These alerts are recorded as review prompts, not confirmed WCAG failures.
 
-- A visual line break in the hero title does not create two headings; it remains one `h1`, so I did not change it.
-- I added the all-fields-required instruction for clarity, but I do not classify its absence as a confirmed WCAG violation because the fields already had visible labels and native `required` attributes.
+## Accessibility test evidence and scope
 
-## Further improvement
+- **WAVE:** Existing screenshots of the deployed site show 0 errors, 0 contrast errors, 16 “Very small text” alerts, 14 features, 40 structure items, 42 ARIA items, and an AIM score of 9.7/10. The supplied detail screenshots locate the small-text markers on category labels. Evidence: [WAVE summary](../../screenshots/wave-live-summary.png), [category-label overview](../../screenshots/wave-small-text-category-overview.png), [bread label](../../screenshots/wave-small-text-bread-label.png), and [pastry label](../../screenshots/wave-small-text-pastry-label.png).
+- **Lighthouse:** Existing mobile and desktop reports show an Accessibility score of 100. Each report also lists manual checks; the score does not replace keyboard and screen-reader testing. Evidence: [mobile report](../../screenshots/lighthouse-mobile.png) and [desktop report](../../screenshots/lighthouse-desktop.png).
+- **Manual checks and user evidence:** The evidence set includes keyboard-focus screenshots, live form-validation screenshots, 640 px / 200% About screenshots, and the user's report of NVDA use on the company laptop. The user reports that keyboard focus works across the links, buttons, and controls.
+- **Scope note:** The WAVE and Lighthouse results above are the already saved reports. No new WAVE, Lighthouse, or other automated scan was run for this write-up. Those reports predate the current working-copy changes to weekly photo alternatives and do not verify those changes.
 
-- **Who it helps:** Visitors who experience vestibular discomfort or distraction from animated scrolling.
-- **The barrier they faced:** The page enabled smooth scrolling for everyone, including people who have asked their device to reduce motion.
-- **What I built:** [`css/styles.css`](../../css/styles.css#L1254) disables smooth scrolling when `prefers-reduced-motion: reduce` is set.
-- **Why it is worth doing for the business:** It respects a browser accessibility preference without changing the page for other visitors, making navigation more comfortable for customers who are sensitive to motion.
-- **How I tested it:** I confirmed the preference-specific CSS rule is present and that the page's only smooth-scroll behavior is overridden by that rule. I have not toggled the operating-system/browser reduced-motion preference to verify the rendered behavior.
+## Files and components changed
 
-## Retesting before submission
+| File or evidence | Change or purpose |
+|---|---|
+| [`index.html`](../../index.html) | Semantic weekly availability and product lists; named day articles; decorative symbols; weekly, hero, and About photo alternatives; form instructions and autocomplete values. |
+| [`css/styles.css`](../../css/styles.css) | Keyboard-focus visibility and contrast; form boundaries; placeholder color; scalable/wrapping text; About reflow at enlarged text. |
+| [`js/script.js`](../../js/script.js) | Whitespace-safe form validation, invalid-field feedback and focus, dynamic weekly availability lists, and filtered day counts. |
+| [`screenshots/`](../../screenshots/) | Supplied WAVE, Lighthouse, keyboard-focus, form-validation, and text-size evidence. |
 
-The earlier audit fixes are published, but the new About layout refinement is still local. Next, review the 640 px / 200% About layout in the local preview, publish the CSS change, and recheck that layout on the live site. After the hero image text alternative is updated, demonstrate NVDA graphics navigation for the hero and About photos during the assessment; then run WAVE again and compare the small-text alerts. The 375 px About layout is reported as fine by the user; reduced-motion behavior still needs a manual preference toggle and same-page link check.
+## Additional accessibility feature: options to choose from
+
+No option is selected or implemented yet. Choose one first; after that choice, document it under the five requested headings: **user barrier**, **intended users**, **implementation**, **benefit to the business**, and **test evidence**.
+
+### Option 1: Product allergen and dietary details
+
+- **Who it helps:** People with food allergies, intolerances, or dietary restrictions, including people who need clear written information before ordering.
+- **Barrier it addresses:** The menu does not currently show verified ingredient or allergen details for each bake.
+- **How it could work here:** Add a concise “Ingredients and allergens” section to each product, using clear text and semantic labels. Only publish information confirmed by the bakery.
+- **Build and test effort:** Easy to moderate. The markup is straightforward; confirming accurate ingredient data is the main dependency.
+- **Simple test:** Use keyboard and a screen reader to locate a product and hear its ingredient/allergen information; check that the same information is visible without relying on color or icons.
+- **WCAG connection:** No single criterion requires allergen data. Structuring related product information with headings and lists can support [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html); this does not by itself guarantee conformance.
+
+### Option 2: Text-first menu view
+
+- **Who it helps:** People using screen magnification, people who find image-heavy cards distracting, and visitors who prefer scanning a compact list.
+- **Barrier it addresses:** A visual card grid takes more scrolling and screen space than a compact text list.
+- **How it could work here:** Add a “Cards / List” button to switch the menu between the current image cards and a compact text list, preserving the current category filter and product information.
+- **Build and test effort:** Moderate. The toggle state and layout need to stay in sync with the existing filters.
+- **Simple test:** Operate the toggle using only the keyboard, confirm its selected state is announced, then apply a product filter in each view and verify the same products and prices remain available.
+- **WCAG connection:** The toggle's name, role, and state must be programmatically available under [4.1.2 Name, Role, Value](https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html). This criterion applies to the control; it does not require a list-view feature.
+
+### Option 3: Bakery access and visit-planning information
+
+- **Who it helps:** Visitors with mobility, sensory, or cognitive access needs who need to plan a visit before travelling.
+- **Barrier it addresses:** The site gives the address and opening hours, but not practical access details such as step-free entry, seating, parking, or quieter times.
+- **How it could work here:** Add a clearly headed “Access and visiting” section with only confirmed details and plain-text contact information for questions.
+- **Build and test effort:** Easy once the bakery confirms the facts; moderate if information must first be collected.
+- **Simple test:** Navigate to the section by keyboard and screen-reader headings, then confirm each detail is readable, clearly grouped, and matches the bakery's verified information.
+- **WCAG connection:** There is no specific WCAG success criterion requiring venue-access details. Using meaningful headings and lists can support [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html).
+
+### Option 4: Copy address and announce success
+
+- **Who it helps:** People who have difficulty selecting text precisely or remembering/carrying the bakery address into a maps app.
+- **Barrier it addresses:** Manually selecting and copying the address can require precise pointer movement or several keyboard steps.
+- **How it could work here:** Add a clearly labelled “Copy address” button beside the address and announce “Address copied” in a polite status message after activation.
+- **Build and test effort:** Easy to moderate. Clipboard permission/fallback behavior and an accessible success message need checking.
+- **Simple test:** Activate the button by keyboard, confirm the address can be pasted into a text field, and use a screen reader to confirm the success message is announced without moving focus.
+- **WCAG connection:** The success announcement can support [4.1.3 Status Messages](https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html) when programmatically exposed and announced without moving focus; the criterion does not require a copy-address button.
+
+## To do
+
+- Add and test a visible-on-focus skip link to the main content. The page currently has a `<main>` element but no skip link or target id.
+- Choose one additional accessibility feature from the options above, implement it, test it, and complete the five requested documentation headings.
+- **Pending user test, not a limitation:** After pushing the six menu-photo descriptions, the user will check with NVDA that graphic navigation announces each photo and its description.
+
+## Test scope
+
+- The WAVE and Lighthouse results cited above are the existing saved reports. No new automated scans were run for this write-up.
+- The keyboard results are based on the user's supplied screenshots and report. No new keyboard test was run for this write-up.
+- The saved-profile autofill check was performed in Chrome without submitting either form. Test fields were cleared afterward; saved profile data was not changed.
