@@ -136,9 +136,33 @@
           <p class="section-label">Explore the menu</p>
           <h3>Find Your Favourite</h3>
           <p>
-            Choose a category to find the products
-            available throughout the week.
+            Search for a product or choose a category to browse the weekly menu.
           </p>
+        </div>
+
+        <div class="menu-search" role="search" aria-label="Search the weekly menu">
+          <label for="menu-search-input">Search products</label>
+          <p class="menu-search-help" id="menu-search-help">
+            Type a product name. Use the arrow keys to browse suggestions and Enter to choose one.
+          </p>
+          <input
+            class="menu-search-input"
+            id="menu-search-input"
+            type="text"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-controls="menu-search-suggestions"
+            aria-describedby="menu-search-help"
+            autocomplete="off"
+          >
+          <ul
+            class="menu-search-suggestions"
+            id="menu-search-suggestions"
+            role="listbox"
+            aria-label="Product suggestions"
+            hidden
+          ></ul>
         </div>
 
         <div

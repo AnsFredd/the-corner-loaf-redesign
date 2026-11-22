@@ -406,6 +406,68 @@ section {
   font-size: var(--text-small);
 }
 
+.menu-search {
+  max-width: 34rem;
+  margin-bottom: 18px;
+}
+
+.menu-search label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.menu-search-help {
+  margin-bottom: 8px;
+  color: var(--color-muted);
+  font-size: var(--text-small);
+}
+
+.menu-search-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-muted);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.menu-search-input:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.menu-search-suggestions {
+  max-height: 14rem;
+  overflow-y: auto;
+  margin-top: 4px;
+  padding: 4px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  list-style: none;
+}
+
+.menu-search-suggestions[hidden] {
+  display: none;
+}
+
+.menu-search-suggestion {
+  padding: 9px 10px;
+  border-radius: 5px;
+  color: var(--color-dark);
+  cursor: pointer;
+}
+
+.menu-search-suggestion[aria-selected="true"] {
+  background: var(--color-cream);
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
 .filter-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -437,7 +499,8 @@ section {
 .filter-button:focus-visible,
 .faq-trigger:focus-visible,
 .form-submit:focus-visible,
-.hero-button:focus-visible {
+.hero-button:focus-visible,
+.menu-search-suggestion:focus-visible {
   outline: 2px solid var(--color-secondary);
   outline-offset: 4px;
 }

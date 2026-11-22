@@ -144,18 +144,150 @@ const filterButtons = document.querySelectorAll(".filter-button");
 const menuProducts = document.querySelectorAll(".menu-product");
 const menuDayCards = document.querySelectorAll(".menu-day-card");
 const filterFeedback = document.querySelector("#filter-feedback");
+const menuSearchInput = document.querySelector("#menu-search-input");
+const menuSearchSuggestions = document.querySelector("#menu-search-suggestions");
+let selectedCategory = "all";
+let activeSuggestionIndex = -1;
 
-function filterMenu(selectedCategory) {
+function getMatchingProductNames() {
+  if (!menuSearchInput) {
+    return [];
+  }
+
+  const query = menuSearchInput.value.trim().toLocaleLowerCase();
+
+  if (!query) {
+    return [];
+  }
+
+  const names = Array.from(menuProducts)
+    .filter((product) => {
+      return (
+        selectedCategory === "all" ||
+        product.dataset.category === selectedCategory
+      );
+    })
+    .map((product) => product.querySelector(".product-name")?.textContent.trim())
+    .filter(Boolean);
+
+  return [...new Set(names)].filter((name) =>
+    name.toLocaleLowerCase().includes(query)
+  );
+}
+
+function closeMenuSearchSuggestions() {
+  if (!menuSearchInput || !menuSearchSuggestions) {
+    return;
+  }
+
+  menuSearchSuggestions.hidden = true;
+  menuSearchInput.setAttribute("aria-expanded", "false");
+  menuSearchInput.removeAttribute("aria-activedescendant");
+  activeSuggestionIndex = -1;
+
+  menuSearchSuggestions
+    .querySelectorAll('[role="option"]')
+    .forEach((option) => option.setAttribute("aria-selected", "false"));
+}
+
+function setActiveMenuSuggestion(index) {
+  if (!menuSearchInput || !menuSearchSuggestions) {
+    return;
+  }
+
+  const options = Array.from(
+    menuSearchSuggestions.querySelectorAll('[role="option"]')
+  );
+
+  if (options.length === 0) {
+    return;
+  }
+
+  activeSuggestionIndex = (index + options.length) % options.length;
+
+  options.forEach((option, optionIndex) => {
+    option.setAttribute(
+      "aria-selected",
+      String(optionIndex === activeSuggestionIndex)
+    );
+  });
+
+  const activeOption = options[activeSuggestionIndex];
+  menuSearchInput.setAttribute("aria-activedescendant", activeOption.id);
+  activeOption.scrollIntoView({ block: "nearest" });
+}
+
+function updateMenuSearchSuggestions() {
+  if (!menuSearchInput || !menuSearchSuggestions) {
+    return;
+  }
+
+  menuSearchSuggestions.replaceChildren();
+  activeSuggestionIndex = -1;
+  menuSearchInput.removeAttribute("aria-activedescendant");
+
+  const suggestions = getMatchingProductNames();
+
+  if (suggestions.length === 0) {
+    closeMenuSearchSuggestions();
+    return;
+  }
+
+  suggestions.forEach((name, index) => {
+    const option = document.createElement("li");
+    option.id = `menu-search-option-${index}`;
+    option.className = "menu-search-suggestion";
+    option.setAttribute("role", "option");
+    option.setAttribute("aria-selected", "false");
+    option.textContent = name;
+
+    option.addEventListener("pointerdown", (event) => {
+      event.preventDefault();
+    });
+    option.addEventListener("click", () => {
+      chooseMenuSearchSuggestion(name);
+    });
+
+    menuSearchSuggestions.appendChild(option);
+  });
+
+  menuSearchSuggestions.hidden = false;
+  menuSearchInput.setAttribute("aria-expanded", "true");
+}
+
+function chooseMenuSearchSuggestion(name) {
+  if (!menuSearchInput) {
+    return;
+  }
+
+  menuSearchInput.value = name;
+  closeMenuSearchSuggestions();
+  updateMenuView();
+  menuSearchInput.focus();
+}
+
+function updateMenuView() {
   let visibleProducts = 0;
+  const query = menuSearchInput?.value.trim() ?? "";
+  const normalizedQuery = query.toLocaleLowerCase();
+  const categoryButton = Array.from(filterButtons).find(
+    (button) => button.dataset.filter === selectedCategory
+  );
+  const categoryLabel = categoryButton?.textContent.trim() ?? "All Products";
 
   menuProducts.forEach((product) => {
+    const productName =
+      product.querySelector(".product-name")?.textContent.trim() ?? "";
     const matchesCategory =
       selectedCategory === "all" ||
       product.dataset.category === selectedCategory;
+    const matchesSearch =
+      !normalizedQuery || productName.toLocaleLowerCase().includes(normalizedQuery);
+    const isVisible = matchesCategory && matchesSearch;
 
-    product.hidden = !matchesCategory;
+    product.hidden = !isVisible;
 
-    if (matchesCategory) {
+    if (isVisible) {
       visibleProducts++;
     }
   });
@@ -184,19 +316,25 @@ function filterMenu(selectedCategory) {
   });
 
   if (filterFeedback) {
-    if (selectedCategory === "all") {
+    if (visibleProducts === 0 && query) {
+      filterFeedback.textContent = `No products found for ${query}${selectedCategory === "all" ? "" : ` in ${categoryLabel.toLocaleLowerCase()}`}.`;
+    } else if (visibleProducts === 0) {
+      filterFeedback.textContent = `No ${categoryLabel.toLocaleLowerCase()} products are available in the weekly menu.`;
+    } else if (query) {
+      filterFeedback.textContent = `Showing ${visibleProducts} menu ${visibleProducts === 1 ? "listing" : "listings"} for ${query}${selectedCategory === "all" ? "" : ` in ${categoryLabel.toLocaleLowerCase()}`}.`;
+    } else if (selectedCategory === "all") {
       filterFeedback.textContent =
         `Showing all ${visibleProducts} scheduled product listings in the weekly menu.`;
     } else {
       filterFeedback.textContent =
-        `Showing ${visibleProducts} ${selectedCategory} product listings in the weekly menu.`;
+        `Showing ${visibleProducts} ${categoryLabel.toLocaleLowerCase()} product listings in the weekly menu.`;
     }
   }
 }
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const selectedCategory = button.dataset.filter;
+    selectedCategory = button.dataset.filter;
 
     filterButtons.forEach((filterButton) => {
       filterButton.classList.remove("active");
@@ -206,9 +344,45 @@ filterButtons.forEach((button) => {
     button.classList.add("active");
     button.setAttribute("aria-pressed", "true");
 
-    filterMenu(selectedCategory);
+    updateMenuSearchSuggestions();
+    updateMenuView();
   });
 });
+
+if (menuSearchInput && menuSearchSuggestions) {
+  menuSearchInput.addEventListener("input", () => {
+    updateMenuSearchSuggestions();
+    updateMenuView();
+  });
+
+  menuSearchInput.addEventListener("keydown", (event) => {
+    const options = menuSearchSuggestions.querySelectorAll('[role="option"]');
+
+    if (event.key === "ArrowDown" && options.length > 0) {
+      event.preventDefault();
+      setActiveMenuSuggestion(activeSuggestionIndex + 1);
+    } else if (event.key === "ArrowUp" && options.length > 0) {
+      event.preventDefault();
+      setActiveMenuSuggestion(
+        activeSuggestionIndex < 0 ? options.length - 1 : activeSuggestionIndex - 1
+      );
+    } else if (
+      event.key === "Enter" &&
+      activeSuggestionIndex >= 0 &&
+      options[activeSuggestionIndex]
+    ) {
+      event.preventDefault();
+      chooseMenuSearchSuggestion(options[activeSuggestionIndex].textContent);
+    } else if (event.key === "Escape" && !menuSearchSuggestions.hidden) {
+      event.preventDefault();
+      closeMenuSearchSuggestions();
+    }
+  });
+
+  menuSearchInput.addEventListener("blur", () => {
+    closeMenuSearchSuggestions();
+  });
+}
 
 
 // FAQ Accordion
