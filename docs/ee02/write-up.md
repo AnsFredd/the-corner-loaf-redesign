@@ -5,7 +5,7 @@
 - **Audit version:** [audit-received-from-elvis-fosu.md](audit-received-from-elvis-fosu.md) now contains the updated peer audit with four numbered findings. The earlier transcript is superseded.
 - **Related work:** [Audit of Elvis Fosu](audit-of-elvis-fosu.md) is my separate audit of my partner’s site.
 - **Updated:** 22 November 2026
-- **Status:** The four final peer-audit findings have been addressed, with evidence below. The user reports that NVDA announced all six weekly menu photos on the deployed site. The additional accessible menu-search feature is implemented locally and passed the browser interaction checks below; it has not been pushed or deployed.
+- **Status:** The four final peer-audit findings have been addressed, with evidence below. The user reports that NVDA announced all six weekly menu photos on the deployed site. The additional accessible menu-search feature passed local browser interaction checks; the user also reports that NVDA read the search and its results correctly.
 
 ## Final peer audit findings
 
@@ -149,11 +149,7 @@ Customers can find a bake more quickly, understand whether it appears in the wee
 
 ### Test evidence
 
-The local browser accessibility tree exposed the “Search products” combobox, its instructions, the associated suggestions list, category filter buttons and the live result-status region. In local Chrome, typing `chin` exposed one “Chin Chin” suggestion, filtered the menu to six listings and updated the status. ArrowDown and ArrowUp moved the suggestion highlight. Enter selected “Chin Chin,” closed the suggestions and updated the status. Escape closed the suggestions while keeping the query. “Snacks” with `croiss` produced no results; “Pastries” with `croiss` returned one Butter Croissants listing. The `zzzz` query produced a no-results message. Sunday stayed marked “Closed.” Clearing the query restored three pastry listings, and selecting “All Products” restored 16 listings. These checks were run on the local version; the new feature is not yet deployed. Existing WAVE and Lighthouse reports predate this feature and do not verify it.
-
-## To do
-
-- The user will check the new menu search with NVDA after the code is pushed and deployed. The six menu-photo descriptions have already been checked by the user.
+The local browser accessibility tree exposed the “Search products” combobox, its instructions, the associated suggestions list, category filter buttons and the live result-status region. In local Chrome, typing `chin` exposed one “Chin Chin” suggestion, filtered the menu to six listings and updated the status. ArrowDown and ArrowUp moved the suggestion highlight. Enter selected “Chin Chin,” closed the suggestions and updated the status. Escape closed the suggestions while keeping the query. “Snacks” with `croiss` produced no results; “Pastries” with `croiss` returned one Butter Croissants listing. The `zzzz` query produced a no-results message. Sunday stayed marked “Closed.” Clearing the query restored three pastry listings, and selecting “All Products” restored 16 listings. The user also tested the new search with NVDA and reports that it read the search and its results correctly. Existing WAVE and Lighthouse reports predate this feature and do not verify it.
 
 ## Files and components
 
