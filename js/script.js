@@ -474,7 +474,7 @@ if (
     nameParagraph.textContent = customerName;
     orderParagraph.textContent = orderDetails;
     feedback.textContent =
-      "Your pre-order request has been added successfully.";
+      "Your pre-order request is shown below, but it has not been sent to the bakery.";
 
     orderCard.appendChild(nameParagraph);
     orderCard.appendChild(orderParagraph);
@@ -562,7 +562,7 @@ if (
     contactError.textContent = "";
     contactError.hidden = true;
     contactFeedback.textContent =
-      "Thank you! Your message has been submitted successfully.";
+      "Your message has not been sent to the bakery.";
     contactFeedback.classList.add("form-feedback", "success");
 
     contactForm.reset();

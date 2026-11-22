@@ -48,7 +48,7 @@ The updated audit has **four numbered findings**. Autocomplete and visible requi
 
 **Cause:** The submit handler did not treat whitespace-only values as empty and did not direct focus to the first field needing correction.
 
-**What I changed:** The handler trims values, identifies missing fields, marks them invalid, displays an error, and focuses the first invalid field. The existing success confirmation is retained for valid entries.
+**What I changed:** The handler trims values, identifies missing fields, marks them invalid, displays an error, and focuses the first invalid field. The valid-entry feedback now clearly says the forms are a demo and do not send the order or message to the bakery.
 
 **Why this fixes the cause:** Whitespace is checked as an empty value, the user is told what needs attention, and keyboard focus moves to the field to fix.
 

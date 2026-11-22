@@ -97,7 +97,7 @@ The page also includes an appropriate language attribute and semantic landmarks 
 
 #### Limitation
 
-Formal accessibility testing tools and screen reader testing were not available during the project. As a result, accessibility improvements were evaluated primarily through manual inspection and keyboard walkthroughs.
+During the earlier EE01 redesign phase, formal accessibility tools and screen-reader testing were not available. That limitation applies to the EE01 evaluation documented here. EE02 accessibility testing is documented separately in [`docs/ee02/`](ee02/), including its own methods and evidence; those later results should not be read as tests performed during EE01.
 
 ---
 

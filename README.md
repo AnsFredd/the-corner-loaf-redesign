@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project is a responsive redesign of The Corner Loaf bakery website for the EE01 – From Client Brief to Web Page module.
+This repository contains the responsive redesign of The Corner Loaf bakery website for EE01 – From Client Brief to Web Page, plus the EE02 accessibility audit and remediation work.
 
 The goal of the redesign is to improve the experience for customers who visit the website on their phones while commuting or on the move. The redesigned website makes it easier to browse products, navigate between sections, place pre-orders, contact the bakery, and learn more about the business.
 
@@ -71,11 +71,17 @@ This project addresses the following objectives:
 
 ## Form Functionality
 
-The redesigned pre-order and contact forms include input validation to help users provide the required information. Users receive feedback when required fields are missing and when forms are submitted successfully.
+The redesigned pre-order and contact forms include input validation to help users provide the required information. Users receive feedback when required fields are missing and after entering valid details.
 
-The pre-order form displays submitted order details on the webpage, while the contact form provides submission feedback. These improvements address the form usability problems identified during the diagnosis stage.
+The pre-order form displays the entered order details on the webpage, while the contact form provides feedback. These improvements address the form usability problems identified during the diagnosis stage.
 
 **Note:** Form submissions currently provide browser-side feedback and are not transmitted to the bakery through a server or email service.
+
+Submitting either form displays browser feedback only. The pre-order details appear on the page, but neither orders nor contact messages are sent to the bakery.
+
+## EE02 Accessibility Lab
+
+The EE02 deliverables are in [`docs/ee02/`](docs/ee02/): [my audit of Elvis Fosu's site](docs/ee02/audit-of-elvis-fosu.md), [the audit and testing log received from my pair](docs/ee02/audit-received-from-elvis-fosu.md), [my testing log](docs/ee02/testing-log.md), and [the fixes and additional accessibility feature write-up](docs/ee02/write-up.md). The write-up includes the implemented changes and the evidence recorded for them.
 
 ## Repository Structure
 
@@ -87,6 +93,16 @@ the-corner-loaf-redesign/
 ├── diagnosis.md
 ├── audit.md
 ├── improvement.md
+├── screenshots/
+│   └── ...
+├── docs/
+│   ├── audit.md
+│   └── ee02/
+│       ├── audit-of-elvis-fosu.md
+│       ├── audit-received-from-elvis-fosu.md
+│       ├── testing-log.md
+│       ├── write-up.md
+│       └── screenshots/
 ├── index.html
 │
 ├── css/
@@ -95,5 +111,7 @@ the-corner-loaf-redesign/
 ├── js/
 │   └── script.js
 │
-└── assets/
+├── assets/
     └── sketch.png
+└── ...
+```

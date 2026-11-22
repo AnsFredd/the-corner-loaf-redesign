@@ -11,7 +11,7 @@
 - **Automated tools:** WAVE in Edge and the saved mobile and desktop Lighthouse results.
 - **Keyboard:** Tabbed from the page top through the page controls, tested product and FAQ disclosures, and checked visible focus, including the skip link at the page top.
 - **Text size and reflow:** Checked the page at 320 CSS px at default text, at 200% browser page zoom, and with the DevTools body font size set to 200% at 640 px and 375 px.
-- **Screen reader and structure:** Reviewed the supplied screen-reader narration and accessibility information for landmarks, headings, product groupings, link names, image alternatives, disclosure states and opening hours.
+- **Screen reader and structure:** Reviewed screen-reader narration/accessibility information supplied with the audit evidence for landmarks, headings, product groupings, link names, image alternatives, disclosure states and opening hours. I did not independently operate a screen reader; these are reported observations, not a live NVDA or VoiceOver test by me.
 - **Contrast:** Compared rendered color pairs using the WCAG contrast formula and checked WAVE's contrast panel.
 - **Target size:** Measured the rendered CSS-pixel bounds of the visible links, buttons and disclosure summaries in the browser.
 
@@ -19,7 +19,7 @@ The testing log gives the test results, measurement values, evidence screenshots
 
 ## Summary
 
-No WCAG 2.2 Level AA violation was confirmed in the checks recorded here. The WAVE heading alerts were on product prices, and the peer source confirms that those prices are paragraphs rather than headings. The measured text and focus colors meet the relevant contrast thresholds in the combinations checked. The 27 measured interactive targets were each at least 24 × 24 CSS px. Keyboard focus and disclosure operation were observed, and the supplied screen-reader information reported useful structure and product-specific order link names.
+Within the checks recorded here, I did not confirm a WCAG 2.2 Level AA failure. This is a scoped result, not a claim that every WCAG criterion was tested. The WAVE heading alerts were on product prices, and the peer source confirms that those prices are paragraphs rather than headings. The measured text and focus colors meet the relevant contrast thresholds in the combinations checked. The 27 measured interactive targets were each at least 24 × 24 CSS px. Keyboard focus and disclosure operation were observed. The supplied screen-reader information reported useful structure and product-specific order link names, but I did not independently verify those screen-reader results.
 
 ## Automated results
 
@@ -43,8 +43,8 @@ WAVE showed six possible-heading alerts at the six menu prices: GH₵35.00, GH�
 
 ### Other observations
 
-- **Opening-hours wording:** the opening panel says “Open today” until 5 p.m.; the weekly schedule lists Saturday as 7 a.m.–2 p.m. The same wording appears in the [page source](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L53-L59) and [weekly schedule](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L160-L164). This is a content-accuracy concern, not a confirmed WCAG failure.
-- **Skip-link/title overlap:** at the page top, keyboard focus makes the skip link visible with an orange outline, and the focused link overlaps the page title. The link itself remains visible and readable; this is recorded as a visual observation, not a confirmed WCAG failure. The source places the skip link at the top of the page and reveals it on focus: [markup](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L19-L25), [focus and skip-link styles](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/css/styles.css#L81-L109).
+- **Opening-hours wording — correction to raise:** the opening panel says “Open today” until 5 p.m.; the weekly schedule lists Saturday as 7 a.m.–2 p.m. The same wording appears in the [page source](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L53-L59) and [weekly schedule](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L160-L164). Ask the site owner to confirm the current-day message against the actual opening hours and correct it. This is a content-accuracy concern, not a confirmed WCAG failure.
+- **Skip-link/title overlap — reviewed against focus visibility:** at the page top, keyboard focus makes the skip link and its orange outline visible, and the link overlaps the page title. In the supplied capture, the focused link text and outline remain visible; the evidence does not show the focused link entirely hidden (SC 2.4.11) or lacking a visible focus indicator (SC 2.4.7). Record the overlap as a visual/usability concern, not a confirmed failure of either criterion. The source places the skip link at the top of the page and reveals it on focus: [markup](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/index.html#L19-L25), [focus and skip-link styles](https://github.com/esfokom-a/the-corner-loaf/blob/8a80c538ebcd044fb17a0be37dc45e672a803d69/css/styles.css#L81-L109).
 
 ## What works well
 
@@ -58,7 +58,7 @@ WAVE showed six possible-heading alerts at the six menu prices: GH₵35.00, GH�
 
 ## Test scope
 
-This audit covers the single live page from navigation through footer, the automated results listed above, the recorded keyboard and screen-reader observations, the supplied responsive and text-size captures, the measured contrast pairs, and the 27 rendered interactive targets listed in the [testing log](testing-log.md). The evidence files are in `docs/ee02/screenshots/`; the source links above are pinned to the peer repository commit shown at the top of this report.
+This audit covers the single live page from navigation through footer, the automated results listed above, the recorded keyboard observations, the supplied screen-reader information (not independently tested by me), the supplied responsive and text-size captures, the measured contrast pairs, and the 27 rendered interactive targets listed in the [testing log](testing-log.md). The 200% DevTools body-font override checks text scaling/reflow; it does not test WCAG 1.4.12 Text Spacing, for which no spacing override was applied. The skip-link capture was reviewed for visible focus and whether the focused link was obscured; other focus targets were sampled, not exhaustively assessed against SC 2.4.11. Physical-device testing and a live screen-reader session by the auditor were outside scope. The evidence files are in `docs/ee02/screenshots/`; the source links above are pinned to the peer repository commit shown at the top of this report.
 
 ## Evidence index
 
