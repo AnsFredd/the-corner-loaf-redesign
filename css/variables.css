@@ -1,0 +1,41 @@
+/* Colours, Fonts and Text Sizes */
+
+:root {
+  /* Main Colours */
+  --color-primary: #8b4b27;
+  --color-secondary: #89502e;
+  --color-accent: #e8b77e;
+  --color-dark: #382317;
+
+  /* Background Colours */
+  --color-background: #faf7f1;
+  --color-surface: #ffffff;
+  --color-cream: #f1e7d8;
+  --color-border: #e8ded1;
+
+  /* Text Colours */
+  --color-text: #41372f;
+  --color-muted: #6f6257;
+  --color-light-text: #f7eee5;
+  --color-footer-text: #d9c6b4;
+  --color-placeholder: #6f6257;
+
+  /* Status Colours */
+  --color-success: #35613a;
+  --color-success-background: #e6f0e4;
+  --color-error: #a52a2a;
+
+  /* Fonts */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', Arial, sans-serif;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-large: 1.1rem;
+
+  --text-h3: 1.25rem;
+  --text-h2: 2rem;
+  --text-h1: 3.5rem;
+}

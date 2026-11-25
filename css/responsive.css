@@ -1,0 +1,288 @@
+/* Responsive layouts and accessibility preferences */
+
+/* Tablet Layout */
+
+@media screen and (max-width: 950px) {
+  .top-bar {
+    flex-wrap: wrap;
+  }
+
+  .menu-days {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .info-boxes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-content {
+    gap: 30px;
+  }
+}
+
+/* Mobile Navigation */
+
+@media screen and (max-width: 768px) {
+  .top-bar {
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px 20px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .top-bar ul {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 0 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .top-bar ul.is-open {
+    display: flex;
+  }
+
+  .top-bar ul li {
+    width: 100%;
+  }
+
+  .top-bar ul a {
+    display: block;
+    padding: 11px 5px;
+    font-size: var(--text-small);
+  }
+
+  .top-bar ul a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Give enlarged About copy the full row at narrower viewports. */
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .info-boxes {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Layout */
+
+@media screen and (max-width: 600px) {
+  :root {
+    --text-h1: 2.4rem;
+    --text-h2: 1.7rem;
+    --text-h3: 1.15rem;
+  }
+
+  section {
+    margin-bottom: 50px;
+  }
+
+  .hero {
+    min-height: 440px;
+    padding: 60px 20px;
+  }
+
+  .hero-tagline {
+    font-size: var(--text-xs);
+    letter-spacing: 2px;
+  }
+
+  .hero-description {
+    font-size: var(--text-small);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .hero-button {
+    text-align: center;
+  }
+
+  .wrapper {
+    padding: 45px 16px;
+  }
+
+  .availability-board,
+  .product-filter {
+    padding: 19px;
+  }
+
+  .availability-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .availability-list {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-buttons {
+    gap: 8px;
+  }
+
+  .filter-button {
+    padding: 9px 15px;
+    font-size: 12px;
+  }
+
+  .menu-days {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .day-photo {
+    height: 180px;
+  }
+
+  .day-heading {
+    padding: 15px;
+  }
+
+  .day-heading h3 {
+    font-size: var(--text-h3);
+  }
+
+  .day-products {
+    padding: 4px 15px 8px;
+  }
+
+  .menu-product {
+    padding: 12px 0;
+  }
+
+  .product-name {
+    font-size: 0.9rem;
+  }
+
+  .faq-trigger {
+    gap: 20px;
+    padding: 17px 16px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .faq-icon::before {
+    font-size: 23px;
+  }
+
+  .faq-body {
+    padding: 5px 16px 18px;
+  }
+
+  .preorder-section {
+    padding: 20px;
+  }
+
+  .preorder-form,
+  .contact-form {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .form-field {
+    max-width: 100%;
+  }
+
+  .form-submit {
+    width: 100%;
+  }
+
+  .about-image img {
+    height: 240px;
+  }
+
+  .info-boxes {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .info-box {
+    padding: 19px;
+  }
+
+  .contact-form {
+    padding: 23px;
+  }
+
+  .contact-form .form-submit {
+    width: 100%;
+  }
+
+  /* Footer on Mobile */
+
+  .footer {
+    padding: 42px 22px 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-bottom: 30px;
+  }
+
+  .footer-brand h2 {
+    font-size: 1.6rem;
+  }
+
+  .footer-brand p,
+  .footer-message p {
+    max-width: 100%;
+  }
+
+  .footer-links {
+    gap: 9px;
+  }
+
+  .footer-bottom {
+    padding-top: 18px;
+    line-height: 1.7;
+  }
+}
+
+/* Very Small Screens */
+
+@media screen and (max-width: 380px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .wrapper {
+    padding: 35px 12px;
+  }
+
+  .day-count {
+    font-size: var(--text-xs);
+  }
+
+  .product-price {
+    font-size: 0.78rem;
+  }
+
+  .closed-content {
+    align-items: flex-start;
+    padding: 20px 15px;
+  }
+
+  .faq-trigger {
+    gap: 15px;
+    padding: 16px 13px;
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
